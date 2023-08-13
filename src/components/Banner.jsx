@@ -6,8 +6,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Banner = () => {
   return (
-    <div className="w-full bg-white px-10 py-6 font-titleFont flex gap-4 ">
-      <div className="w-full rounded-lg h-[320px] shadow-bannerShadow relative overflow-hidden">
+    <div className="w-full bg-grey-200 px-10 py-6 font-titleFont flex gap-4 ">
+      <div className="w-full rounded-lg h-full shadow-bannerShadow relative overflow-hidden">
         <Carousel
           autoPlay
           infiniteLoop
@@ -16,18 +16,18 @@ const Banner = () => {
           showThumbs={false}
           interval={5000}
         >
-          <div className="">
-            <img loading="lazy" src="/assets/images/banner-1.jpg" alt="" />
+          <div className="h-full">
+            <img loading="lazy" src="/assets/images/banner-1.jpg" alt="" className="h-full w-full object-cover" />
           </div>
-          <div className="=">
-            <img loading="lazy" src="/assets/images/banner-2.jpg" alt="" />
+          <div className="h-full">
+            <img loading="lazy" src="/assets/images/banner-2.jpg" alt="" className="h-full w-full object-cover" />
           </div>
 
-          <div className="">
-            <img loading="lazy" src="/assets/images/banner-3.jpg" alt="" />
+          <div className="h-full">
+            <img loading="lazy" src="/assets/images/banner-3.jpg" alt="" className="h-full w-full object-cover"/>
           </div>
-          <div className="">
-            <img loading="lazy" src="/assets/images/banner-4.jpg" alt=""  />
+          <div className="h-full">
+            <img loading="lazy" src="/assets/images/banner-4.jpg" alt=""  className="h-full w-full object-cover"/>
           </div>
           
         </Carousel>

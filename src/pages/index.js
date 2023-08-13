@@ -13,7 +13,7 @@ export default function Home({products}) {
         
       </Head>
       <main>
-      <div>
+      <div className="bg-gray-200">
         <Header />
         
         <Banner />

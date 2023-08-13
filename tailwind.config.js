@@ -31,7 +31,7 @@ module.exports = {
         blue: "#0071dc",
         lightBlue: "#e6f1fc",
         yellow: "#ffc220",
-        hoverBg: "#004f9a",
+        hoverBg: "#2D2725",
         lightText: "#46474a",
       },
       boxShadow: {

@@ -4,18 +4,21 @@ import { IoSearchOutline } from "react-icons/io5";
 import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
 import { BsCart2 } from "react-icons/bs";
  import { FiChevronDown } from "react-icons/fi";
+  import { MdOutlineLocationOn } from "react-icons/md";
+    import { FaPlaceOfWorship } from "react-icons/fa";
 
 
 const Header = () => {
   return (
     // navbar top
-    <div className="w-full bg-blue text-white p-2">
+    <div className="w-full  text-white sticky top-0 z-50">
+    <div className="w-full h-full border-b-[1px] border-b-white bg-black bg-opacity-80">
       <div className="max-w-container mx-auto h-20 px-4 flex items-center justify-between gap-2">
         <div className="flex items-center h-12 px-5 rounded-full bg-transparent  hover:bg-hoverBg duration-300 cursor-pointer">
           <p className="text-2xl font-bold  ">MegaMart</p>
           <Image
-            src="/assets/images/logo.png"
-            width={30}
+            src="/assets/images/mega-mart-logo.png"
+            width={40}
             height={100}
             alt=""
             className="mx-1"
@@ -29,7 +32,9 @@ const Header = () => {
             <span className="w-1.5 h-1.5 border-[1px] border-white inline-flex"></span>
             <span className="w-1.5 h-1.5 border-[1px] border-white inline-flex"></span>
           </div>
+         
           <p>Departments</p>
+          
         </div>
 
         <div className="flex items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
@@ -48,7 +53,7 @@ const Header = () => {
             type="text"
             placeholder="Search for products, brands and more"
           />
-          <span className="absolute w-8 h-8 rounded-full flex items-center justify-center top-1 right-1 bg-yellow text-black text-xl">
+          <span className="absolute w-8 h-8 rounded-full flex items-center justify-center top-1 right-1 bg-green-500 text-black text-xl">
             <IoSearchOutline />
           </span>
         </div>
@@ -72,10 +77,47 @@ const Header = () => {
         <div className="flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent hover:bg-hoverBg duration-300 relative">
           <BsCart2 className="text-2xl" />
           <p className="text-[10px] -mt-2">$0.00</p>
-          <span className="absolute w-4 h-4 bg-yellow text-black top-0 right-4 rounded-full flex items-center justify-center font-bodyFont text-xs">
+          <span className="absolute w-4 h-4 bg-green-500 text-black top-0 right-4 rounded-full flex items-center justify-center font-bodyFont text-xs">
             0
           </span>
         </div>
+        </div>
+      </div>
+
+      
+      {/* ------------------------------navbar bottom ------------------------------------*/}
+
+      <div className="w-full mx-auto py-2 px-6 flex items-center justify-between bg-black bg-opacity-90">
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <Image
+              src="/assets/images/phone.webp"
+              width={27}
+              height={100}
+              alt=""
+              className=""
+            />
+            <p className="text-sm font-semibold">How do you want your items?</p>
+            <FiChevronDown />
+            <span className="w-[1px] h-4 bg-white iniline-flex ml-2 "></span>
+          </div>
+          <div className="flex items-center gap-2">
+            <MdOutlineLocationOn />
+            <p className="text-sm text-zinc-100">Gurugram, 122018</p>
+            <FaPlaceOfWorship />
+            <p className="text-sm text-zinc-100">Gurugram Megacenter</p>
+          </div>
+        </div>
+        <ul className="flex gap-6 text-sm font-semibold">
+          <li className="hover:underline underline-offset-2 cursor-pointer decoration-[1px]">Mobiles</li>
+          <li className="hover:underline underline-offset-2 cursor-pointer decoration-[1px]">Electronics</li>
+          <li className="hover:underline underline-offset-2 cursor-pointer decoration-[1px]">Motors</li>
+          <li className="hover:underline underline-offset-2 cursor-pointer decoration-[1px]">Sports</li>
+          <li className="hover:underline underline-offset-2 cursor-pointer decoration-[1px]">Fashion</li>
+          <li className="hover:underline underline-offset-2 cursor-pointer decoration-[1px]">Home & Garden</li>
+          <li className="hover:underline underline-offset-2 cursor-pointer decoration-[1px]">Grocery</li>
+          <li className="hover:underline underline-offset-2 cursor-pointer decoration-[1px]">sell</li>
+        </ul>
       </div>
 
     </div>
@@ -83,3 +125,18 @@ const Header = () => {
 };
 
 export default Header;
+
+
+
+
+
+// Grocery & Essentials
+// Back to School
+// Dorm Room Essentials
+// Teenage Mutant Ninja Turtles
+// Fashion
+// Home
+// Electronics
+// Baby
+// Registry
+// Walmart+

@@ -130,13 +130,4 @@ export default Header;
 
 
 
-// Grocery & Essentials
-// Back to School
-// Dorm Room Essentials
-// Teenage Mutant Ninja Turtles
-// Fashion
-// Home
-// Electronics
-// Baby
-// Registry
-// Walmart+
+

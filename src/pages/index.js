@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Head from "next/head";
 import ProductList from "@/components/ProductList";
 import Feedback from "@/components/Feedback";
+import Footer from "@/components/Footer";
 
 export default function Home({products}) {
   return (
@@ -22,6 +23,7 @@ export default function Home({products}) {
         <ProductList products={products} />
 
         <Feedback />
+        <Footer />
         </div>
         
        

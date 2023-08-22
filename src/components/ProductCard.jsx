@@ -4,8 +4,11 @@ import { GoPlus } from "react-icons/go";
 import { AiFillStar } from "react-icons/ai";
 import { useState } from "react";
 
-const ProductCard = ({ id, title, price, description, category, image }) => {
-  const [rating] = useState(Math.floor(Math.random() * (5 - 1 + 1)) + 1);
+const ProductCard = ({ id, title, price, description, category, image , popularity }) => {
+  // const [rating] = useState(Math.floor(Math.random() * (5 - 1 + 1)) + 1);
+  const ratingValue = popularity.rate;
+
+  const validRatingValue = Math.max(0, Math.min(5, Math.floor(ratingValue)));
 
   const [hasPlus] = useState(Math.random() < 0.5);
 
@@ -45,11 +48,12 @@ const ProductCard = ({ id, title, price, description, category, image }) => {
           <p>{description.substring(0, 70)}...</p>
           <div className="flex gap-2 items-center text-sm mt-2 justify-between">
             <div className="flex text-sm gap-1">
-              {Array(rating)
+              {Array(validRatingValue)
                 .fill()
                 .map((_, i) => (
-                  <AiFillStar key="" style={{ color: "#F5AC3B" }} />
+                  <AiFillStar key={i} style={{ color: "#F5AC3B" }} />
                 ))}
+                {popularity.count}
             
             </div>
             {hasPlus && (

@@ -7,18 +7,20 @@ import { FiChevronDown } from "react-icons/fi";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { FaPlaceOfWorship } from "react-icons/fa";
 import { signIn , signOut , useSession } from "next-auth/react"
+import { useRouter } from "next/router";
 
 
 const Header = () => {
   const { data: session, status } = useSession()
   const loading = status === "loading"
+  const router=useRouter();
 
   return (
     // navbar top
     <div className="w-full  text-white sticky top-0 z-50">
       <div className="w-full h-full border-b-[1px] border-b-white bg-black bg-opacity-80">
         <div className="max-w-container mx-auto h-20 px-4 flex items-center justify-between gap-2">
-          <div className="flex items-center h-12 px-5 rounded-full bg-transparent  hover:bg-hoverBg duration-300 cursor-pointer">
+          <div onClick={()=>router.push("/")} className="flex items-center h-12 px-5 rounded-full bg-transparent  hover:bg-hoverBg duration-300 cursor-pointer">
             <p className="text-2xl font-bold  ">MegaMart</p>
             <Image
               src="/assets/images/mega-mart-logo.png"
@@ -79,7 +81,7 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent hover:bg-hoverBg duration-300 relative">
+          <div onClick={()=>router.push("/checkout")} className="flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent hover:bg-hoverBg duration-300 relative cursor-pointer">
             <BsCart2 className="text-2xl" />
             <p className="text-[10px] -mt-2">$0.00</p>
             <span className="absolute w-4 h-4 bg-green-500 text-black top-0 right-4 rounded-full flex items-center justify-center font-bodyFont text-xs">

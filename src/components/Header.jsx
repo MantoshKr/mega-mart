@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use } from "react";
 import Image from "next/image";
 import { IoSearchOutline } from "react-icons/io5";
 import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
@@ -8,12 +8,16 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import { FaPlaceOfWorship } from "react-icons/fa";
 import { signIn , signOut , useSession } from "next-auth/react"
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import { selectItems } from "../slices/basketSlice";
+
 
 
 const Header = () => {
   const { data: session, status } = useSession()
   const loading = status === "loading"
   const router=useRouter();
+  const items = useSelector(selectItems);
 
   return (
     // navbar top
@@ -85,7 +89,7 @@ const Header = () => {
             <BsCart2 className="text-2xl" />
             <p className="text-[10px] -mt-2">$0.00</p>
             <span className="absolute w-4 h-4 bg-green-500 text-black top-0 right-4 rounded-full flex items-center justify-center font-bodyFont text-xs">
-              0
+              {items.length}
             </span>
           </div>
         </div>

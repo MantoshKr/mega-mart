@@ -5,6 +5,7 @@ import Image from "next/image";
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectItems } from "../slices/basketSlice";
+import Cart from "@/components/Cart";
 
 const Checkout = () => {
   const items = useSelector(selectItems);
@@ -25,9 +26,9 @@ const Checkout = () => {
             <div className="w-full flex gap-10">
               <div className="w-2/3 flex flex-col gap-5">
                 <h1 className="text-2xl font-bold text-black">
-                  Cart{""}
+                  Cart{" "}
                   <span className="text-lightText font-normal">
-                    product data length items
+                  ({ items.length } items)
                   </span>
                 </h1>
 
@@ -95,7 +96,23 @@ const Checkout = () => {
                       </button>
                     </div>
                     {/* Items */}
-                    <div>price</div>
+                    <div >
+                      {items.map((item, i) => (
+                        <Cart 
+                          key={i}
+                          id={item.id}
+                          title={item.title}
+                          price={item.price}
+                          description={item.description}
+                          category={item.category}
+                          image={item.image}
+                          popularity={item.popularity}
+
+                        />
+                      ))
+
+                        }
+                    </div>
                   </div>
                 </div>
               </div>

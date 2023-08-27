@@ -9,7 +9,8 @@ import { FaPlaceOfWorship } from "react-icons/fa";
 import { signIn , signOut , useSession } from "next-auth/react"
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-import { selectItems } from "../slices/basketSlice";
+import { selectItems, selectTotal } from "../slices/basketSlice";
+
 
 
 
@@ -18,6 +19,7 @@ const Header = () => {
   const loading = status === "loading"
   const router=useRouter();
   const items = useSelector(selectItems);
+  const total = useSelector(selectTotal);
 
   return (
     // navbar top
@@ -87,7 +89,7 @@ const Header = () => {
 
           <div onClick={()=>router.push("/checkout")} className="flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent hover:bg-hoverBg duration-300 relative cursor-pointer">
             <BsCart2 className="text-2xl" />
-            <p className="text-[10px] -mt-2">$0.00</p>
+            <p className="text-[10px] -mt-2"> Rs {Math.floor(total * 83)}</p>
             <span className="absolute w-4 h-4 bg-green-500 text-black top-0 right-4 rounded-full flex items-center justify-center font-bodyFont text-xs">
               {items.length}
             </span>

@@ -49,7 +49,7 @@ const Cart = ({
           <p className="text-sm text-zinc-500">{description}</p>
           <p className="text-sm text-zinc-500">Rs {Math.floor(price * 83)}</p>
           <p className="text-sm text-zinc-500 flex items-center gap-1">
-            <span className="bg-blue rounded-full text-white text-xs w-4 h-4 flex items-center justify-center">
+            <span className="bg-green-600 rounded-full text-white text-xs w-4 h-4 flex items-center justify-center">
               <TbReload className="rotate-270" />
             </span>
             Free 90-day returns
@@ -62,7 +62,7 @@ const Cart = ({
             >
               <span>Add More</span>
             </div>
-            <div onClick={removeItemFromBasket} className=" h-8 border border-zinc-400 rounded-full text-base font-semibold text-black flex items-center justify-between px-3 hover:text-white hover:bg-black cursor-pointer">
+            <div onClick={removeItemFromBasket} className=" h-8 border border-zinc-400 rounded-full text-base font-semibold text-black flex items-center justify-between px-3 hover:text-white hover:bg-red-500 cursor-pointer">
               <span>Remove</span>
             </div>
           </div>

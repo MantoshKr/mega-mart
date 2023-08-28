@@ -140,7 +140,8 @@ const Checkout = () => {
                   </div>
 
                 ) : (
-                  <button className="bg-green-700 hover:bg-hoverBg w-full text-white h-10 rounded-full font-semibold duration-300">
+                  <button
+                   className="bg-green-700 hover:bg-hoverBg w-full text-white h-10 rounded-full font-semibold duration-300">
                     Continue to checkout
                   </button>
                   

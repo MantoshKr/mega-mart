@@ -5,6 +5,7 @@ import { AiFillStar } from "react-icons/ai";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToBasket } from "../slices/basketSlice";
+import Link from "next/link";
 
 const ProductCard = ({
   id,
@@ -15,7 +16,6 @@ const ProductCard = ({
   image,
   popularity,
 }) => {
-  // const [rating] = useState(Math.floor(Math.random() * (5 - 1 + 1)) + 1);
   const ratingValue = popularity.rate;
   const validRatingValue = Math.max(0, Math.min(5, Math.floor(ratingValue)));
   const [hasPlus] = useState(Math.random() < 0.5);
@@ -57,9 +57,24 @@ const ProductCard = ({
               </span>
               Add
             </button>
-            <button className="w-24 h-9 bg-white border-[1px] border-black gap-1 text-black rounded-full flex items-center justify-center hover:bg-black hover:text-white duration-300">
-              Options
-            </button>
+
+            <Link
+              href={{
+                pathname: `/product/${id}`,
+                query: {
+                  title: title,
+                  price: price,
+                  description: description,
+                  category: category,
+                  image: image,
+                  popularity: JSON.stringify(popularity),
+                },
+              }}
+            >
+              <button className="w-24 h-9 bg-white border-[1px] border-black gap-1 text-black rounded-full flex items-center justify-center hover:bg-black hover:text-white duration-300">
+                Options
+              </button>
+            </Link>
           </div>
           <div className="flex item-center gap-3">
             <p className="font-titleFont text-lg text-green-700 font-semibold">

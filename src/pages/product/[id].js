@@ -36,7 +36,7 @@ const ProductDetailsPage = () => {
             />
           </div>
           <div className="w-[40%] h-full flex flex-col gap-2">
-            <p className="p-2 text-blue text-sm font-semibold border border-gray-400 rounded-md ">
+            <p className="p-2 text-green-700 text-sm font-semibold border border-gray-400 rounded-md ">
               100+ bought in last 24 hours
             </p>
             <div className="px-2 py-4 border border-gray-400 rounded-md flex flex-col gap-6 ">
@@ -88,6 +88,63 @@ const ProductDetailsPage = () => {
                     <BsInfoCircle />
                   </span>
                 </p>
+              </div>
+              {/* add to cart button*/}
+              <div className="border-b-[1px] border-b-zinc-300 pb-4">
+                <button className="w-32 h-10 bg-green-700 text-white rounded-full hover:bg-green-600 duration-300">
+                  Add to cart
+                </button>
+              </div>
+              {/* delivery options*/}
+              <div >
+              <p className="text-base font-semibold" >
+              How do you want your item?
+              </p>
+              <div className="w-full grid grid-cols-3 gap-4 text-xs">
+                <div className="w-full border border-zinc-400 rounded-md flex flex-col items-center justify-center gap-1 p-2">
+                  <Image
+                    className="w-10"
+                    src="/assets/images/shipping.png"
+                    width={30}
+                    height={30}
+                    alt=""
+                  />
+                  <p className="font-bold">Shipping</p>
+                  <p>In 2 days</p>
+                  <p>Free</p>
+                </div>
+                <div className="w-full border border-zinc-400 rounded-md flex flex-col items-center justify-center gap-1 p-2">
+                  <Image
+                    className="w-10"
+                    src="/assets/images/pickup.png"
+                    width={30}
+                    height={30}
+                    alt=""
+                  />
+                  <p className="font-bold">Pickup</p>
+                  <p>Tomorrow</p>
+                  <p>Free</p>
+                </div>
+                <div className="w-full border border-zinc-400 rounded-md flex flex-col items-center justify-center gap-1 p-2">
+                  <Image
+                    className="w-10"
+                    src="/assets/images/delivery.png"
+                    width={30}
+                    height={30}
+                    alt=""
+                  />
+                  <p className="font-bold">Delivery</p>
+                  <p>In 2 days</p>
+                  
+                </div>
+              </div>
+              <p className="font-bold text-xs">
+               Gurugram, 122018
+              <span className="font-normal underline underline-offset-2 ml-1 cursor-pointer hover:text-blue">
+                change
+              </span>
+
+              </p>
               </div>
             </div>
           </div>

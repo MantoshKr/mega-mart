@@ -39,8 +39,9 @@ const Cart = ({
   };
 
   return (
-    <div className="flex items-center justify-between gap-4 border-b-[1px] border-b-zinc-200 pb-4">
+    <div className="flex items-center justify-between gap-4 border-b-[1px] border-b-zinc-200 pb-4 gap">
       <div className="w-3/4 flex items-center gap-2 mt-2">
+      
         <Image className="w-32" width={500} height={500} src={image} alt="" />
         <div>
           <h2 className="text-base text-zinc-900">{title}</h2>
@@ -65,6 +66,15 @@ const Cart = ({
             </div>
           </div>
         </div>
+        
+      </div>
+      <div className="w-1/4 text-right flex flex-col items-end gap-1">
+      <p className="font-semibold text-xl text-green-600">Rs {(Math.floor(price * 83))}</p>
+      <p className="text-sm line-through text-zinc-500"> Rs {((Math.floor(price * 83) * 1.17)).toFixed(2)} </p>
+      <div className="flex items-center text-xs gap-2">
+        <p className="bg-green-200 text-[8px] uppercase px-2 py-[1px]">You Save</p>
+        <p className="text-green-600 font-semibold">Rs {((Math.floor(price * 83) * 0.17)).toFixed(2)}</p>
+      </div>
       </div>
     </div>
   );

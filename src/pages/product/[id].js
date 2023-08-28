@@ -92,7 +92,7 @@ const ProductDetailsPage = () => {
 
               <div className="text-sm text-black flex flex-col gap-1">
               <p className="font-bold">
-              EMI options available :
+             No Cost EMI options available :
               </p>
                 <p>
                   <span className="font-semibold">

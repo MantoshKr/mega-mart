@@ -5,6 +5,7 @@ import Image from "next/image";
 import { TbReload } from "react-icons/tb";
 import { addToBasket, removeFromBasket } from "../slices/basketSlice";
 import { useDispatch } from "react-redux";
+import Link from "next/link";
 
 const Cart = ({
   id,
@@ -41,10 +42,24 @@ const Cart = ({
   return (
     <div className="flex items-center justify-between gap-4 border-b-[1px] border-b-zinc-200 pb-4 gap">
       <div className="w-3/4 flex items-center gap-2 mt-2">
-      
         <Image className="w-32" width={500} height={500} src={image} alt="" />
+
         <div>
-          <h2 className="text-base text-zinc-900">{title}</h2>
+          <Link
+            href={{
+              pathname: `/product/${id}`,
+              query: {
+                title: title,
+                price: price,
+                description: description,
+                category: category,
+                image: image,
+                popularity: JSON.stringify(popularity),
+              },
+            }}
+          >
+            <h2 className="text-base text-zinc-900 font-bold hover:text-blue">{title}</h2>
+          </Link>
           <p className="text-sm text-zinc-500">{description}</p>
           <p className="text-sm text-zinc-500">Rs {Math.floor(price * 83)}</p>
           <p className="text-sm text-zinc-500 flex items-center gap-1">
@@ -61,20 +76,31 @@ const Cart = ({
             >
               <span>Add More</span>
             </div>
-            <div onClick={removeItemFromBasket} className=" h-8 border border-zinc-400 rounded-full text-base font-semibold text-black flex items-center justify-between px-3 hover:text-white hover:bg-red-500 cursor-pointer">
+            <div
+              onClick={removeItemFromBasket}
+              className=" h-8 border border-zinc-400 rounded-full text-base font-semibold text-black flex items-center justify-between px-3 hover:text-white hover:bg-red-500 cursor-pointer"
+            >
               <span>Remove</span>
             </div>
           </div>
         </div>
-        
       </div>
       <div className="w-1/4 text-right flex flex-col items-end gap-1">
-      <p className="font-semibold text-xl text-green-600">Rs {(Math.floor(price * 83))}</p>
-      <p className="text-sm line-through text-zinc-500"> Rs {((Math.floor(price * 83) * 1.17)).toFixed(2)} </p>
-      <div className="flex items-center text-xs gap-2">
-        <p className="bg-green-200 text-[8px] uppercase px-2 py-[1px]">You Save</p>
-        <p className="text-green-600 font-semibold">Rs {((Math.floor(price * 83) * 0.17)).toFixed(2)}</p>
-      </div>
+        <p className="font-semibold text-xl text-green-600">
+          Rs {Math.floor(price * 83)}
+        </p>
+        <p className="text-sm line-through text-zinc-500">
+          {" "}
+          Rs {(Math.floor(price * 83) * 1.17).toFixed(2)}{" "}
+        </p>
+        <div className="flex items-center text-xs gap-2">
+          <p className="bg-green-200 text-[8px] uppercase px-2 py-[1px]">
+            You Save
+          </p>
+          <p className="text-green-600 font-semibold">
+            Rs {(Math.floor(price * 83) * 0.17).toFixed(2)}
+          </p>
+        </div>
       </div>
     </div>
   );

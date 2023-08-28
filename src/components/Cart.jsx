@@ -3,8 +3,6 @@ import { useSelector } from "react-redux";
 import { selectItems } from "../slices/basketSlice";
 import Image from "next/image";
 import { TbReload } from "react-icons/tb";
-import { HiMinusSmall } from "react-icons/hi2";
-import { MdOutlineAdd } from "react-icons/md";
 import { addToBasket, removeFromBasket } from "../slices/basketSlice";
 import { useDispatch } from "react-redux";
 

@@ -27,10 +27,11 @@ const ProductDetailsPage = () => {
   }, [id, title, price, description, category, image, popularity]);
 
   const addItemToBasket = () => {
+    const parsedPrice = parseFloat(price);
     const product = {
       id,
       title,
-      price,
+      price: parsedPrice,
       description,
       category,
       image,

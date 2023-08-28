@@ -6,11 +6,15 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { addToBasket } from "@/slices/basketSlice";
+
 
 const ProductDetailsPage = () => {
   const router = useRouter();
   const { id, title, price, description, category, image, popularity } =
     router.query;
+    const dispatch = useDispatch();
 
   useEffect(() => {
     console.log("Product ID:", id);
@@ -21,6 +25,19 @@ const ProductDetailsPage = () => {
     console.log("Product Image:", image);
     console.log("Product Popularity:", popularity);
   }, [id, title, price, description, category, image, popularity]);
+
+  const addItemToBasket = () => {
+    const product = {
+      id,
+      title,
+      price,
+      description,
+      category,
+      image,
+      popularity,
+    };
+    dispatch(addToBasket(product));
+  };
 
   return (
     <div>
@@ -45,8 +62,8 @@ const ProductDetailsPage = () => {
                   <button className="px-2 py-[1px] text-green-600 text-sm border-[1px] border-green-600 rounded-sm">
                     Best Seller
                   </button>
-                  <button className="px-2 py-[1px] text-red-500 text-sm border-[1px] border-red-500 rounded-sm">
-                    Rollback
+                  <button className="px-2 py-[1px] text-green-600 text-sm border-[1px] border-green-600 rounded-sm">
+                  Reduced price
                   </button>
                 </div>
                 <AiOutlineHeart className="text-gray-600 text-2xl" />
@@ -66,7 +83,7 @@ const ProductDetailsPage = () => {
                   <p className="text-sm text-zinc-500 line-through flex items-center gap-1">
                     {/* old price */}
                     Rs {(Math.floor(price * 83) * 1.17).toFixed(2)}{" "}
-                    <span className="mb-1">
+                    <span className="mb-1 cursor-pointer hover:text-blue">
                       <BsInfoCircle />
                     </span>
                   </p>
@@ -77,21 +94,21 @@ const ProductDetailsPage = () => {
                 <p>
                   <span className="font-semibold"> Rs ________ emi/month</span>{" "}
                   <span className="font-bold"> with HDFC credit card</span>{" "}
-                  <span className="underline underline-offset-2">
+                  <span className="underline underline-offset-2 cursor-pointer hover:text-blue">
                     {" "}
                     Learn more
                   </span>{" "}
                 </p>
                 <p className="text-xs text-zinc-500 flex items-center gap-1">
                   Price when purchased online
-                  <span>
+                  <span className="cursor-pointer hover:text-blue ">
                     <BsInfoCircle />
                   </span>
                 </p>
               </div>
               {/* add to cart button*/}
               <div className="border-b-[1px] border-b-zinc-300 pb-4">
-                <button className="w-32 h-10 bg-green-700 text-white rounded-full hover:bg-green-600 duration-300">
+                <button onClick={addItemToBasket} className="w-32 h-10 bg-green-700 text-white rounded-full hover:bg-green-600 duration-300">
                   Add to cart
                 </button>
               </div>
@@ -110,7 +127,7 @@ const ProductDetailsPage = () => {
                     alt=""
                   />
                   <p className="font-bold">Shipping</p>
-                  <p>In 2 days</p>
+                  <p>Tomorrow</p>
                   <p>Free</p>
                 </div>
                 <div className="w-full border border-zinc-400 rounded-md flex flex-col items-center justify-center gap-1 p-2">
@@ -134,7 +151,7 @@ const ProductDetailsPage = () => {
                     alt=""
                   />
                   <p className="font-bold">Delivery</p>
-                  <p>In 2 days</p>
+                  <p>In 2-5 days</p>
                   
                 </div>
               </div>

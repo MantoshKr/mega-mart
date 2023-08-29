@@ -81,7 +81,7 @@ const ProductCard = ({
               Now Rs {Math.floor(price * 83)}
             </p>
             <p className="text-gray-500 line-through decoration-[1px]">
-              old price
+            Rs {(Math.floor(price * 83) * 1.17).toFixed(2)}
             </p>
           </div>
           <p>{title.substring(0, 25)}</p>

@@ -14,6 +14,9 @@ import { useState } from "react";
 import emptycartimg1 from "/public/assets/images/emptycartimg1.png";
 import { BsInfoCircle } from "react-icons/bs";
 import creditcard from "/public/assets/images/creditcard.png";
+const stripePromise = loadStripe(process.env.stripe_public_key);
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
 
 const Checkout = () => {
   const items = useSelector(selectItems);
@@ -21,6 +24,16 @@ const Checkout = () => {
   const total = useSelector(selectTotal);
   const [offerMsg, setOfferMsg] = useState(false);
   const [offerCashback, setOfferCashback] = useState(false);
+
+  const createCheckoutSession = async () => {
+    const stripe = await stripePromise;
+
+    // Call the backend to create a checkout session...
+    const checkoutSession = await axios.post("/api/create-checkout-session", {
+      items: items,
+      email: session.user.email,
+    })
+  }
 
   useEffect(() => {
     setOfferCashback(true);
@@ -144,7 +157,7 @@ const Checkout = () => {
                       </p>
                     </div>
                   ) : (
-                    <button className="bg-green-700 hover:bg-hoverBg w-full text-white h-10 rounded-full font-semibold duration-300">
+                    <button role="link" onClick={createCheckoutSession} className="bg-green-700 hover:bg-hoverBg w-full text-white h-10 rounded-full font-semibold duration-300">
                       Continue to checkout
                     </button>
                   )}

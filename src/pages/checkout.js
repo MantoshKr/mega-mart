@@ -132,7 +132,7 @@ const Checkout = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-1/3 h-full sticky top-10">
+              <div className="w-1/3 h-full sticky top-10 bottom-4">
                 <div className="w-full p-4 mt-24  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-4 ">
                   {!session ? (
                     <div>

@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
@@ -9,7 +9,7 @@ export default async (req, res) => {
     quantity: 1,
     price_data: {
       currency: "inr",
-      unit_amount:item.price*9296,
+      unit_amount: Math.floor(item.price * 9296),
       product_data: {
         name: item.title,
         images: [item.image],
@@ -36,6 +36,6 @@ export default async (req, res) => {
   res.status(200).json({ id: session.id });
 };
 
-/* eslint-disable */
+
 
 

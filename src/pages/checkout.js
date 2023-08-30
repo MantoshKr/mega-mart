@@ -32,8 +32,16 @@ const Checkout = () => {
     const checkoutSession = await axios.post("/api/create-checkout-session", {
       items: items,
       email: session.user.email,
-    })
-  }
+    });
+    // redirect user to stripe checkout
+    const result = await stripe.redirectToCheckout({
+      sessionId: checkoutSession.data.id,
+    });
+
+    if (result.error) {
+      alert(result.error.message);
+    }
+  };
 
   useEffect(() => {
     setOfferCashback(true);
@@ -157,7 +165,11 @@ const Checkout = () => {
                       </p>
                     </div>
                   ) : (
-                    <button role="link" onClick={createCheckoutSession} className="bg-green-700 hover:bg-hoverBg w-full text-white h-10 rounded-full font-semibold duration-300">
+                    <button
+                      role="link"
+                      onClick={createCheckoutSession}
+                      className="bg-green-700 hover:bg-hoverBg w-full text-white h-10 rounded-full font-semibold duration-300"
+                    >
                       Continue to checkout
                     </button>
                   )}
@@ -249,7 +261,6 @@ const Checkout = () => {
                             / month @{24} months
                           </p>
                         )}
-                        
                       </span>{" "}
                       <span className="font-bold"> using MegaMart Pay</span>{" "}
                       <span className="underline underline-offset-2 cursor-pointer hover:text-blue">
@@ -284,9 +295,9 @@ const Checkout = () => {
                     This order is a gift.
                   </label>
                 </div> */}
-                
-                  {offerCashback && (
-                    <div className="w-full p-4 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
+
+                {offerCashback && (
+                  <div className="w-full p-4 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
                     <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
                       <Image src={creditcard} width={60} height={60} alt="" />
                       <p className="text-sm">
@@ -303,9 +314,8 @@ const Checkout = () => {
                         className="text-5xl hover:text-red-400 cursor-pointer duration-200"
                       />
                     </div>
-                    </div>
-                  )}
-                
+                  </div>
+                )}
               </div>
             </div>
           )}

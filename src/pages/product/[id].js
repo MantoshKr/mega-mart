@@ -9,7 +9,10 @@ import { BsInfoCircle } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { addToBasket } from "@/slices/basketSlice";
 import { useMemo } from "react";
-
+import { IoMdClose } from "react-icons/io";
+import flashSaleIcon from "Public/assets/images/flashSaleIcon.png";
+import { useState } from "react";
+import giftBox from "Public/assets/images/giftBox.png";
 
 const ProductDetailsPage = () => {
   const router = useRouter();
@@ -17,10 +20,15 @@ const ProductDetailsPage = () => {
     router.query;
   const dispatch = useDispatch();
 
-  const popularityObject = useMemo(() => (popularity ? JSON.parse(popularity) : {}), [popularity]);
+  const popularityObject = useMemo(
+    () => (popularity ? JSON.parse(popularity) : {}),
+    [popularity]
+  );
 
   const ratingValue = popularityObject.rate || 0;
   const validRatingValue = Math.max(0, Math.min(5, Math.floor(ratingValue)));
+  const [offerFlashSale, setOfferFlashSale] = useState(true);
+  const [offerDiscount, setOfferDiscount] = useState(true);
 
   useEffect(() => {
     console.log("Product ID:", id);
@@ -33,7 +41,18 @@ const ProductDetailsPage = () => {
     console.log("Popularity Object:", popularityObject);
     console.log("Rating Value:", ratingValue);
     console.log("Valid Rating Value:", validRatingValue);
-  }, [id, title, price, description, category, image, popularity, popularityObject, ratingValue, validRatingValue]);
+  }, [
+    id,
+    title,
+    price,
+    description,
+    category,
+    image,
+    popularity,
+    popularityObject,
+    ratingValue,
+    validRatingValue,
+  ]);
 
   const addItemToBasket = () => {
     const parsedPrice = parseFloat(price);
@@ -48,6 +67,14 @@ const ProductDetailsPage = () => {
     };
     dispatch(addToBasket(product));
   };
+
+  useEffect(() => {
+    setOfferFlashSale(true);
+  }, []);
+
+  useEffect(() => {
+    setOfferDiscount(true);
+  }, []);
 
   return (
     <div>
@@ -64,9 +91,10 @@ const ProductDetailsPage = () => {
           </div>
           <div className="w-[40%] h-full flex flex-col gap-2">
             <p className="p-2 text-green-700 text-sm font-semibold border border-gray-400 rounded-md  ">
-            <span className="flex" >
-            {(Math.floor(popularityObject.count * 9.38) ).toFixed(0)}+ bought this week
-            </span>
+              <span className="flex">
+                {Math.floor(popularityObject.count * 9.38).toFixed(0)}+ bought
+                this week
+              </span>
             </p>
             <div className="px-2 py-4 border border-gray-400 rounded-md flex flex-col gap-6 ">
               <div className="flex justify-between items-center">
@@ -88,13 +116,13 @@ const ProductDetailsPage = () => {
 
                 <p className="text-xl font-semibold text-black">{title}</p>
                 <div className="flex text-sm gap-1">
-        {Array(validRatingValue)
-          .fill()
-          .map((_, i) => (
-            <AiFillStar key={i} style={{ color: "#F5AC3B" }} />
-          ))}
-        {popularityObject.count}
-      </div>
+                  {Array(validRatingValue)
+                    .fill()
+                    .map((_, i) => (
+                      <AiFillStar key={i} style={{ color: "#F5AC3B" }} />
+                    ))}
+                  {popularityObject.count}
+                </div>
                 <p className="text-base text-zinc-500">{description}</p>
                 <div className="flex items-end gap-2">
                   <p className="font-semibold text-2xl text-[#438228] ">
@@ -111,9 +139,7 @@ const ProductDetailsPage = () => {
               </div>
 
               <div className="text-sm text-black flex flex-col gap-1">
-              <p className="font-bold">
-             No Cost EMI options available :
-              </p>
+                <p className="font-bold">No Cost EMI options available :</p>
                 <p>
                   <span className="font-semibold">
                     {Math.floor(price * 83) > 500 && (
@@ -237,9 +263,55 @@ const ProductDetailsPage = () => {
                 </p>
               </div>
             </div>
+
+            <div>
+        {offerFlashSale && (
+          <div className="w-full p-4 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
+            <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
+              <Image src={flashSaleIcon} width={60} height={60} alt="" />
+              <p className="text-sm">
+                <span className="font-bold">Flash Sale Alert!</span> Shop now at
+                Megamart.com and enjoy huge discounts on selected items for the
+                next 24 hours only. Limited quantities available.
+                <span className="underline cursor-pointer hover:text-blue text-zinc-500">
+                  See deals
+                </span>
+              </p>
+              <IoMdClose
+                onClick={() => setOfferFlashSale(false)}
+                className="text-5xl hover:text-red-400 cursor-pointer duration-200"
+              />
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div>
+      {offerDiscount && (
+              <div className="w-full p-4 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
+                <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
+                  <Image src={giftBox} width={60} height={60} alt="" />
+                  <p className="text-sm">
+                    <span className="font-bold">Get 20% off</span> on your next
+                    purchase at Megamart.com. Don't miss this exclusive discount
+                    opportunity.{" "}
+                    <span className="underline cursor-pointer hover:text-blue text-zinc-500">
+                      Learn more
+                    </span>
+                  </p>
+                  <IoMdClose
+                    onClick={() => setOfferDiscount(false)}
+                    className="text-5xl hover:text-red-400 cursor-pointer duration-200"
+                  />
+                </div>
+              </div>
+            )}
+      </div>
           </div>
         </div>
       </div>
+
+     
 
       <Feedback />
       <Footer />

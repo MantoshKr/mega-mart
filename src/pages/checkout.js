@@ -315,7 +315,7 @@ const Checkout = () => {
                   <Image src={flashSaleIcon} width={60} height={60} alt="" />
                   <p className="text-sm">
                     <span className="font-bold">Flash Sale Alert!</span> Shop
-                    now at Megamart.com and enjoy huge discounts on select items
+                    now at Megamart.com and enjoy huge discounts on selected items
                     for the next 24 hours only. Limited quantities available.
                     <span className="underline cursor-pointer hover:text-blue text-zinc-500">
                       See deals
@@ -349,25 +349,7 @@ const Checkout = () => {
               </div>
             )}
 
-            {offerDiscount && (
-              <div className="w-full p-4 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
-                <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
-                  <Image src={giftBox} width={60} height={60} alt="" />
-                  <p className="text-sm">
-                    <span className="font-bold">Get 20% off</span> on your next
-                    purchase at Megamart.com. Don't miss this exclusive discount
-                    opportunity.{" "}
-                    <span className="underline cursor-pointer hover:text-blue text-zinc-500">
-                      Learn more
-                    </span>
-                  </p>
-                  <IoMdClose
-                    onClick={() => setOfferDiscount(false)}
-                    className="text-5xl hover:text-red-400 cursor-pointer duration-200"
-                  />
-                </div>
-              </div>
-            )}
+            
               </div>
             </div>
           )}

@@ -17,6 +17,9 @@ import creditcard from "/public/assets/images/creditcard.png";
 const stripePromise = loadStripe(process.env.stripe_public_key);
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+import flashSaleIcon from "/public/assets/images/flashSaleIcon.png";
+import giftBox from "/public/assets/images/giftBox.png";
+
 
 const Checkout = () => {
   const items = useSelector(selectItems);
@@ -24,6 +27,8 @@ const Checkout = () => {
   const total = useSelector(selectTotal);
   const [offerMsg, setOfferMsg] = useState(false);
   const [offerCashback, setOfferCashback] = useState(false);
+  const [offerFlashSale, setOfferFlashSale] = useState(false);
+  const [offerDiscount, setOfferDiscount] = useState(false);
 
   const createCheckoutSession = async () => {
     const stripe = await stripePromise;
@@ -49,6 +54,14 @@ const Checkout = () => {
 
   useEffect(() => {
     setOfferMsg(true);
+  }, []);
+
+  useEffect(() => {
+    setOfferFlashSale(true);
+  }, []);
+
+  useEffect(() => {
+    setOfferDiscount(true);
   }, []);
 
   return (
@@ -285,7 +298,7 @@ const Checkout = () => {
                     New members get a free 30-day trial
                   </label>
                 </div>
-                {/* <div className="w-full p-4 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
+                <div className="w-full p-4 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
                   <label className="flex items-center gap-2 ">
                     <input
                       type="checkbox"
@@ -294,28 +307,67 @@ const Checkout = () => {
                     />
                     This order is a gift.
                   </label>
-                </div> */}
+                </div>
 
-                {offerCashback && (
-                  <div className="w-full p-4 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
-                    <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
-                      <Image src={creditcard} width={60} height={60} alt="" />
-                      <p className="text-sm">
-                        <span className="font-bold"> Earn 5% cash back </span>{" "}
-                        on Megamart.com See if you’re pre-approved with no
-                        credit risk.{" "}
-                        <span className="underline cursor-pointer hover:text-blue text-zinc-500 ">
-                          {" "}
-                          Learn how{" "}
-                        </span>
-                      </p>
-                      <IoMdClose
-                        onClick={() => setOfferCashback(false)}
-                        className="text-5xl hover:text-red-400 cursor-pointer duration-200"
-                      />
-                    </div>
-                  </div>
-                )}
+                {offerFlashSale && (
+              <div className="w-full p-4 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
+                <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
+                  <Image src={flashSaleIcon} width={60} height={60} alt="" />
+                  <p className="text-sm">
+                    <span className="font-bold">Flash Sale Alert!</span> Shop
+                    now at Megamart.com and enjoy huge discounts on select items
+                    for the next 24 hours only. Limited quantities available.
+                    <span className="underline cursor-pointer hover:text-blue text-zinc-500">
+                      See deals
+                    </span>
+                  </p>
+                  <IoMdClose
+                    onClick={() => setOfferFlashSale(false)}
+                    className="text-5xl hover:text-red-400 cursor-pointer duration-200"
+                  />
+                </div>
+              </div>
+            )}
+
+            {offerCashback && (
+              <div className="w-full p-4 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
+                <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
+                  <Image src={creditcard} width={60} height={60} alt="" />
+                  <p className="text-sm">
+                    <span className="font-bold"> Earn 5% cash back </span> on
+                    Megamart.com See if you’re pre-approved with no credit risk.{" "}
+                    <span className="underline cursor-pointer hover:text-blue text-zinc-500 ">
+                      {" "}
+                      Learn how{" "}
+                    </span>
+                  </p>
+                  <IoMdClose
+                    onClick={() => setOfferCashback(false)}
+                    className="text-5xl hover:text-red-400 cursor-pointer duration-200"
+                  />
+                </div>
+              </div>
+            )}
+
+            {offerDiscount && (
+              <div className="w-full p-4 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
+                <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
+                  <Image src={giftBox} width={60} height={60} alt="" />
+                  <p className="text-sm">
+                    <span className="font-bold">Get 20% off</span> on your next
+                    purchase at Megamart.com. Don't miss this exclusive discount
+                    opportunity.{" "}
+                    <span className="underline cursor-pointer hover:text-blue text-zinc-500">
+                      Learn more
+                    </span>
+                  </p>
+                  <IoMdClose
+                    onClick={() => setOfferDiscount(false)}
+                    className="text-5xl hover:text-red-400 cursor-pointer duration-200"
+                  />
+                </div>
+              </div>
+            )}
               </div>
             </div>
           )}

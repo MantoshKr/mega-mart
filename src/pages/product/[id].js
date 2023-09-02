@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart, AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { addToBasket } from "@/slices/basketSlice";
@@ -13,6 +13,9 @@ import { IoMdClose } from "react-icons/io";
 import flashSaleIcon from "Public/assets/images/flashSaleIcon.png";
 import { useState } from "react";
 import giftBox from "Public/assets/images/giftBox.png";
+import { addToFavorites, removeFromFavorites } from "@/slices/favoriteSlice";
+import { useSelector } from "react-redux";
+import { selectFavoriteProducts } from "@/slices/favoriteSlice";
 
 const ProductDetailsPage = () => {
   const router = useRouter();
@@ -29,6 +32,7 @@ const ProductDetailsPage = () => {
   const validRatingValue = Math.max(0, Math.min(5, Math.floor(ratingValue)));
   const [offerFlashSale, setOfferFlashSale] = useState(true);
   const [offerDiscount, setOfferDiscount] = useState(true);
+  const favoriteProducts = useSelector(selectFavoriteProducts);
 
   useEffect(() => {
     console.log("Product ID:", id);
@@ -68,6 +72,25 @@ const ProductDetailsPage = () => {
     dispatch(addToBasket(product));
   };
 
+
+  const isProductFavorite = favoriteProducts.includes(id);
+
+  const handleAddToFavorites = () => {
+ 
+    dispatch(addToFavorites(id));
+  };
+
+  console.log('hf Title:', title);
+  console.log('hf Price:', price);
+
+  const handleRemoveFromFavorites = () => {
+
+    dispatch(removeFromFavorites(id));
+  };
+
+  console.log('rf Title:', title);
+  console.log('rf Price:', price);
+
   useEffect(() => {
     setOfferFlashSale(true);
   }, []);
@@ -106,7 +129,18 @@ const ProductDetailsPage = () => {
                     Reduced price
                   </button>
                 </div>
-                <AiOutlineHeart className="text-gray-600 text-2xl" />
+                <div>
+                  {isProductFavorite ? (
+                    <button onClick={handleRemoveFromFavorites}>
+                      <AiFillHeart className="text-red-600 text-2xl" />
+                    </button>
+                  ) : (
+                    <button onClick={handleAddToFavorites}>
+                      <AiOutlineHeart className="text-gray-600 text-2xl" />
+                    </button>
+                  )}
+                </div>
+                {/* <AiOutlineHeart className="text-gray-600 text-2xl" /> */}
               </div>
               {/* product details */}
               <div className="flex flex-col gap-1">

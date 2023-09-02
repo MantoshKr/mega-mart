@@ -51,10 +51,10 @@ const Success = () => {
           </div>
 
           <button
-            onClick={() => router.push("/orders")}
+            onClick={() => router.push("/")}
             className="bg-green-700 hover:bg-hoverBg w-[50%] text-white h-10 rounded-full font-semibold duration-300"
           >
-            Go to my orders
+            Continue Shopping
           </button>
         </div>
 

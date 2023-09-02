@@ -6,27 +6,30 @@ import { BsCart2 } from "react-icons/bs";
 import { FiChevronDown } from "react-icons/fi";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { FaPlaceOfWorship } from "react-icons/fa";
-import { signIn , signOut , useSession } from "next-auth/react"
+import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectItems, selectTotal } from "../slices/basketSlice";
 
-
-
+import Search from "./Search";
 
 const Header = () => {
-  const { data: session, status } = useSession()
-  const loading = status === "loading"
-  const router=useRouter();
+  const { data: session, status } = useSession();
+  const loading = status === "loading";
+  const router = useRouter();
   const items = useSelector(selectItems);
   const total = useSelector(selectTotal);
+
 
   return (
     // navbar top
     <div className="w-full  text-white sticky top-0 z-50">
       <div className="w-full h-full border-b-[1px] border-b-white bg-black bg-opacity-80">
         <div className="max-w-container mx-auto h-20 px-4 flex items-center justify-between gap-2">
-          <div onClick={()=>router.push("/")} className="flex items-center h-12 px-5 rounded-full bg-transparent  hover:bg-hoverBg duration-300 cursor-pointer">
+          <div
+            onClick={() => router.push("/")}
+            className="flex items-center h-12 px-5 rounded-full bg-transparent  hover:bg-hoverBg duration-300 cursor-pointer"
+          >
             <p className="text-2xl font-bold  ">MegaMart</p>
             <Image
               src="/assets/images/mega-mart-logo.png"
@@ -58,16 +61,7 @@ const Header = () => {
             <p>Services</p>
           </div>
 
-          <div className="h-10 flex flex-1 relative">
-            <input
-              className="h-full w-full rounded-full px-4 text-black text-base outline-none border-[1px] border-transparent focus-visible:border-black duration-200"
-              type="text"
-              placeholder="Search for products, brands and more"
-            />
-            <span className="absolute w-8 h-8 rounded-full flex items-center justify-center top-1 right-1 bg-green-500 text-black text-xl">
-              <IoSearchOutline />
-            </span>
-          </div>
+          <Search />
 
           <div className="flex items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
             <AiOutlineHeart />
@@ -79,15 +73,18 @@ const Header = () => {
 
           <div className="flex items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
             <AiOutlineUser />
-            <div onClick={!session ? signIn : signOut} >
+            <div onClick={!session ? signIn : signOut}>
               <p className="text-xs">
-              {session ? `Hello, ${session.user.name}` : "Sign In"}
+                {session ? `Hello, ${session.user.name}` : "Sign In"}
               </p>
               <h2 className="text-base font-semibold -mt-1">Account</h2>
             </div>
           </div>
 
-          <div onClick={()=>router.push("/checkout")} className="flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent hover:bg-hoverBg duration-300 relative cursor-pointer">
+          <div
+            onClick={() => router.push("/checkout")}
+            className="flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent hover:bg-hoverBg duration-300 relative cursor-pointer"
+          >
             <BsCart2 className="text-2xl" />
             <p className="text-[10px] -mt-2"> Rs {Math.floor(total * 83)}</p>
             <span className="absolute w-4 h-4 bg-green-500 text-black top-0 right-4 rounded-full flex items-center justify-center font-bodyFont text-xs">

@@ -6,6 +6,10 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToBasket } from "../slices/basketSlice";
 import Link from "next/link";
+import { useEffect } from "react";
+const MIN_RATING = 1; 
+const MAX_RATING = 5; 
+
 
 const ProductCard = ({
   id,
@@ -16,10 +20,18 @@ const ProductCard = ({
   image,
   popularity,
 }) => {
+  const [rating, setRating] = useState(1);
+  const [hasPlus, setHasPlus] = useState(false);
+
   const ratingValue = popularity.rate;
   const validRatingValue = Math.max(0, Math.min(5, Math.floor(ratingValue)));
-  const [hasPlus] = useState(Math.random() < 0.5);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+   
+    setRating(Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING);
+    setHasPlus(Math.random() < 0.5);
+  }, []);
 
   const addItemToBasket = () => {
     const product = {

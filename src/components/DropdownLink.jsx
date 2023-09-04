@@ -1,425 +1,700 @@
 export const links = [
+  {
+    name: "Electronics",
+    submenu: true,
+    sublinks: [
+      {
+        Head: "New & Trending",
+        sublink: [
+          { name: "Trending Tech", link: "/electronics" },
+          { name: "Shop All New & Trending", link: "/electronics" },
+          { name: "Intel Gamer Days", link: "/electronics" },
+          { name: "New PC Gaming", link: "/electronics" },
+          { name: "New Chromebooks", link: "/electronics" },
+          { name: "New Desktop Computers", link: "/electronics" },
+        ],
+      },
 
+      {
+        Head: "TV & Video",
+        sublink: [
+          { name: "Shop all TVs", link: "/electronics" },
+          { name: "TVs by Size", link: "/electronics" },
+          { name: "Smart TVs", link: "/electronics" },
+          { name: "Roku TVs", link: "/electronics" },
+          { name: "Streaming", link: "/electronics" },
+          { name: "TV Mounts & Accessories", link: "/electronics" },
+        ],
+      },
+      {
+        Head: "Home Audio & Theater",
+        sublink: [
+          { name: "Shop All Home Theater", link: "/electronics" },
+          { name: "Sound Bars", link: "/electronics" },
+          { name: "Projectors", link: "/electronics" },
+          { name: "DVD & Blu-Ray Players", link: "/electronics" },
+          { name: "4K Projectors", link: "/electronics" },
+        ],
+      },
 
-    {
-        name: "Electronics",
-        submenu: true,
-        sublinks: [
-    
-    
-    {
-      Head: "New & Trending",
-      sublink: [
-        { name: "Trending Tech", link: "/" },
-        { name: "Shop All New & Trending", link: "/" },
-        { name: "Intel Gamer Days", link: "/" },
-        { name: "New PC Gaming", link: "/" },
-        { name: "New Chromebooks", link: "/" },
-        { name: "New Desktop Computers", link: "/" }
-      ]
-    },
-    
-    {
-      Head: "TV & Video",
-      sublink: [
-        { name: "Shop all TVs", link: "/" },
-        { name: "TVs by Size", link: "/" },
-        { name: "Smart TVs", link: "/" },
-        { name: "Roku TVs", link: "/" },
-        { name: "Streaming", link: "/" },
-        { name: "TV Mounts & Accessories", link: "/" }
-      ]
-    },
-    {
-      Head: "Home Audio & Theater",
-      sublink: [
-        { name: "Shop All Home Theater", link: "/" },
-        { name: "Sound Bars", link: "/" },
-        { name: "Projectors", link: "/" },
-        { name: "DVD & Blu-Ray Players", link: "/" },
-        { name: "4K Projectors", link: "/" },
-      ]
-    },
-    
-    {
-      Head: "Smart Home",
-      sublink: [
-        { name: "Shop All Smart Home", link: "/" },
-        { name: "Smart Assistants & Hubs", link: "/" },
-        { name: "Smart Home Security", link: "/" },
-        { name: "Smart Energy & Lighting", link: "/" },
-        { name: "Pet Tech", link: "/" }
-      ]
-    },
-    {
-      Head: "Computers",
-      sublink: [
-        { name: "Shop All Computers", link: "/" },
-        { name: "Laptops", link: "/" },
-        { name: "Chromebook", link: "/" },
-        { name: "Windows Laptops", link: "/" },
-        { name: "PC Gaming", link: "/" },
-        { name: "MegaMart Restored Computers", link: "/" },
-        // { name: "Desktops", link: "/" },
-        // { name: "Printers & Ink", link: "/" },
-        // { name: "Monitors", link: "/" },
-        // { name: "Networking", link: "/" },
-        // { name: "Computer Accessories", link: "/" },
-        // { name: "Computer Components", link: "/" },
-        // { name: "Computer Software", link: "/" },
-        // { name: "PC Finder", link: "/" },
-        // { name: "Tablets", link: "/" }
-      ]
-    },
-    {
-      Head: "Shop All Tablets",
-      sublink: [
-        { name: "iPad", link: "/" },
-        { name: "Android Tablets", link: "/" },
-        { name: "MegaMart Restored Tablets", link: "/" },
-        { name: "Kobo eReaders", link: "/" },
-        { name: "Tablet Accessories", link: "/" }
-      ]
-    },
-    {
-      Head: "Cell Phones",
-      sublink: [
-        { name: "Shop All Cell Phones", link: "/" },
-        { name: "iPhone", link: "/" },
-        { name: "Samsung Galaxy Phones", link: "/" },
-        { name: "5G Phones", link: "/" },
-        { name: "Unlocked Phones", link: "/" },
-        { name: "Prepaid Phones & Plans", link: "/" },
-        { name: "Cell Phone Accessories", link: "/" },
-        { name: "Straight Talk", link: "/" },
-        { name: "AT&T", link: "/" },
-        { name: "Verizon", link: "/" }
-      ]
-    },
-    {
-      Head: "Wearable Technology",
-      sublink: [
-        { name: "Shop All Wearable Technology", link: "/" },
-        { name: "Apple Watch", link: "/" },
-        { name: "Samsung Galaxy Watch", link: "/" },
-        { name: "Fitbit", link: "/" },
-        { name: "Fitness Trackers", link: "/" },
-        { name: "Smart watch accessories", link: "/" },
-        { name: "Virtual Reality", link: "/" },
-        { name: "Headphones", link: "/" }
-      ]
-    },
-    
-    {
-      Head: "Cameras, Camcorders, & Drones",
-      sublink: [
-        { name: "Shop All Cameras", link: "/" },
-        { name: "DSLR Cameras", link: "/" },
-        { name: "Instant & Disposable Cameras", link: "/" },
-        { name: "Action Cameras", link: "/" },
-        { name: "Drones", link: "/" },
-        { name: "Digital Photo Frames", link: "/" },
-        { name: "Content Creation", link: "/" },
-        { name: "Camera Accessories", link: "/" }
-      ]
-    },
-    
-    {
-      Head: "MegaMart Restored",
-      sublink: [
-        { name: "Explore MegaMart Restored", link: "/" },
-        { name: "Restored TVs", link: "/" },
-        { name: "Restored Computers & Mac", link: "/" },
-        { name: "Restored iPad & Tablets", link: "/" },
-        { name: "Restored Cell Phones", link: "/" },
-        { name: "Restored Video Games", link: "/" },
-        { name: "Restored Audio", link: "/" },
-        { name: "Restored Cameras", link: "/" },
-        { name: "Premium Tech", link: "/" }
-      ]
-    }
-  ]
-},
+      {
+        Head: "Smart Home",
+        sublink: [
+          { name: "Shop All Smart Home", link: "/electronics" },
+          { name: "Smart Assistants & Hubs", link: "/electronics" },
+          { name: "Smart Home Security", link: "/electronics" },
+          { name: "Smart Energy & Lighting", link: "/electronics" },
+          { name: "Pet Tech", link: "/electronics" },
+        ],
+      },
+      {
+        Head: "Computers",
+        sublink: [
+          { name: "Shop All Computers", link: "/electronics" },
+          { name: "Laptops", link: "/electronics" },
+          { name: "Chromebook", link: "/electronics" },
+          { name: "Windows Laptops", link: "/electronics" },
+          { name: "PC Gaming", link: "/electronics" },
+          { name: "MegaMart Restored Computers", link: "/electronics" },
+          // { name: "Desktops", link: "/" },
+          // { name: "Printers & Ink", link: "/" },
+          // { name: "Monitors", link: "/" },
+          // { name: "Networking", link: "/" },
+          // { name: "Computer Accessories", link: "/" },
+          // { name: "Computer Components", link: "/" },
+          // { name: "Computer Software", link: "/" },
+          // { name: "PC Finder", link: "/" },
+          // { name: "Tablets", link: "/" }
+        ],
+      },
+      {
+        Head: "Shop All Tablets",
+        sublink: [
+          { name: "iPad", link: "/electronics" },
+          { name: "Android Tablets", link: "/electronics" },
+          { name: "MegaMart Restored Tablets", link: "/electronics" },
+          { name: "Kobo eReaders", link: "/electronics" },
+          { name: "Tablet Accessories", link: "/electronics" },
+        ],
+      },
+      {
+        Head: "Cell Phones",
+        sublink: [
+          { name: "Shop All Cell Phones", link: "/electronics" },
+          { name: "iPhone", link: "/electronics" },
+          { name: "Samsung Galaxy Phones", link: "/electronics" },
+          { name: "5G Phones", link: "/electronics" },
+          { name: "Unlocked Phones", link: "/electronics" },
+          { name: "Prepaid Phones & Plans", link: "/electronics" },
+          { name: "Cell Phone Accessories", link: "/electronics" },
+          { name: "Straight Talk", link: "/electronics" },
+          { name: "AT&T", link: "/electronics" },
+          { name: "Verizon", link: "/electronics" },
+        ],
+      },
+      {
+        Head: "Wearable Technology",
+        sublink: [
+          { name: "Shop All Wearable Technology", link: "/electronics" },
+          { name: "Apple Watch", link: "/electronics" },
+          { name: "Samsung Galaxy Watch", link: "/electronics" },
+          { name: "Fitbit", link: "/electronics" },
+          { name: "Fitness Trackers", link: "/electronics" },
+          { name: "Smart watch accessories", link: "/electronics" },
+          { name: "Virtual Reality", link: "/electronics" },
+          { name: "Headphones", link: "/electronics" },
+        ],
+      },
 
-    {
-        name: "Men",
-        submenu: true,
-        sublinks: [
-            {
-              Head: "Footwear",
-              sublink: [
-                { name: "Casual Shoes", link: "/" ,  image: "creditcard.jpg" },
-                { name: "Sneakers", link: "/" },
-                { name: "Formal Shoes", link: "/" },
-                { name: "Training Shoes", link: "/" },
-                { name: "Running Shoes", link: "/" },
-                { name: "Sports Shoes", link: "/" },
-                { name: "Flip Flops", link: "/" },
-                // { name: "Boots", link: "/" }
-              ]
-            },
-            {
-              Head: "Sports Wear",
-              sublink: [
-                { name: "T-shirts & Jerseys", link: "/" },
-                { name: "Shorts", link: "/" },
-                { name: "Sports Jackets", link: "/" },
-                { name: "Gym Gear", link: "/" },
-                { name: "Joggers", link: "/" },
-                { name: "Sports Shoes", link: "/" },
-              ]
-            },
-            {
-              Head: "Ethnic Wear Clothing",
-              sublink: [
-                { name: "T-shirts & Polos", link: "/" },
-                { name: "Casual Shirts", link: "/" },
-                { name: "Jeans", link: "/" },
-                { name: "Trousers", link: "/" },
-                { name: "Shorts", link: "/" },
-                { name: "Casual Jackets", link: "/" },
-                // { name: "Winter Wear", link: "/" },
-                // { name: "Formal Shirts", link: "/" },
-                // { name: "Formal Trousers", link: "/" },
-                // { name: "Innerwear", link: "/" },
-                // { name: "Sleepwear", link: "/" },
-                // { name: "Formal Blazer", link: "/" },
-                // { name: "View All Clothing", link: "/" }
-              ]
-            },
-            {
-              Head: "Watches",
-              sublink: [
-                { name: "Workwear Watches", link: "/" },
-                { name: "Casual Watches", link: "/" },
-                { name: "Smart Watches", link: "/" },
-                { name: "Formal Watches", link: "/" },
-                { name: "Sports Watches", link: "/" },
-                { name: "Digital Watches", link: "/" },
-                { name: "Partywear Watches", link: "/" }
-              ]
-            },
-            {
-              Head: "The Watch Store",
-              sublink: [
-                { name: "Backpacks", link: "/" },
-                { name: "Wallets", link: "/" },
-                { name: "Metallic Wallets", link: "/" },
-                { name: "Messenger Bags", link: "/" },
-                { name: "Cross Body Bags", link: "/" }
-              ]
-            },
-            {
-              Head: "Luggage & Trolleys",
-              sublink: [
-                { name: "Trolley & Suitcase", link: "/" },
-                { name: "Duffle Bags", link: "/" },
-                { name: "Rucksack & Trekking Backpacks", link: "/" }
-              ]
-            },
-            {
-              Head: "Fashion Accessories",
-              sublink: [
-                { name: "Belts", link: "/" },
-                { name: "Hats & Caps", link: "/" },
-                { name: "Ties & Cufflinks", link: "/" }
-              ]
-            },
-            {
-              Head: "Jewellery",
-              sublink: [
-                { name: "Men's Jewellery", link: "/" },
-                { name: "Coins And Bars", link: "/" }
-              ]
-            },
-            {
-              Head: "Eyewear",
-              sublink: [
-                { name: "Sunglasses", link: "/" },
-                { name: "Aviators", link: "/" }
-              ]
-            }
-          ]
-          
-        },
-    {
-      name: "Men",
-      submenu: true,
-      sublinks: [
-        {
-          Head: "Topwear",
-          sublink: [
-            { name: "T-shirt", link: "/" },
-            { name: "Casual shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-          ],
-        },
-        {
-          Head: "Bottomwear",
-          sublink: [
-            { name: "T-shirt", link: "/" },
-            { name: "Casual shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-          ],
-        },
-        {
-          Head: "innerwear",
-          sublink: [
-            { name: "T-shirt", link: "/" },
-            { name: "Casual shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-          ],
-        },
-  
-        {
-          Head: "sleepwear",
-          sublink: [
-            { name: "T-shirt", link: "/" },
-            { name: "Casual shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-          ],
-        },
-        {
-          Head: "footwear",
-          sublink: [
-            { name: "T-shirt", link: "/" },
-            { name: "Casual shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-          ],
-        },
-      ],
-    },
-    {
-      name: "Women",
-      submenu: true,
-      sublinks: [
-        {
-          Head: "Topwear",
-          sublink: [
-            { name: "T-shirt", link: "/" },
-            { name: "Casual shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-          ],
-        },
-        {
-          Head: "Bottomwear",
-          sublink: [
-            { name: "T-shirt", link: "/" },
-            { name: "Casual shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-          ],
-        },
-        {
-          Head: "innerwear",
-          sublink: [
-            { name: "T-shirt", link: "/" },
-            { name: "Casual shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-          ],
-        },
-  
-        {
-          Head: "sleepwear",
-          sublink: [
-            { name: "T-shirt", link: "/" },
-            { name: "Casual shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-          ],
-        },
-        {
-          Head: "footwear",
-          sublink: [
-            { name: "T-shirt", link: "/" },
-            { name: "Casual shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-          ],
-        },
-      ],
-    },
-    {
-      name: "Kid's",
-      submenu: true,
-      sublinks: [
-        {
-          Head: "Topwear",
-          sublink: [
-            { name: "T-shirt", link: "/" },
-            { name: "Casual shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-          ],
-        },
-        {
-          Head: "Bottomwear",
-          sublink: [
-            { name: "T-shirt", link: "/" },
-            { name: "Casual shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-          ],
-        },
-        {
-          Head: "innerwear",
-          sublink: [
-            { name: "T-shirt", link: "/" },
-            { name: "Casual shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-          ],
-        },
-  
-        {
-          Head: "sleepwear",
-          sublink: [
-            { name: "T-shirt", link: "/" },
-            { name: "Casual shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-          ],
-        },
-        {
-          Head: "footwear",
-          sublink: [
-            { name: "T-shirt", link: "/" },
-            { name: "Casual shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-            { name: "formal shirts", link: "/" },
-          ],
-        },
-      ],
-    },
+      {
+        Head: "Cameras, Camcorders, & Drones",
+        sublink: [
+          { name: "Shop All Cameras", link: "/electronics" },
+          { name: "DSLR Cameras", link: "/electronics" },
+          { name: "Instant & Disposable Cameras", link: "/electronics" },
+          { name: "Action Cameras", link: "/electronics" },
+          { name: "Drones", link: "/electronics" },
+          { name: "Digital Photo Frames", link: "/electronics" },
+          { name: "Content Creation", link: "/electronics" },
+          { name: "Camera Accessories", link: "/electronics" },
+        ],
+      },
 
-    
-      
+      {
+        Head: "MegaMart Restored",
+        sublink: [
+          { name: "Explore MegaMart Restored", link: "/electronics" },
+          { name: "Restored TVs", link: "/electronics" },
+          { name: "Restored Computers & Mac", link: "/electronics" },
+          { name: "Restored iPad & Tablets", link: "/electronics" },
+          { name: "Restored Cell Phones", link: "/electronics" },
+          { name: "Restored Video Games", link: "/electronics" },
+          { name: "Restored Audio", link: "/electronics" },
+          { name: "Restored Cameras", link: "/electronics" },
+          { name: "Premium Tech", link: "/electronics" },
+        ],
+      },
+    ],
+  },
 
+  {
+    name: "Men",
+    submenu: true,
+    sublinks: [
+      {
+        Head: "Footwear",
+        sublink: [
+          { name: "Casual Shoes", link: "/men", image: "creditcard.jpg" },
+          { name: "Sneakers", link: "/men" },
+          { name: "Formal Shoes", link: "/men" },
+          { name: "Training Shoes", link: "/men" },
+          { name: "Running Shoes", link: "/men" },
+          { name: "Sports Shoes", link: "/men" },
+          { name: "Flip Flops", link: "/men" },
+          // { name: "Boots", link: "/" }
+        ],
+      },
+      {
+        Head: "Sports Wear",
+        sublink: [
+          { name: "T-shirts & Jerseys", link: "/men" },
+          { name: "Shorts", link: "/men" },
+          { name: "Sports Jackets", link: "/men" },
+          { name: "Gym Gear", link: "/men" },
+          { name: "Joggers", link: "/men" },
+          { name: "Sports Shoes", link: "/men" },
+        ],
+      },
+      {
+        Head: "Ethnic Wear Clothing",
+        sublink: [
+          { name: "T-shirts & Polos", link: "/men" },
+          { name: "Casual Shirts", link: "/men" },
+          { name: "Jeans", link: "/men" },
+          { name: "Trousers", link: "/men" },
+          { name: "Shorts", link: "/men" },
+          { name: "Casual Jackets", link: "/men" },
+          // { name: "Winter Wear", link: "/" },
+          // { name: "Formal Shirts", link: "/" },
+          // { name: "Formal Trousers", link: "/" },
+          // { name: "Innerwear", link: "/" },
+          // { name: "Sleepwear", link: "/" },
+          // { name: "Formal Blazer", link: "/" },
+          // { name: "View All Clothing", link: "/" }
+        ],
+      },
+      {
+        Head: "Watches",
+        sublink: [
+          { name: "Workwear Watches", link: "/men" },
+          { name: "Casual Watches", link: "/men" },
+          { name: "Smart Watches", link: "/men" },
+          { name: "Formal Watches", link: "/men" },
+          { name: "Sports Watches", link: "/men" },
+          { name: "Digital Watches", link: "/men" },
+          { name: "Partywear Watches", link: "/men" },
+        ],
+      },
+      {
+        Head: "The Watch Store",
+        sublink: [
+          { name: "Backpacks", link: "/men" },
+          { name: "Wallets", link: "/men" },
+          { name: "Metallic Wallets", link: "/men" },
+          { name: "Messenger Bags", link: "/men" },
+          { name: "Cross Body Bags", link: "/men" },
+        ],
+      },
+      {
+        Head: "Luggage & Trolleys",
+        sublink: [
+          { name: "Trolley & Suitcase", link: "/men" },
+          { name: "Duffle Bags", link: "/men" },
+          { name: "Rucksack & Trekking Backpacks", link: "/men" },
+        ],
+      },
+      {
+        Head: "Fashion Accessories",
+        sublink: [
+          { name: "Belts", link: "/men" },
+          { name: "Hats & Caps", link: "/men" },
+          { name: "Ties & Cufflinks", link: "/men" },
+        ],
+      },
+      {
+        Head: "Jewellery",
+        sublink: [
+          { name: "Men's Jewellery", link: "/men" },
+          { name: "Coins And Bars", link: "/men" },
+        ],
+      },
+      {
+        Head: "Eyewear",
+        sublink: [
+          { name: "Sunglasses", link: "/men" },
+          { name: "Aviators", link: "/men" },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Women",
+    submenu: true,
+    sublinks: [
+      {
+        Head: "Women Western",
+        sublink: [
+          { name: "Topwear", link: "/women" },
+          { name: "Dresses", link: "/women" },
+          { name: "Jeans", link: "/women" },
+          { name: "Shorts", link: "/women" },
+          { name: "Skirts", link: "/women" },
+          { name: "Jeggings & Tights", link: "/women" },
+          { name: "Trousers & Capris", link: "/women" },
+        ],
+      },
+      {
+        Head: "Ethnic Wear",
+        sublink: [
+          { name: "Sarees", link: "/women" },
+          { name: "Kurtas & Kurtis", link: "/women" },
+          { name: "Dress Material", link: "/women" },
+          { name: "Lehenga Choli", link: "/women" },
+          { name: "Blouse", link: "/women" },
+          { name: "Kurta Sets & Salwar Suits", link: "/women" },
+          { name: "Gowns", link: "/women" },
+          { name: "Dupattas", link: "/women" },
+        ],
+      },
+      {
+        Head: "Ethnic Bottoms",
+        sublink: [
+          { name: "Leggings & Churidars", link: "/women" },
+          { name: "Palazzos", link: "/women" },
+          { name: "Shararas", link: "/women" },
+          { name: "Salwars & Patiala", link: "/women" },
+          { name: "Dhoti Pants", link: "/women" },
+          { name: "Ethnic Trousers", link: "/women" },
+          { name: "Saree Shapewear & Petticoats", link: "/women" },
+        ],
+      },
+      {
+        Head: "Sandals",
+        sublink: [
+          { name: "Flats", link: "/women" },
+          { name: "Heels", link: "/women" },
+          { name: "Wedges", link: "/women" },
+          { name: "Shoes", link: "/women" },
+          { name: "Sports Shoes", link: "/women" },
+          { name: "Casual Shoes", link: "/women" },
+          { name: "Boots", link: "/women" },
+        ],
+      },
+      {
+        Head: "Beauty & Grooming",
+        sublink: [
+          { name: "Make Up", link: "/women" },
+          { name: "Skin Care", link: "/women" },
+          { name: "Hair Care", link: "/women" },
+          { name: "Bath & Spa", link: "/women" },
+          { name: "Deodorants & Perfumes", link: "/women" },
+        ],
+      },
+      {
+        Head: "Jewellery",
+        sublink: [
+          { name: "Artificial Jewellery", link: "/women" },
+          { name: "Silver Jewellery", link: "/women" },
+          { name: "Precious Jewellery", link: "/women" },
+          { name: "Coins and Bars", link: "/women" },
+        ],
+      },
+      {
+        Head: "Accessories",
+        sublink: [
+          { name: "Handbags", link: "/women" },
+          { name: "Shoulder Bags", link: "/women" },
+          { name: "Totes", link: "/women" },
+          { name: "Sling bags", link: "/women" },
+          { name: "Clutches", link: "/women" },
+          { name: "Wallets & Belts", link: "/women" },
+          { name: "Luggage & Travel", link: "/women" },
+          { name: "Sunglasses", link: "/women" },
+          { name: "Frames", link: "/women" },
+        ],
+      },
+      {
+        Head: "Featured",
+        sublink: [
+          { name: "Forever 21", link: "/women" },
+          { name: "Accessorize", link: "/women" },
+          { name: "Pantaloons", link: "/women" },
+          { name: "Chemistry", link: "/women" },
+          { name: "Lakme", link: "/women" },
+          { name: "Nivea", link: "/women" },
+          { name: "Catwalk", link: "/women" },
+          { name: "Titan-Raga", link: "/women" },
+          { name: "Fastrack", link: "/women" },
+        ],
+      },
+      {
+        Head: "Trending today!",
+        sublink: [
+          { name: "Ruffles & Frills", link: "/women" },
+          { name: "Pastel Kurtas & Kurtis", link: "/women" },
+          { name: "Designer Net Sarees", link: "/women" },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Baby & Kids",
+    submenu: true,
+    sublinks: [
+      {
+        Head: "Kids' Clothing",
+        sublink: [
+          { name: "T-Shirts", link: "/kids" },
+          { name: "Ethnic Wear", link: "/kids" },
+          { name: "Shorts", link: "/kids" },
+          { name: "Shirts", link: "/kids" },
+          { name: "Dresses & Skirts", link: "/kids" },
+          { name: "Ethnic Wear", link: "/kids" },
+          { name: "T-shirts & Tops", link: "/kids" },
+        ],
+      },
 
-  ];
-  
+      {
+        Head: "Baby Clothing",
+        sublink: [
+          { name: "Baby Boys' Clothing", link: "/kids" },
+          { name: "Combos Sets", link: "/kids" },
+          { name: "T-Shirts", link: "/kids" },
+          { name: "Innerwear", link: "/kids" },
+          { name: "Baby Girls' Clothing", link: "/kids" },
+          { name: "Combos Sets", link: "/kids" },
+          { name: "Dresses & Gowns", link: "/kids" },
+        ],
+      },
+      {
+        Head: "Footwear",
+        sublink: [
+          { name: "Sandals", link: "/kids" },
+          { name: "Sport Shoes", link: "/kids" },
+          { name: "Girls' Footwear", link: "/kids" },
+          { name: "Flats & Bellies", link: "/kids" },
+          { name: "Sport Shoes", link: "/kids" },
+          { name: "Infant Footwear", link: "/kids" },
+          { name: "Character Shoes", link: "/kids" },
+        ],
+      },
+      {
+        Head: "Winter Wear",
+        sublink: [
+          { name: "Kids' Winter Wear", link: "/kids" },
+          { name: "Boys' Winter Wear", link: "/kids" },
+          { name: "Boys' Sweatshirts", link: "/kids" },
+          { name: "Boys' Jackets", link: "/kids" },
+          { name: "Girls' Winter Wear", link: "/kids" },
+          { name: "Girls' Sweatshirts", link: "/kids" },
+          { name: "Girls' Jackets", link: "/kids" },
+          { name: "Infant Winter Wear", link: "/kids" },
+          { name: "Thermals", link: "/kids" },
+        ],
+      },
+      {
+        Head: "Toys",
+        sublink: [
+          { name: "Remote Control Toys", link: "/kids" },
+          { name: "Educational Toys", link: "/kids" },
+          { name: "Soft Toys", link: "/kids" },
+          { name: "Cars & Die-cast Vehicles", link: "/kids" },
+          { name: "Outdoor Toys", link: "/kids" },
+          { name: "Action Figures", link: "/kids" },
+          { name: "Board Games", link: "/kids" },
+          { name: "Musical Toys", link: "/kids" },
+          { name: "Dolls & Doll Houses", link: "/kids" },
+        ],
+      },
+      {
+        Head: "More Toys",
+        sublink: [
+          { name: "Puzzles", link: "/kids" },
+          { name: "S.T.E.M Toys", link: "/kids" },
+          { name: "Helicopter & Drones", link: "/kids" },
+          { name: "Toy Guns", link: "/kids" },
+          { name: "Party Supplies", link: "/kids" },
+          { name: "School Supplies", link: "/kids" },
+          { name: "School Bags", link: "/kids" },
+          { name: "School Combo Sets", link: "/kids" },
+          { name: "Lunch Box", link: "/kids" },
+        ],
+      },
+      {
+        Head: "Baby Care",
+        sublink: [
+          { name: "Diapers", link: "/kids" },
+          { name: "Wipes", link: "/kids" },
+          { name: "Diapering & Potty Training", link: "/kids" },
+          { name: "Baby Bath, Hair & Skin Care", link: "/kids" },
+          { name: "Baby Grooming", link: "/kids" },
+          { name: "Baby Bathing Accessories", link: "/kids" },
+          { name: "Baby Gift Sets & Combo", link: "/kids" },
+          { name: "Baby Oral Care", link: "/kids" },
+          { name: "Baby Food", link: "/kids" },
+        ],
+      },
+      {
+        Head: "More Baby Care",
+        sublink: [
+          { name: "Baby Feeding Bottle & Accessories", link: "/kids" },
+          { name: "Baby Feeding Utensils & Accessories", link: "/kids" },
+          { name: "Baby Bedding", link: "/kids" },
+          { name: "Baby Gear", link: "/kids" },
+          { name: "Baby Medical & Health Care", link: "/kids" },
+          { name: "Baby Proofing & Safety", link: "/kids" },
+          { name: "Baby Cleaners & Detergents", link: "/kids" },
+        ],
+      },
+      {
+        Head: "Featured brands",
+        sublink: [
+          { name: "Miss & Chief", link: "/kids" },
+          { name: "Barbie", link: "/kids" },
+          { name: "Disney", link: "/kids" },
+          { name: "United Colors of Benetton", link: "/kids" },
+          { name: "The Children's Place", link: "/kids" },
+          { name: "US Polo", link: "/kids" },
+          { name: "Flying Machine", link: "/kids" },
+          { name: "Crocs", link: "/kids" },
+          { name: "Puma", link: "/kids" },
+          { name: "Funskool", link: "/kids" },
+        ],
+      },
+    ],
+  },
+
+  {
+    name: "Home & Furniture",
+    submenu: true,
+    sublinks: [
+      {
+        Head: "Cookware",
+        sublink: [
+          { name: "Pans", link: "/furniture" },
+          { name: "Tawas", link: "/furniture" },
+          { name: "Pressure Cookers", link: "/furniture" },
+          { name: "Kitchen tools", link: "/furniture" },
+          { name: "Gas Stoves", link: "/furniture" },
+        ],
+      },
+      {
+        Head: "Tableware",
+        sublink: [
+          { name: "Coffee Mugs", link: "/furniture" },
+          { name: "Dinner Set", link: "/furniture" },
+          { name: "Barware", link: "/furniture" },
+          { name: "Kitchen Storage", link: "/furniture" },
+          { name: "Water Bottles", link: "/furniture" },
+          { name: "Lunch Boxes", link: "/furniture" },
+        ],
+      },
+      {
+        Head: "Furniture",
+        sublink: [
+          { name: "Beds", link: "/furniture" },
+          { name: "Mattresses", link: "/furniture" },
+          { name: "Wardrobes", link: "/furniture" },
+          { name: "Living Room Furniture", link: "/furniture" },
+          { name: "Sofa", link: "/furniture" },
+          { name: "Sofa Beds", link: "/furniture" },
+        ],
+      },
+      {
+        Head: "More",
+        sublink: [
+          { name: "TV Units", link: "/furniture" },
+          { name: "Dining Tables & Chairs", link: "/furniture" },
+          { name: "Coffee Tables", link: "/furniture" },
+          { name: "Shoe Racks", link: "/furniture" },
+          { name: "Office & Study Furniture", link: "/furniture" },
+          { name: "Kids Room Furniture", link: "/furniture" },
+        ],
+      },
+      {
+        Head: "Furnishing",
+        sublink: [
+          { name: "Bedsheets", link: "/furniture" },
+          { name: "Curtains", link: "/furniture" },
+          { name: "Cushions & Pillows", link: "/furniture" },
+          { name: "Blankets", link: "/furniture" },
+          { name: "Bath Towels", link: "/furniture" },
+          { name: "Kitchen & Table Linen", link: "/furniture" },
+        ],
+      },
+      {
+        Head: "Smart Home",
+        sublink: [
+          { name: "Floor Coverings", link: "/furniture" },
+          { name: "Smart Security System", link: "/furniture" },
+          { name: "Smart Door Locks", link: "/furniture" },
+          { name: "Home Improvement", link: "/furniture" },
+          { name: "Tools & Measuring Equipments", link: "/furniture" },
+          { name: "Home Utilities & Organizers", link: "/furniture" },
+        ],
+      },
+      {
+        Head: "Home Decor",
+        sublink: [
+          { name: "Paintings", link: "/furniture" },
+          { name: "Clocks", link: "/furniture" },
+          { name: "Wall Shelves", link: "/furniture" },
+          { name: "Stickers", link: "/furniture" },
+          { name: "Showpieces & Figurines", link: "/furniture" },
+          { name: "Home Lighting", link: "/furniture" },
+        ],
+      },
+      {
+        Head: "Home Decor 2",
+        sublink: [
+          { name: "Bulbs", link: "/furniture" },
+          { name: "Wall Lamp", link: "/furniture" },
+          { name: "Table Lamp", link: "/furniture" },
+          { name: "Ceiling Lamp", link: "/furniture" },
+          { name: "Emergency Lights", link: "/furniture" },
+          { name: "Festive Decor & Gifts", link: "/furniture" },
+        ],
+      },
+      {
+        Head: "Gardening Store",
+        sublink: [
+          { name: "Stainless Steel Store", link: "/furniture" },
+          { name: "Milton", link: "/furniture" },
+          { name: "Bombay Dyeing", link: "/furniture" },
+          { name: "@home", link: "/furniture" },
+          { name: "HomeTown", link: "/furniture" },
+          { name: "Ajanta", link: "/furniture" },
+        ],
+      },
+    ],
+  },
+
+  {
+    name: "Sports, Books & More",
+    submenu: true,
+    sublinks: [
+      {
+        Head: "Sports:",
+        sublink: [
+          { name: "Cricket", link: "/sports" },
+          { name: "Badminton", link: "/sports" },
+          { name: "Cycling", link: "/sports" },
+          { name: "Football", link: "/sports" },
+          { name: "Skating", link: "/sports" },
+          { name: "Camping & Hiking", link: "/sports" },
+          { name: "Swimming", link: "/sports" },
+        ],
+      },
+      {
+        Head: "Exercise Fitness",
+        sublink: [
+          { name: "Cardio Equipment", link: "/sports" },
+          { name: "Home Gyms", link: "/sports" },
+          { name: "Support", link: "/sports" },
+          { name: "Dumbbells", link: "/sports" },
+          { name: "Ab Exercisers", link: "/sports" },
+          { name: "Shakers & Sippers", link: "/sports" },
+          { name: "Yoga Mat", link: "/sports" },
+        ],
+      },
+      {
+        Head: "Food Essentials",
+        sublink: [
+          { name: "Nuts & Dry Fruits", link: "/sports" },
+          { name: "Tea, Coffee", link: "/sports" },
+          { name: "Chocolates", link: "/sports" },
+          { name: "Snacks Corner", link: "/sports" },
+          { name: "Gifting Combos", link: "/sports" },
+          { name: "Sweets Store", link: "/sports" },
+          { name: "Jams, Spreads", link: "/sports" },
+        ],
+      },
+      {
+        Head: "Breakfast Items",
+        sublink: [
+          { name: "Health & Nutrition", link: "/sports" },
+          { name: "All Supplements", link: "/sports" },
+          { name: "Protein Supplements", link: "/sports" },
+          { name: "Vitamin Supplements", link: "/sports" },
+          { name: "Health Drinks", link: "/sports" },
+          { name: "Ayurvedic Supplements", link: "/sports" },
+          { name: "Liv 52", link: "/sports" },
+        ],
+      },
+      {
+        Head: "Books",
+        sublink: [
+          { name: "Entrance Exams", link: "/sports" },
+          { name: "Academics", link: "/sports" },
+          { name: "Literature & Fiction", link: "/sports" },
+          { name: "Non Fiction", link: "/sports" },
+          { name: "Young Readers", link: "/sports" },
+          { name: "Self-Help", link: "/sports" },
+          { name: "E-Learning", link: "/sports" },
+        ],
+      },
+      {
+        Head: "Stationery",
+        sublink: [
+          { name: "Pens", link: "/sports" },
+          { name: "Diaries", link: "/sports" },
+          { name: "Card Holders", link: "/sports" },
+          { name: "Desk Organizers", link: "/sports" },
+          { name: "Calculators", link: "/sports" },
+          { name: "Key Chains", link: "/sports" },
+          { name: "Preorders", link: "/sports" },
+        ],
+      },
+      {
+        Head: "Auto Accessories",
+        sublink: [
+          { name: "Helmets", link: "/sports" },
+          { name: "Car Audio/Video", link: "/sports" },
+          { name: "Car Accessories", link: "/sports" },
+          { name: "Car & Bike Care", link: "/sports" },
+          { name: "Vehicle Lubricants", link: "/sports" },
+          { name: "Scientific tools", link: "/sports" },
+          { name: "Measurement Devices", link: "/sports" },
+        ],
+      },
+      {
+        Head: "Industrial Devices",
+        sublink: [
+          { name: "Scientific Products", link: "/sports" },
+          { name: "Shipping Products", link: "/sports" },
+          { name: "Safety Products", link: "/sports" },
+          { name: "Medical Supplies", link: "/sports" },
+          { name: "Lab Products", link: "/sports" },
+          { name: "Packaging Products", link: "/sports" },
+          { name: "Measurement Devices", link: "/sports" },
+        ],
+      },
+      {
+        Head: "Music",
+        sublink: [
+          { name: "Musical Instruments", link: "/sports" },
+          { name: "Music", link: "/sports" },
+          { name: "Movies & Tv shows", link: "/sports" },
+          { name: "Gaming", link: "/sports" },
+          { name: "Gaming Consoles", link: "/sports" },
+          { name: "Gaming Accessories", link: "/sports" },
+          { name: "PS4 Games", link: "/sports" },
+        ],
+      },
+    ],
+  },
+];
+
 // {
 //     name: "Women",
 //     submenu: true,
@@ -437,4 +712,3 @@ export const links = [
 
 //     ],
 //   },
-

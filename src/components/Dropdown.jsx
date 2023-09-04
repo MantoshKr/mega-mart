@@ -1,11 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { links } from "./DropdownLink";
-import { FiChevronUp, FiChevronDown } from "react-icons/fi"; 
+import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 
 const Dropdown = () => {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+
+  useEffect(() => {
+    // Add an event listener to detect screen width changes
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 960);
+    };
+
+    // Initial check for screen width
+    handleResize();
+
+    // Attach the event listener
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
@@ -14,7 +34,7 @@ const Dropdown = () => {
           <div>
             <div className="px-3 text-left md:cursor-pointer group md:hover:color-blue">
               <h1
-                className="py-1 flex justify-between items-center md:pr-0 pr-5 group"
+                className="py-0 md:py-1 flex justify-between items-center md:pr-0 pr-5 group"
                 onClick={() => {
                   heading !== link.name
                     ? setHeading(link.name)
@@ -22,7 +42,29 @@ const Dropdown = () => {
                   setSubHeading("");
                 }}
               >
-                {link.name}
+                {/* {link.name} */}
+                {/* {link.name === "Baby & Kids" && window.innerWidth < 768
+                  ? "Kids"
+                  : link.name} */}
+
+                  {/* {link.name === "Baby & Kids" && window.innerWidth < 768
+                  ? "Kids"
+                  : link.name === "Home & Furniture" && window.innerWidth < 768
+                  ? "Home"
+                  : link.name === "Sports, Books & More" && window.innerWidth < 768
+                  ? "More"
+                  : link.name} */}
+
+                  {isSmallScreen &&
+                (link.name === "Baby & Kids"
+                  ? "Kids"
+                  : link.name === "Home & Furniture"
+                  ? "Home"
+                  : link.name === "Sports, Books & More"
+                  ? "More"
+                  : link.name)}
+                {!isSmallScreen && link.name}
+
                 <span className="text-xl md:hidden inline">
                   {heading === link.name ? <FiChevronUp /> : <FiChevronDown />}
                 </span>
@@ -31,16 +73,16 @@ const Dropdown = () => {
                 </span>
               </h1>
               {link.submenu && (
-                <div className="absolute top-8 hidden group-hover:md:block hover:md:block w-[30%] lgl:w-[50%] h-[50%]  transform -translate-x-1/2 shadow-2xl">
+                <div className="absolute top-7 hidden group-hover:md:block hover:md:block w-[90%] lgl:w-[80%] xl:w-[70%] h-[70%]  transform -translate-x-1/2 md:left-1/2 left-0  ">
                   {/* transform -translate-x-1/2 right-0 z-50 */}
                   {/* className="absolute top-10 right-0 hidden group-hover:md:block hover:md:block z-50 transform translate-x-full" */}
                   <div className="py-3">
-                    <div
-                      className="w-4 h-4 left-[50%] absolute 
-                      mt-1 bg-white   rotate-45 "
-                    ></div>
+                    {/* <div
+                      className="w-4 h-4 left-[50%] absolute
+                      mt-1 bg-white   rotate-45  "
+                    ></div> */}
                   </div>
-                  <div className="bg-white text-black font-bold  p-5 flex flex-wrap justify-between gap-5 max-h-96 overflow-y-auto">
+                  <div className="bg-white text-black font-bold  p-5 grid grid-cols-2 mdl:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-between gap-5 max-h-96 overflow-y-auto">
                     {link.sublinks.map((mysublinks) => (
                       <div key={mysublinks.Head} className="">
                         <h1 className="text-lg font-semibold  ">

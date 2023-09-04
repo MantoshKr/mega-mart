@@ -110,8 +110,8 @@ const Header = () => {
             <FiChevronDown />
             <span className="w-[1px] h-4 bg-white iniline-flex ml-2 "></span>
           </div> */}
-        {/* 
-          <div className="flex items-center gap-2">
+        
+          {/* <div className="flex items-center gap-2">
             <MdOutlineLocationOn />
             <p className="text-sm text-zinc-100">Gurugram, 122018</p>
             <FaPlaceOfWorship />

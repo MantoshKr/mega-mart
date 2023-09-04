@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React from "react";
 import Image from "next/image";
 import { IoSearchOutline } from "react-icons/io5";
 import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectItems, selectTotal } from "../slices/basketSlice";
 
 import Search from "./Search";
+import NavLinks from "./Dropdown";
 
 const Header = () => {
   const { data: session, status } = useSession();
@@ -19,7 +20,6 @@ const Header = () => {
   const router = useRouter();
   const items = useSelector(selectItems);
   const total = useSelector(selectTotal);
-
 
   return (
     // navbar top
@@ -96,9 +96,9 @@ const Header = () => {
 
       {/* ------------------------------navbar bottom ------------------------------------*/}
 
-      <div className="w-full mx-auto py-2 px-6 flex items-center justify-between bg-black bg-opacity-90">
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
+      <div className="w-full  mx-auto py-2 px-6 flex items-center justify-around bg-black bg-opacity-90  relative">
+        {/* <div className="flex items-center gap-4"> */}
+        {/* <div className="flex items-center gap-2">
             <Image
               src="/assets/images/phone.webp"
               width={27}
@@ -109,15 +109,16 @@ const Header = () => {
             <p className="text-sm font-semibold">How do you want your items?</p>
             <FiChevronDown />
             <span className="w-[1px] h-4 bg-white iniline-flex ml-2 "></span>
-          </div>
+          </div> */}
+        {/* 
           <div className="flex items-center gap-2">
             <MdOutlineLocationOn />
             <p className="text-sm text-zinc-100">Gurugram, 122018</p>
             <FaPlaceOfWorship />
             <p className="text-sm text-zinc-100">Gurugram Megacenter</p>
-          </div>
-        </div>
-        <ul className="flex gap-6 text-sm font-semibold">
+          </div> */}
+        {/* </div> */}
+        {/* <ul className="flex gap-6 text-sm font-semibold">
           <li className="hover:underline underline-offset-2 cursor-pointer decoration-[1px]">
             Mobiles
           </li>
@@ -142,7 +143,10 @@ const Header = () => {
           <li className="hover:underline underline-offset-2 cursor-pointer decoration-[1px]">
             sell
           </li>
-        </ul>
+        </ul> */}
+        <div className="flex gap-6 text-sm font-semibold">
+          <NavLinks />
+        </div>
       </div>
     </div>
   );

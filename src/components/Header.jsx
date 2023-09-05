@@ -10,9 +10,10 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { selectItems, selectTotal } from "../slices/basketSlice";
-
 import Search from "./Search";
-import NavLinks from "./Dropdown";
+import Dropdown from "./Dropdown";
+import DeptDropdownMenu from "./DeptDropdownMenu";
+
 
 const Header = () => {
   const { data: session, status } = useSession();
@@ -25,7 +26,7 @@ const Header = () => {
     // navbar top
     <div className="w-full  text-white sticky top-0 z-50">
       <div className="w-full h-full border-b-[1px] border-b-white bg-black bg-opacity-80">
-        <div className="max-w-container mx-auto h-20 px-4 flex items-center justify-between gap-2">
+        <div className="max-w-container mx-auto h-20 px-4 flex items-center justify-between gap-2 relative">
           <div
             onClick={() => router.push("/")}
             className="flex items-center h-12 px-5 rounded-full bg-transparent  hover:bg-hoverBg duration-300 cursor-pointer"
@@ -39,7 +40,7 @@ const Header = () => {
               className="mx-1"
             />
           </div>
-
+          <DeptDropdownMenu label="Departments">
           <div className="flex items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
             <div className="w-4 grid grid-cols-2 gap-[2px]">
               <span className="w-1.5 h-1.5 border-[1px] border-white inline-flex"></span>
@@ -50,6 +51,7 @@ const Header = () => {
 
             <p>Departments</p>
           </div>
+          </DeptDropdownMenu>
 
           <div className="flex items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
             <div className="w-4 grid grid-cols-2 gap-[2px]">
@@ -96,7 +98,7 @@ const Header = () => {
 
       {/* ------------------------------navbar bottom ------------------------------------*/}
 
-      <div className="w-full  mx-auto py-2 px-6 flex items-center justify-around bg-black bg-opacity-90  relative">
+      <div className="w-full  mx-auto py-2 px-6 flex items-center justify-around bg-black bg-opacity-90 ">
         {/* <div className="flex items-center gap-4"> */}
         {/* <div className="flex items-center gap-2">
             <Image
@@ -145,7 +147,7 @@ const Header = () => {
           </li>
         </ul> */}
         <div className="flex gap-6 text-sm font-semibold">
-          <NavLinks />
+          <Dropdown />
         </div>
       </div>
     </div>

@@ -73,7 +73,7 @@ const Dropdown = () => {
                 </span>
               </h1>
               {link.submenu && (
-                <div className="absolute top-7 hidden group-hover:md:block hover:md:block w-[90%] lgl:w-[80%] xl:w-[70%] h-[70%]  transform -translate-x-1/2 md:left-1/2 left-0  ">
+                <div className="absolute top-28 hidden group-hover:md:block hover:md:block w-[90%] lgl:w-[80%] xl:w-[70%] h-[70%]  transform -translate-x-1/2 md:left-1/2 left-0  ">
                   {/* transform -translate-x-1/2 right-0 z-50 */}
                   {/* className="absolute top-10 right-0 hidden group-hover:md:block hover:md:block z-50 transform translate-x-full" */}
                   <div className="py-3">

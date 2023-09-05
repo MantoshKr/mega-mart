@@ -104,15 +104,15 @@ const ProductDetailsPage = () => {
       <Header />
 
       <div className="w-full bg-white">
-        <div className="max-w-contentContainer mx-auto flex items-center py-4">
-          <div className="w-[60%]  h-full flex items-center justify-center overflow-hidden relative">
+        <div className="max-w-contentContainer mx-auto flex items-center py-4 relative">
+          <div className="w-[60%]  h-full flex items-center justify-center overflow-hidden ">
             <img
               src={image}
               alt=""
-              className="w-[50%] transform-origin-top-left cursor-move duration-500"
+              className="w-[30%] transform-origin-top-left cursor-move duration-500 absolute top-36"
             />
           </div>
-          <div className="w-[40%] h-full flex flex-col gap-2">
+          <div className="w-[40%] h-full flex flex-col gap-2 mx-10">
             <p className="p-2 text-green-700 text-sm font-semibold border border-gray-400 rounded-md  ">
               <span className="flex">
                 {Math.floor(popularityObject.count * 9.38).toFixed(0)}+ bought

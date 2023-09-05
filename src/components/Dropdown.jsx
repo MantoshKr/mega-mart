@@ -89,6 +89,7 @@ const Dropdown = () => {
                           {mysublinks.Head}
                         </h1>
                         {mysublinks.sublink.map((slink) => (
+                          <div key={slink.name}>
                           <li className="text-sm text-gray-500 hover:text-blue my-0.5 list-none">
                             <Link href={slink.link}>
                               <span className="hover:text-primary">
@@ -96,6 +97,7 @@ const Dropdown = () => {
                               </span>
                             </Link>
                           </li>
+                          </div>
                         ))}
                       </div>
                     ))}

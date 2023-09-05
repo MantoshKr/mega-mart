@@ -13,6 +13,7 @@ import { selectItems, selectTotal } from "../slices/basketSlice";
 import Search from "./Search";
 import Dropdown from "./Dropdown";
 import DeptDropdownMenu from "./DeptDropdownMenu";
+import ServicesDropdown from "./ServicesDropdown";
 
 
 const Header = () => {
@@ -53,6 +54,8 @@ const Header = () => {
           </div>
           </DeptDropdownMenu>
 
+
+          <ServicesDropdown label="Department">
           <div className="flex items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
             <div className="w-4 grid grid-cols-2 gap-[2px]">
               <span className="w-1.5 h-1.5 rounded-md border-[1px] border-white inline-flex"></span>
@@ -62,6 +65,7 @@ const Header = () => {
             </div>
             <p>Services</p>
           </div>
+          </ServicesDropdown>
 
           <Search />
 

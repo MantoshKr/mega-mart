@@ -35,16 +35,7 @@ const ProductDetailsPage = () => {
   const favoriteProducts = useSelector(selectFavoriteProducts);
 
   useEffect(() => {
-    console.log("Product ID:", id);
-    console.log("Product Title:", title);
-    console.log("Product Price:", price);
-    console.log("Product Description:", description);
-    console.log("Product Category:", category);
-    console.log("Product Image:", image);
-    console.log("Product Popularity:", popularity);
-    console.log("Popularity Object:", popularityObject);
-    console.log("Rating Value:", ratingValue);
-    console.log("Valid Rating Value:", validRatingValue);
+   
   }, [
     id,
     title,
@@ -104,15 +95,15 @@ const ProductDetailsPage = () => {
       <Header />
 
       <div className="w-full bg-white">
-        <div className="max-w-contentContainer mx-auto flex items-center py-4 relative">
-          <div className="w-[60%]  h-full flex items-center justify-center overflow-hidden ">
+        <div className="max-w-contentContainer mx-auto lg:flex lg:items-center py-4 relative">
+          <div className="lg:w-[60%] h-full flex items-center justify-center overflow-hidden ">
             <img
               src={image}
               alt=""
-              className="w-[30%] transform-origin-top-left cursor-move duration-500 absolute top-36"
+              className="lg:w-[70%] lgl:w-[30%] w-[50%]  transform-origin-top-left cursor-move duration-500 lgl:absolute  top-36 lg:mb-0 mb-6 "
             />
           </div>
-          <div className="w-[40%] h-full flex flex-col gap-2 mx-10">
+          <div className="lg:w-[40%] h-full flex-col gap-2 mx-10">
             <p className="p-2 text-green-700 text-sm font-semibold border border-gray-400 rounded-md  ">
               <span className="flex">
                 {Math.floor(popularityObject.count * 9.38).toFixed(0)}+ bought
@@ -300,7 +291,7 @@ const ProductDetailsPage = () => {
 
             <div>
         {offerFlashSale && (
-          <div className="w-full p-4 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
+          <div className="lgl:w-full md:w-[400px] w-[90%]  lgl:p-4 md:p-0 p-1 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
             <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
               <Image src={flashSaleIcon} width={60} height={60} alt="" />
               <p className="text-sm">
@@ -322,7 +313,7 @@ const ProductDetailsPage = () => {
 
       <div>
       {offerDiscount && (
-              <div className="w-full p-4 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
+              <div className="lgl:w-full w-[90%] md:w-[400px] lgl:p-4 md:p-0 p-1 mt-4  border-[1px] border-zinc-400 rounded-md lgl:flex lgl:flex-col lgl:justify-center gap-1">
                 <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
                   <Image src={giftBox} width={60} height={60} alt="" />
                   <p className="text-sm">

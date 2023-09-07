@@ -47,7 +47,7 @@ const DeptDropdownMenu = () => {
         </button> */}
   
   
-        <div onClick={toggleDropdown} className="flex items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
+        <div onClick={toggleDropdown} className="lgl:flex items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer hidden">
               <div className="w-4 grid grid-cols-2 gap-[2px]">
                 <span className="w-1.5 h-1.5 border-[1px] border-white inline-flex"></span>
                 <span className="w-1.5 h-1.5 border-[1px] border-white inline-flex"></span>
@@ -57,24 +57,25 @@ const DeptDropdownMenu = () => {
   
               <p>Departments</p>
             </div>
+            
         {isOpen && (
-          <div className="absolute top-14 right-12  mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 h-80">
+          <div className="absolute top-14 right-12  mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5  cursor-pointer grid grid-cols-1">
             {/* Dropdown content */}
             <div className="py-1">
               {links.map((category, index) => (
                 <div key={index}>
                   <a
                     href={`#${category.name.toLowerCase().replace(/ /g, '-')}`}
-                    className="block  px-4 py-2 text-sm text-gray-700 bg-white hover:bg-gray-100 h-full"
+                    className="px-4 py-2 text-sm text-gray-700 bg-white hover:bg-gray-100 grid grid-cols-1 "
                     onClick={() => toggleSubMenu1(index)}
                   >
                     {category.name}
                   </a>
                  
                   {activeSubMenu1 === index && category.submenu && (
-                    <div className="pl-4 absolute top-0 right-[77%] w-64 left-44 h-full " >
+                    <div className="pl-4 absolute top-0 right-[77%] w-64 left-44  " >
                       {category.sublinks.map((submenu1, subIndex1) => (
-                        <div key={subIndex1}>
+                        <div key={subIndex1} >
                           <a
                             href={submenu1.link}
                             className="block px-4 py-2 text-sm bg-white text-gray-700 hover:bg-gray-100 "
@@ -83,7 +84,7 @@ const DeptDropdownMenu = () => {
                             {submenu1.Head}
                           </a>
                           {activeSubMenu2 === subIndex1 && submenu1.sublink && (
-                            <div className="pl-4 absolute left-[100%] top-0 bg-white w-64 h-full">
+                            <div className="pl-4 absolute left-[100%] top-0 bg-white w-64 h-full r">
                               {submenu1.sublink.map((submenu2, subIndex2) => (
                                 <a
                                   key={subIndex2}
@@ -128,47 +129,14 @@ const DeptDropdownMenu = () => {
                 >
                   Additional Menu
                 </a>
-                <a
-                  href="#additional-link-1"
-                  className="block px-4 py-2 text-sm text-gray-700 bg-white hover:bg-gray-100"
-                >
-                  Additional Menu
-                </a>
-                <a
-                  href="#additional-link-1"
-                  className="block px-4 py-2 text-sm text-gray-700 bg-white hover:bg-gray-100"
-                >
-                  Additional Menu
-                </a>
-                <a
-                  href="#additional-link-1"
-                  className="block px-4 py-2 text-sm text-gray-700 bg-white hover:bg-gray-100"
-                >
-                  Additional Menu
-                </a>
-                <a
-                  href="#additional-link-1"
-                  className="block px-4 py-2 text-sm text-gray-700 bg-white hover:bg-gray-100"
-                >
-                  Additional Menu
-                </a>
-                <a
-                  href="#additional-link-1"
-                  className="block px-4 py-2 text-sm text-gray-700 bg-white hover:bg-gray-100"
-                >
-                  Additional Menu
-                </a>
-                <a
-                  href="#additional-link-1"
-                  className="block px-4 py-2 text-sm text-gray-700 bg-white hover:bg-gray-100"
-                >
-                  Additional Menu
-                </a>
+              
+               
               </div>
             </div>
           </div>
         )}
-      </div>
+        </div>
+      
     );
   };
   

@@ -7,7 +7,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 const Banner = () => {
   return (
     <div className="w-full bg-grey-200 px-10 py-6 font-titleFont flex gap-4 ">
-      <div className="w-full rounded-lg h-full shadow-bannerShadow relative overflow-hidden hidden lgl:block">
+      <div className="w-full rounded-lg h-full shadow-bannerShadow relative overflow-hidden hidden lgl:block ">
         <Carousel
           autoPlay
           infiniteLoop

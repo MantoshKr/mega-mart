@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { IoSearchOutline } from "react-icons/io5";
-import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
+
+import {
+  AiOutlineClose,
+  AiOutlineHeart,
+  AiOutlineMenu,
+  AiOutlineUser,
+} from "react-icons/ai";
 import { BsCart2 } from "react-icons/bs";
-import { FiChevronDown } from "react-icons/fi";
-import { MdOutlineLocationOn } from "react-icons/md";
-import { FaPlaceOfWorship } from "react-icons/fa";
+
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,7 +17,7 @@ import Search from "./Search";
 import Dropdown from "./Dropdown";
 import DeptDropdownMenu from "./DeptDropdownMenu";
 import ServicesDropdown from "./ServicesDropdown";
-
+import Link from "next/link";
 
 const Header = () => {
   const { data: session, status } = useSession();
@@ -22,68 +25,65 @@ const Header = () => {
   const router = useRouter();
   const items = useSelector(selectItems);
   const total = useSelector(selectTotal);
+  const [open, setOpen] = useState(false);
 
   return (
     // navbar top
     <div className="w-full  text-white sticky top-0 z-50">
       <div className="w-full h-full border-b-[1px] border-b-white bg-black bg-opacity-80">
-        <div className="max-w-container mx-auto h-20 px-4 flex items-center justify-between gap-2 relative">
+        <div className="max-w-container mx-auto h-20 px-4 flex items-center justify-between gap-1 md:gap-2 relative">
+          <div
+            className="text-3xl  md:hidden text-blue cursor-pointer"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <AiOutlineClose /> : <AiOutlineMenu />}
+          </div>
           <div
             onClick={() => router.push("/")}
-            className="flex items-center h-12 px-5 rounded-full bg-transparent  hover:bg-hoverBg duration-300 cursor-pointer"
+            className="flex items-center h-12 px-2 lgl:px-5 rounded-full bg-transparent  hover:bg-hoverBg duration-300 cursor-pointer"
           >
-            <p className="text-2xl font-bold  ">MegaMart</p>
+            <p className="text-2xl font-bold hidden lgl:flex  ">MegaMart</p>
+
             <Image
               src="/assets/images/mega-mart-logo.png"
               width={40}
               height={100}
               alt=""
-              className="mx-1"
+              className="md:mx-1 mx-0"
             />
           </div>
           <DeptDropdownMenu label="Departments">
-          <div className="flex items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
-            <div className="w-4 grid grid-cols-2 gap-[2px]">
-              <span className="w-1.5 h-1.5 border-[1px] border-white inline-flex"></span>
-              <span className="w-1.5 h-1.5 border-[1px] border-white inline-flex"></span>
-              <span className="w-1.5 h-1.5 border-[1px] border-white inline-flex"></span>
-              <span className="w-1.5 h-1.5 border-[1px] border-white inline-flex"></span>
-            </div>
+            
 
             <p>Departments</p>
-          </div>
+            
           </DeptDropdownMenu>
 
-
-          <ServicesDropdown label="Department">
-          <div className="flex items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
-            <div className="w-4 grid grid-cols-2 gap-[2px]">
-              <span className="w-1.5 h-1.5 rounded-md border-[1px] border-white inline-flex"></span>
-              <span className="w-1.5 h-1.5 rounded-md border-[1px] border-white inline-flex"></span>
-              <span className="w-1.5 h-1.5 rounded-md border-[1px] border-white inline-flex"></span>
-              <span className="w-1.5 h-1.5 rounded-md border-[1px] border-white inline-flex"></span>
-            </div>
+          <ServicesDropdown label="Servies">
+           
             <p>Services</p>
-          </div>
+            
           </ServicesDropdown>
 
           <Search />
 
-          <div className="flex items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
+          <div className="md:flex hidden items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
             <AiOutlineHeart />
-            <div>
+            <div className="lgl:block hidden">
               <p className="text-xs">Reorder</p>
               <h2 className="text-base font-semibold -mt-1">My Items</h2>
             </div>
           </div>
 
-          <div className="flex items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
+          <div className="md:flex hidden items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
             <AiOutlineUser />
             <div onClick={!session ? signIn : signOut}>
-              <p className="text-xs">
+              <p className="text-xs hidden lgl:block">
                 {session ? `Hello, ${session.user.name}` : "Sign In"}
               </p>
-              <h2 className="text-base font-semibold -mt-1">Account</h2>
+              <h2 className="text-base font-semibold -mt-1 hidden lgl:block ">
+                Account
+              </h2>
             </div>
           </div>
 
@@ -102,58 +102,30 @@ const Header = () => {
 
       {/* ------------------------------navbar bottom ------------------------------------*/}
 
-      <div className="w-full  mx-auto py-2 px-6 flex items-center justify-around bg-black bg-opacity-90 ">
-        {/* <div className="flex items-center gap-4"> */}
-        {/* <div className="flex items-center gap-2">
-            <Image
-              src="/assets/images/phone.webp"
-              width={27}
-              height={100}
-              alt=""
-              className=""
-            />
-            <p className="text-sm font-semibold">How do you want your items?</p>
-            <FiChevronDown />
-            <span className="w-[1px] h-4 bg-white iniline-flex ml-2 "></span>
-          </div> */}
-        
-          {/* <div className="flex items-center gap-2">
-            <MdOutlineLocationOn />
-            <p className="text-sm text-zinc-100">Gurugram, 122018</p>
-            <FaPlaceOfWorship />
-            <p className="text-sm text-zinc-100">Gurugram Megacenter</p>
-          </div> */}
-        {/* </div> */}
-        {/* <ul className="flex gap-6 text-sm font-semibold">
-          <li className="hover:underline underline-offset-2 cursor-pointer decoration-[1px]">
-            Mobiles
-          </li>
-          <li className="hover:underline underline-offset-2 cursor-pointer decoration-[1px]">
-            Electronics
-          </li>
-          <li className="hover:underline underline-offset-2 cursor-pointer decoration-[1px]">
-            Motors
-          </li>
-          <li className="hover:underline underline-offset-2 cursor-pointer decoration-[1px]">
-            Sports
-          </li>
-          <li className="hover:underline underline-offset-2 cursor-pointer decoration-[1px]">
-            Fashion
-          </li>
-          <li className="hover:underline underline-offset-2 cursor-pointer decoration-[1px]">
-            Home & Garden
-          </li>
-          <li className="hover:underline underline-offset-2 cursor-pointer decoration-[1px]">
-            Grocery
-          </li>
-          <li className="hover:underline underline-offset-2 cursor-pointer decoration-[1px]">
-            sell
-          </li>
-        </ul> */}
-        <div className="flex gap-6 text-sm font-semibold">
-          <Dropdown />
+      {/* <div className="w-full  mx-auto py-2 px-6 flex items-center justify-around bg-black bg-opacity-90 "> */}
+
+      
+      <div className="bg-black bg-opacity-90">
+        <div className="flex items-center font-medium justify-around text-sm">
+         
+          <ul className="md:flex py-2 px-6 md:items-center md:justify-around hidden uppercase items-center gap-8 font-[Poppins]">
+           
+            <Dropdown />
+          </ul>
+
+          {/* Mobile nav */}
+          <ul
+            className={`
+            md:hidden bg-black fixed w-full top-20 overflow-y-auto bottom-0 py-24 pl-4 text-xl
+            duration-500 ${open ? "left-0" : "left-[-100%]"}
+          `}
+          >
+            <Dropdown />
+          </ul>
         </div>
       </div>
+
+     
     </div>
   );
 };

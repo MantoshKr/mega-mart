@@ -2,25 +2,31 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { links } from "./DropdownLink";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
+import { FcBusinessman, FcBusinesswoman, FcElectronics, FcHome, FcSportsMode } from "react-icons/fc";
+import { FaBabyCarriage } from "react-icons/fa";
 
 const Dropdown = () => {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isXtraSmallScreen, setIsXtraSmallScreen] = useState(false);
+
+
 
 
   useEffect(() => {
     // Add an event listener to detect screen width changes
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 960);
+      setIsSmallScreen(window.innerWidth >= 900 && window.innerWidth < 1140);
+    setIsXtraSmallScreen(window.innerWidth >= 667 && window.innerWidth < 900);
     };
-
+  
     // Initial check for screen width
     handleResize();
-
+  
     // Attach the event listener
     window.addEventListener("resize", handleResize);
-
+  
     // Clean up the event listener on unmount
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -42,28 +48,37 @@ const Dropdown = () => {
                   setSubHeading("");
                 }}
               >
-                {/* {link.name} */}
-                {/* {link.name === "Baby & Kids" && window.innerWidth < 768
-                  ? "Kids"
-                  : link.name} */}
+              
 
-                  {/* {link.name === "Baby & Kids" && window.innerWidth < 768
-                  ? "Kids"
-                  : link.name === "Home & Furniture" && window.innerWidth < 768
-                  ? "Home"
-                  : link.name === "Sports, Books & More" && window.innerWidth < 768
-                  ? "More"
-                  : link.name} */}
-
-                  {isSmallScreen &&
-                (link.name === "Baby & Kids"
-                  ? "Kids"
-                  : link.name === "Home & Furniture"
-                  ? "Home"
-                  : link.name === "Sports, Books & More"
-                  ? "More"
-                  : link.name)}
-                {!isSmallScreen && link.name}
+               {isSmallScreen && !isXtraSmallScreen && (
+                <>
+                  {link.name === "Baby & Kids"
+                    ? "Kids"
+                    : link.name === "Home & Furniture"
+                    ? "Home"
+                    : link.name === "Sports, Books & More"
+                    ? "More"
+                    : link.name}
+                </>
+              )}
+              {isXtraSmallScreen && (
+                <>
+                  {link.name === "Baby & Kids"
+                    ? <FaBabyCarriage className="text-2xl"/>
+                    : link.name === "Home & Furniture"
+                    ? <FcHome className="text-2xl"/>
+                    : link.name === "Sports, Books & More"
+                    ? <FcSportsMode className="text-2xl"/>
+                    : link.name === "Electronics"
+                    ? <FcElectronics className="text-2xl"/>
+                    : link.name === "Men"
+                    ? <FcBusinessman className="text-2xl"/>
+                    : link.name === "Women"
+                    ? <FcBusinesswoman className="text-2xl"/>
+                    : link.name}
+                </>
+              )}
+              {!isSmallScreen && !isXtraSmallScreen && link.name}
 
                 <span className="text-xl md:hidden inline">
                   {heading === link.name ? <FiChevronUp /> : <FiChevronDown />}
@@ -121,10 +136,10 @@ const Dropdown = () => {
                           ? setSubHeading(slinks.Head)
                           : setSubHeading("")
                       }
-                      className="py-4 pl-7 font-semibold md:pr-0 pr-5 flex justify-between items-center "
+                      className="py-4 pl-7 text-sm font-semibold md:pr-0 pr-5 flex justify-between items-center "
                     >
                       {slinks.Head}
-                      <span className="text-xl md:mt-1 md:ml-2 inline">
+                      <span className="text-sm md:mt-1 md:ml-2 inline">
                         {subHeading === slinks.Head ? (
                           <FiChevronUp />
                         ) : (
@@ -138,7 +153,7 @@ const Dropdown = () => {
                       }`}
                     >
                       {slinks.sublink.map((slink) => (
-                        <li className="py-3 pl-14" key={slink.name}>
+                        <li className="py-3 pl-14 text-sm" key={slink.name}>
                           <Link href={slink.link}>
                             <span>{slink.name}</span>
                           </Link>

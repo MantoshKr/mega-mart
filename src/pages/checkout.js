@@ -76,8 +76,8 @@ const Checkout = () => {
               alt=""
             />
           ) : (
-            <div className="w-full flex gap-10">
-              <div className="w-2/3 flex flex-col gap-5">
+            <div className="w-full lgl:flex gap-10">
+              <div className="lgl:w-2/3 flex flex-col gap-0 m-10 lgl:m-0">
                 <h1 className="text-2xl font-bold text-black">
                   Cart{" "}
                   <span className="text-lightText font-normal">
@@ -166,8 +166,8 @@ const Checkout = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-1/3 h-full sticky top-10 bottom-4">
-                <div className="w-full p-4 mt-24  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-4 ">
+              <div className="lgl:w-1/3 h-full lgl:sticky lgl:top-10 bottom-4 m-10 lgl:m-0">
+                <div className="w-full p-4 mt-2  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-4 ">
                   {!session ? (
                     <div>
                       <button className="bg-gray-500  w-full text-gray-300 h-10 rounded-full font-semibold cursor-not-allowed">
@@ -298,7 +298,7 @@ const Checkout = () => {
                     New members get a free 30-day trial
                   </label>
                 </div>
-                <div className="w-full p-4 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
+                <div className="w-full  p-4 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
                   <label className="flex items-center gap-2 ">
                     <input
                       type="checkbox"
@@ -310,7 +310,7 @@ const Checkout = () => {
                 </div>
 
                 {offerFlashSale && (
-              <div className="w-full p-4 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
+              <div className="lgl:w-full w-[400px] p-0 lgl:p-4 mt-4  border-[1px] border-zinc-400 rounded-md sml:flex hidden flex-col justify-center gap-1">
                 <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
                   <Image src={flashSaleIcon} width={60} height={60} alt="" />
                   <p className="text-sm">
@@ -330,7 +330,7 @@ const Checkout = () => {
             )}
 
             {offerCashback && (
-              <div className="w-full p-4 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
+              <div className="lgl:w-full  w-[400px] p-0 lgl:p-4 mt-4  border-[1px] border-zinc-400 rounded-md hidden sml:flex flex-col justify-center gap-1">
                 <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
                   <Image src={creditcard} width={60} height={60} alt="" />
                   <p className="text-sm">

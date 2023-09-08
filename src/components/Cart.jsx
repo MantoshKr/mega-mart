@@ -40,8 +40,8 @@ const Cart = ({
   };
 
   return (
-    <div className="flex items-center justify-between gap-4 border-b-[1px] border-b-zinc-200 pb-4 gap">
-      <div className="w-3/4 flex items-center gap-2 mt-2">
+    <div className="md:flex md:items-center md:justify-between gap-4 border-b-[1px] border-b-zinc-200 pb-4 gap">
+      <div className="md:w-3/4 w-full xs:flex-col sml:flex-row flex items-center gap-2 mt-2">
         <Image className="w-32" width={500} height={500} src={image} alt="" />
 
         <div>
@@ -58,7 +58,9 @@ const Cart = ({
               },
             }}
           >
-            <h2 className="text-base text-zinc-900 font-bold hover:text-blue">{title}</h2>
+            <h2 className="text-base text-zinc-900 font-bold hover:text-blue">
+              {title}
+            </h2>
           </Link>
           <p className="text-sm text-zinc-500">{description}</p>
           <p className="text-sm text-zinc-500">Rs {Math.floor(price * 83)}</p>
@@ -85,14 +87,17 @@ const Cart = ({
           </div>
         </div>
       </div>
-      <div className="w-1/4 text-right flex flex-col items-end gap-1">
-        <p className="font-semibold text-xl text-green-600">
+      <div className="md:w-1/4 w-full text-right flex flex-col md:items-end  sm:mt-0 mt-4 sm:gap-1 gap-2">
+        <p className="font-semibold text-xl text-green-600 flex justify-between">
+        <span className="md:hidden">Price Now</span>
           Rs {Math.floor(price * 83)}
         </p>
         <p className="text-sm line-through text-zinc-500">
           {" "}
           Rs {(Math.floor(price * 83) * 1.17).toFixed(2)}{" "}
         </p>
+        <div className="flex justify-between">
+        <div className="md:hidden">{" "}</div>
         <div className="flex items-center text-xs gap-2">
           <p className="bg-green-200 text-[8px] uppercase px-2 py-[1px]">
             You Save
@@ -100,6 +105,7 @@ const Cart = ({
           <p className="text-green-600 font-semibold">
             Rs {(Math.floor(price * 83) * 0.17).toFixed(2)}
           </p>
+          </div>
         </div>
       </div>
     </div>

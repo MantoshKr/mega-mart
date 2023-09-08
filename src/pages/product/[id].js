@@ -100,7 +100,7 @@ const ProductDetailsPage = () => {
             <img
               src={image}
               alt=""
-              className="lg:w-[70%] lgl:w-[30%] w-[50%]  transform-origin-top-left cursor-move duration-500 lgl:absolute  top-36 lg:mb-0 mb-6 "
+              className="lg:w-[70%] lgl:w-[30%] md:w-[40%] sml:w-[50%] w-[70%] transform-origin-top-left cursor-move duration-500 lgl:absolute  top-36 mt-10 lg:mt-0 lg:mb-0 mb-6 "
             />
           </div>
           <div className="lg:w-[40%] h-full flex-col gap-2 mx-10">
@@ -280,7 +280,7 @@ const ProductDetailsPage = () => {
                     <p>In 2-5 days</p>
                   </div>
                 </div>
-                <p className="font-bold text-xs">
+                <p className="font-bold text-xs mt-1">
                   Gurugram, 122018
                   <span className="font-normal underline underline-offset-2 ml-1 cursor-pointer hover:text-blue">
                     change
@@ -291,7 +291,7 @@ const ProductDetailsPage = () => {
 
             <div>
         {offerFlashSale && (
-          <div className="lgl:w-full md:w-[400px] w-[90%]  lgl:p-4 md:p-0 p-1 mt-4  border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
+          <div className="lgl:w-full md:w-[400px] w-[90%]  lgl:p-4 md:p-0 p-1 mt-4  border-[1px] border-zinc-400 rounded-md sml:flex hidden flex-col justify-center gap-1">
             <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
               <Image src={flashSaleIcon} width={60} height={60} alt="" />
               <p className="text-sm">
@@ -313,7 +313,7 @@ const ProductDetailsPage = () => {
 
       <div>
       {offerDiscount && (
-              <div className="lgl:w-full w-[90%] md:w-[400px] lgl:p-4 md:p-0 p-1 mt-4  border-[1px] border-zinc-400 rounded-md lgl:flex lgl:flex-col lgl:justify-center gap-1">
+              <div className="lgl:w-full w-[90%] md:w-[400px] lgl:p-4 md:p-0 p-1 mt-4  border-[1px] border-zinc-400 rounded-md sml:flex hidden flex-col justify-center gap-1">
                 <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
                   <Image src={giftBox} width={60} height={60} alt="" />
                   <p className="text-sm">

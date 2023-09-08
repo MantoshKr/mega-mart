@@ -40,29 +40,27 @@ const Header = () => {
           </div>
           <div
             onClick={() => router.push("/")}
-            className="flex items-center h-12 px-2 lgl:px-5 rounded-full bg-transparent  hover:bg-hoverBg duration-300 cursor-pointer"
+            className="flex items-center h-12 px-2 lgl:px-5  rounded-full bg-transparent  hover:bg-hoverBg duration-300 cursor-pointer"
           >
             <p className="text-2xl font-bold hidden lgl:flex  ">MegaMart</p>
-
-            <Image
-              src="/assets/images/mega-mart-logo.png"
-              width={40}
-              height={100}
-              alt=""
-              className="md:mx-1 mx-0"
-            />
+            <div className="hidden md:flex">
+              <Image
+                src="/assets/images/mega-mart-logo.png"
+                width={40}
+                height={100}
+                alt=""
+                className="md:mx-1 mx-0"
+              />
+            </div>
           </div>
-          <DeptDropdownMenu label="Departments">
-            
-
-            <p>Departments</p>
-            
-          </DeptDropdownMenu>
+          <div className="hidden lgl:flex">
+            <DeptDropdownMenu label="Departments">
+              <p>Departments</p>
+            </DeptDropdownMenu>
+          </div>
 
           <ServicesDropdown label="Servies">
-           
             <p>Services</p>
-            
           </ServicesDropdown>
 
           <Search />
@@ -104,28 +102,61 @@ const Header = () => {
 
       {/* <div className="w-full  mx-auto py-2 px-6 flex items-center justify-around bg-black bg-opacity-90 "> */}
 
-      
       <div className="bg-black bg-opacity-90">
         <div className="flex items-center font-medium justify-around text-sm">
-         
           <ul className="md:flex py-2 px-6 md:items-center md:justify-around hidden uppercase items-center gap-8 font-[Poppins]">
-           
             <Dropdown />
           </ul>
 
           {/* Mobile nav */}
           <ul
             className={`
-            md:hidden bg-black fixed w-full top-20 overflow-y-auto bottom-0 py-24 pl-4 text-xl
+            md:hidden bg-black fixed w-full top-20 overflow-y-auto bottom-0 py-2 pl-4 text-xl
             duration-500 ${open ? "left-0" : "left-[-100%]"}
           `}
           >
+          
+            <li className="md:hidden mb-6">
+              <div
+                onClick={() => router.push("/")}
+                className="flex items-center h-12 px-2 lgl:px-5 rounded-full bg-transparent  hover:bg-hoverBg duration-300 cursor-pointer"
+              >
+                <p className="text-2xl font-bold md:hidden flex  ">MegaMart</p>
+
+                <Image
+                  src="/assets/images/mega-mart-logo.png"
+                  width={40}
+                  height={100}
+                  alt=""
+                  className="md:mx-1 mx-0"
+                />
+              </div>
+            </li>
+            <li className="flex justify-between">
+              <div className="md:hidden mb-6 flex items-center h-12 px-2 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
+                <AiOutlineUser />
+                <div onClick={!session ? signIn : signOut}>
+                  <p className="text-xs ">
+                    {session ? `Hello, ${session.user.name}` : "Sign In"}
+                  </p>
+                  <h2 className="text-base font-semibold -mt-1 ">Account</h2>
+                </div>
+              </div>
+
+              <div className="flex md:hidden items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
+                <AiOutlineHeart />
+                <div>
+                  <p className="text-xs">Reorder</p>
+                  <h2 className="text-base font-semibold -mt-1">My Items</h2>
+                </div>
+              </div>
+            </li>
+            
             <Dropdown />
+            
           </ul>
         </div>
       </div>
-
-     
     </div>
   );
 };

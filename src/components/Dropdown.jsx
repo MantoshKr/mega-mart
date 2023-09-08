@@ -35,12 +35,13 @@ const Dropdown = () => {
 
   return (
     <>
+   
       {links.map((link) => (
         <div key={link.name}>
           <div>
             <div className="px-3 text-left md:cursor-pointer group md:hover:color-blue">
               <h1
-                className="py-0 md:py-1 flex justify-between items-center md:pr-0 pr-5 group"
+                className="py-2 md:py-1 flex justify-between items-center md:pr-0 pr-5 group"
                 onClick={() => {
                   heading !== link.name
                     ? setHeading(link.name)
@@ -167,6 +168,7 @@ const Dropdown = () => {
           </div>
         </div>
       ))}
+      
     </>
   );
 };

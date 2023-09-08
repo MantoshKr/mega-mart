@@ -47,7 +47,7 @@ const DeptDropdownMenu = () => {
         </button> */}
   
   
-        <div onClick={toggleDropdown} className="lgl:flex items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer hidden">
+        <div onClick={toggleDropdown} className="flex items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
               <div className="w-4 grid grid-cols-2 gap-[2px]">
                 <span className="w-1.5 h-1.5 border-[1px] border-white inline-flex"></span>
                 <span className="w-1.5 h-1.5 border-[1px] border-white inline-flex"></span>

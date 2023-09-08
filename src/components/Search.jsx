@@ -17,7 +17,7 @@ function Search() {
             <input
               className="h-full w-full rounded-full px-4 text-black text-base outline-none border-[1px] border-transparent focus-visible:border-black duration-200"
               type="text"
-              placeholder="Search products..."
+              placeholder="Search Megamart.com"
               value={searchQuery}
               onChange={handleInputChange}
             />

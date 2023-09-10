@@ -31,10 +31,10 @@ const Success = () => {
   }, []);
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Header />
-
-      <div className="max-w-screen-lg mx-auto">
+       
+      <div className="max-w-screen-lg mx-auto flex-grow">
         <div className="flex flex-col p-10 bg-white gap-10">
           <div className="gap-4">
             <div className="flex items-center">
@@ -61,7 +61,7 @@ const Success = () => {
         <div className="flex ">
           <div>
             {offerCashback && (
-              <div className="w-[60%] p-4 mt-4 mx-10 border-[1px] border-zinc-400 rounded-md flex flex-col justify-center gap-1">
+              <div className="md:w-[60%] hidden p-4 mt-4 mx-10 border-[1px] border-zinc-400 rounded-md md:flex flex-col justify-center gap-1">
                 <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
                   <Image src={creditcard} width={60} height={60} alt="" />
                   <p className="text-sm">
@@ -80,8 +80,6 @@ const Success = () => {
               </div>
             )}
           </div>
-          
-          
         </div>
 
         <br />
@@ -119,9 +117,8 @@ const Success = () => {
             The MegaMart Team
           </p>
         </div>
-
-        
       </div>
+      
 
       <Feedback />
 

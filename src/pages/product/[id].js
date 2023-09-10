@@ -13,9 +13,8 @@ import { IoMdClose } from "react-icons/io";
 import flashSaleIcon from "Public/assets/images/flashSaleIcon.png";
 import { useState } from "react";
 import giftBox from "Public/assets/images/giftBox.png";
-import { addToFavorites, removeFromFavorites } from "@/slices/favoriteSlice";
 import { useSelector } from "react-redux";
-import { selectFavoriteProducts } from "@/slices/favoriteSlice";
+
 
 const ProductDetailsPage = () => {
   const router = useRouter();
@@ -32,7 +31,7 @@ const ProductDetailsPage = () => {
   const validRatingValue = Math.max(0, Math.min(5, Math.floor(ratingValue)));
   const [offerFlashSale, setOfferFlashSale] = useState(true);
   const [offerDiscount, setOfferDiscount] = useState(true);
-  const favoriteProducts = useSelector(selectFavoriteProducts);
+
 
   useEffect(() => {
    
@@ -63,21 +62,6 @@ const ProductDetailsPage = () => {
     dispatch(addToBasket(product));
   };
 
-
-  const isProductFavorite = favoriteProducts.includes(id);
-
-  const handleAddToFavorites = () => {
- 
-    dispatch(addToFavorites(id));
-  };
-
-  console.log('hf Title:', title);
-  console.log('hf Price:', price);
-
-  const handleRemoveFromFavorites = () => {
-
-    dispatch(removeFromFavorites(id));
-  };
 
   console.log('rf Title:', title);
   console.log('rf Price:', price);
@@ -120,18 +104,7 @@ const ProductDetailsPage = () => {
                     Reduced price
                   </button>
                 </div>
-                <div>
-                  {isProductFavorite ? (
-                    <button onClick={handleRemoveFromFavorites}>
-                      <AiFillHeart className="text-red-600 text-2xl" />
-                    </button>
-                  ) : (
-                    <button onClick={handleAddToFavorites}>
-                      <AiOutlineHeart className="text-gray-600 text-2xl" />
-                    </button>
-                  )}
-                </div>
-                {/* <AiOutlineHeart className="text-gray-600 text-2xl" /> */}
+                
               </div>
               {/* product details */}
               <div className="flex flex-col gap-1">

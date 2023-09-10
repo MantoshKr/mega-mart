@@ -1,12 +1,13 @@
 import Image from "next/image";
 import React from "react";
 import { GoPlus } from "react-icons/go";
-import { AiFillStar } from "react-icons/ai";
+import { AiFillHeart, AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToBasket } from "../slices/basketSlice";
 import Link from "next/link";
 import { useEffect } from "react";
+import { addToWishlist, removeFromWishlist , selectWishlistItems } from "../slices/wishlistSlice";
 const MIN_RATING = 1; 
 const MAX_RATING = 5; 
 
@@ -46,10 +47,23 @@ const ProductCard = ({
     dispatch(addToBasket(product));
   };
 
+  
+  const wishlistItems = useSelector(selectWishlistItems);
+  const isItemInWishlist = wishlistItems.some((item) => item.id === id);
+
+  const toggleWishlist = () => {
+    if (isItemInWishlist) {
+      dispatch(removeFromWishlist({ id }));
+    } else {
+      dispatch(addToWishlist({ id, title, price, image,description,   }));
+    }
+  };
+
+
   return (
     <div>
       <div className=" border-gray-200 bg-white mb-6 group">
-        <div className="w-full h-80 overflow-hidden p-6">
+        <div className="w-full h-80 overflow-hidden p-6 relative">
           <Image
             className="w-full h-full object-contain scale-100 group-hover:scale-105  duration-300"
             alt="img"
@@ -57,6 +71,12 @@ const ProductCard = ({
             height={250}
             src={image}
           />
+          <p
+            className="absolute top-4 right-4 text-2xl cursor-pointer"
+            onClick={toggleWishlist}
+          >
+            {isItemInWishlist ? <AiFillHeart style={{color:"red"}} /> : <AiOutlineHeart />}
+          </p>
         </div>
         <div className="px-2 py-4  flex flex-col justify-center">
           <div className="flex justify-between py-2">

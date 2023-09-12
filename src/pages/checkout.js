@@ -159,7 +159,8 @@ const Checkout = () => {
                           description={item.description}
                           category={item.category}
                           image={item.image}
-                          popularity={item.popularity}
+                          rating={item.rating}
+                          ratingcount={item.ratingcount}
                         />
                       ))}
                     </div>

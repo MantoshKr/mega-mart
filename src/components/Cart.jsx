@@ -7,6 +7,7 @@ import { addToBasket, removeFromBasket } from "../slices/basketSlice";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
 import { addToSaveForLater , removeFromSaveForLater, selectSaveForLaterItems } from "../slices/saveForLaterSlice";
+import RenderStars from "./StarRating";
 
 const Cart = ({
   id,
@@ -15,7 +16,8 @@ const Cart = ({
   description,
   category,
   image,
-  popularity,
+  ratingcount,
+  rating,
   hideButton,
 }) => {
   const items = useSelector(selectItems);
@@ -30,7 +32,8 @@ const Cart = ({
       description,
       category,
       image,
-      popularity,
+      ratingcount,
+  rating,
     };
     // Sending the product as an action to the REDUX store... the basket slice
     dispatch(addToBasket(product));
@@ -45,14 +48,16 @@ const Cart = ({
 
   const handleAddToSaveForLater = (item) => {
     // Dispatch action to save item for later
-    dispatch(addToSaveForLater({  id, title, price, image , description,  }));
+    dispatch(addToSaveForLater({  id, title, price, image , description, ratingcount,
+      rating, }));
 
     dispatch(removeFromBasket({ id }));
   };
 
     const  handleremoveFromSaveForLater = (item) => {
       // Dispatch action to save item for later
-      dispatch(addToBasket({ id, title, price, image , description,  }));
+      dispatch(addToBasket({ id, title, price, image , description, ratingcount,
+        rating, }));
     
       // Dispatch action to remove item from the cart
       dispatch(removeFromSaveForLater({ id }));
@@ -73,7 +78,8 @@ const Cart = ({
                 description: description,
                 category: category,
                 image: image,
-                popularity: JSON.stringify(popularity),
+                rating: rating,
+                ratingcount: ratingcount,
               },
             }}
           >
@@ -88,6 +94,10 @@ const Cart = ({
               <TbReload className="rotate-270" />
             </span>
             Free 90-day returns
+          </p>
+          <p className="flex items-center gap-1">
+           <span className="flex"><RenderStars rating={rating} /></span>
+           <span className="text-sm"> {ratingcount}</span>
           </p>
 
           <div className="mt-2 flex items-center gap-5">

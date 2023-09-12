@@ -14,6 +14,7 @@ import flashSaleIcon from "Public/assets/images/flashSaleIcon.png";
 import { useState } from "react";
 import giftBox from "Public/assets/images/giftBox.png";
 import { useSelector } from "react-redux";
+import RenderStars from "@/components/StarRating";
 
 
 const ProductDetailsPage = () => {
@@ -105,7 +106,7 @@ const ProductDetailsPage = () => {
 
                 <p className="text-xl font-semibold text-black">{title}</p>
                 <div className="flex text-sm gap-1">
-                {rating}
+                <RenderStars rating={rating} />
                 {ratingcount}
                 </div>
                 <p className="text-base text-zinc-500">{description}</p>

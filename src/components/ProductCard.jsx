@@ -8,6 +8,7 @@ import { addToBasket } from "../slices/basketSlice";
 import Link from "next/link";
 import { useEffect } from "react";
 import { addToWishlist, removeFromWishlist , selectWishlistItems } from "../slices/wishlistSlice";
+import RenderStars from "./StarRating";
 const MIN_RATING = 1; 
 const MAX_RATING = 5; 
 
@@ -116,7 +117,7 @@ const ProductCard = ({
           <p>{description.substring(0, 70)}...</p>
           <div className="flex gap-2 items-center text-sm mt-2 justify-between">
             <div className="flex text-sm gap-1">
-              {rating}
+            <RenderStars rating={rating} />
             {ratingcount}
             </div>
             {hasPlus && (

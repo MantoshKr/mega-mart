@@ -16,6 +16,7 @@ const Cart = ({
   category,
   image,
   popularity,
+  hideButton,
 }) => {
   const items = useSelector(selectItems);
 
@@ -90,34 +91,41 @@ const Cart = ({
           </p>
 
           <div className="mt-2 flex items-center gap-5">
+          {!hideButton && (
             <div
               onClick={addItemToBasket}
               className=" h-8 border border-zinc-400 rounded-full text-base font-semibold text-black flex items-center justify-between px-3 hover:text-white hover:bg-black cursor-pointer"
             >
               <span>Add More</span>
             </div>
+          )}
+          {!hideButton && (
             <div
               onClick={removeItemFromBasket}
               className=" h-8 border border-zinc-400 rounded-full text-base font-semibold text-black flex items-center justify-between px-3 hover:text-white hover:bg-red-500 cursor-pointer"
             >
               <span>Remove</span>
             </div>
+          )}
 
+          {!hideButton && (
             <div
               onClick={handleAddToSaveForLater}
               className=" h-8 border border-zinc-400 rounded-full text-base font-semibold text-black flex items-center justify-between px-3 hover:text-white hover:bg-green-500 cursor-pointer"
             >
               <span>Save for later</span>
             </div>
+          )}
 
-            <div
+          {hideButton && (
+          <div
               onClick={handleremoveFromSaveForLater}
               className=" h-8 border border-zinc-400 rounded-full text-base font-semibold text-black flex items-center justify-between px-3 hover:text-white hover:bg-green-500 cursor-pointer"
             >
               <span>Add back to cart</span>
             </div>
-
-            
+          )}
+          
           </div>
         </div>
       </div>

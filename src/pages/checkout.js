@@ -76,8 +76,8 @@ const Checkout = () => {
             </div>
             
           ) : (
-            <div className="w-full lgl:flex gap-10">
-              <div className="lgl:w-2/3 flex flex-col gap-0 m-10 lgl:m-0">
+            <div className="w-full lgl2:flex gap-10">
+              <div className="lgl2:w-2/3 flex flex-col gap-0 m-10 lgl2:m-0">
                 <h1 className="text-2xl font-bold text-black">
                   Cart{" "}
                   <span className="text-lightText font-normal">

@@ -18,7 +18,7 @@ const stripePromise = loadStripe(process.env.stripe_public_key);
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import flashSaleIcon from "/public/assets/images/flashSaleIcon.png";
-import giftBox from "/public/assets/images/giftBox.png";
+import SaveForLater from "@/components/SaveForLater";
 
 
 const Checkout = () => {
@@ -70,11 +70,11 @@ const Checkout = () => {
       <div className="max-w-contentContainer mx-auto">
         <div className="w-full py-10">
           {items.length === 0 ? (
-            <Image
-              src={emptycartimg1}
-              className="w-full object-contain"
-              alt=""
-            />
+            <div>
+            <p className="text-3xl font-bold">Your cart is empty.</p>
+            <div className="mt-60"><SaveForLater /></div>
+            </div>
+            
           ) : (
             <div className="w-full lgl:flex gap-10">
               <div className="lgl:w-2/3 flex flex-col gap-0 m-10 lgl:m-0">
@@ -162,6 +162,9 @@ const Checkout = () => {
                           popularity={item.popularity}
                         />
                       ))}
+                    </div>
+                    <div className="mt-10">
+                    <SaveForLater />
                     </div>
                   </div>
                 </div>

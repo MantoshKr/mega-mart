@@ -6,6 +6,7 @@ import { TbReload } from "react-icons/tb";
 import { addToBasket, removeFromBasket } from "../slices/basketSlice";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
+import { addToSaveForLater , removeFromSaveForLater, selectSaveForLaterItems } from "../slices/saveForLaterSlice";
 
 const Cart = ({
   id,
@@ -38,6 +39,23 @@ const Cart = ({
     // remove the item from the redux store
     dispatch(removeFromBasket({ id }));
   };
+
+  const saveForLaterItems = useSelector(selectSaveForLaterItems);
+
+  const handleAddToSaveForLater = (item) => {
+    // Dispatch action to save item for later
+    dispatch(addToSaveForLater({  id, title, price, image , description,  }));
+
+    dispatch(removeFromBasket({ id }));
+  };
+
+    const  handleremoveFromSaveForLater = (item) => {
+      // Dispatch action to save item for later
+      dispatch(addToBasket({ id, title, price, image , description,  }));
+    
+      // Dispatch action to remove item from the cart
+      dispatch(removeFromSaveForLater({ id }));
+    };
 
   return (
     <div className="md:flex md:items-center md:justify-between gap-4 border-b-[1px] border-b-zinc-200 pb-4 gap">
@@ -84,6 +102,22 @@ const Cart = ({
             >
               <span>Remove</span>
             </div>
+
+            <div
+              onClick={handleAddToSaveForLater}
+              className=" h-8 border border-zinc-400 rounded-full text-base font-semibold text-black flex items-center justify-between px-3 hover:text-white hover:bg-green-500 cursor-pointer"
+            >
+              <span>Save for later</span>
+            </div>
+
+            <div
+              onClick={handleremoveFromSaveForLater}
+              className=" h-8 border border-zinc-400 rounded-full text-base font-semibold text-black flex items-center justify-between px-3 hover:text-white hover:bg-green-500 cursor-pointer"
+            >
+              <span>Add back to cart</span>
+            </div>
+
+            
           </div>
         </div>
       </div>

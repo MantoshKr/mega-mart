@@ -84,7 +84,7 @@ const Cart = ({
   };
 
   const wishlistItems = useSelector(selectWishlistItems);
-  const isItemInWishlist = wishlistItems.some((item) => item.id === id);
+  const isItemInWishlist = wishlistItems.some((item) => item.id == id);
 
   const toggleWishlist = () => {
     if (isItemInWishlist) {

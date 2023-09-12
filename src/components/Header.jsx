@@ -143,7 +143,7 @@ const Header = () => {
                 </div>
               </div>
 
-              <div className="flex md:hidden items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
+              <div onClick={() => router.push("/wishlist")} className="flex md:hidden items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
                 <AiOutlineHeart />
                 <div>
                   <p className="text-xs">Reorder</p>

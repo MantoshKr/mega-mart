@@ -15,22 +15,15 @@ import { useState } from "react";
 import giftBox from "Public/assets/images/giftBox.png";
 import { useSelector } from "react-redux";
 import RenderStars from "@/components/StarRating";
-
+import {
+  addToWishlist,
+  removeFromWishlist,
+  selectWishlistItems,
+} from "@/slices/wishlistSlice";
 
 const ProductDetailsPage = () => {
   const router = useRouter();
-  const { id, title, price, description, category, image, ratingcount,
-    rating } =
-    router.query;
-  const dispatch = useDispatch();
-
-  const [offerFlashSale, setOfferFlashSale] = useState(true);
-  const [offerDiscount, setOfferDiscount] = useState(true);
-
-
-  useEffect(() => {
-   
-  }, [
+  const {
     id,
     title,
     price,
@@ -39,7 +32,21 @@ const ProductDetailsPage = () => {
     image,
     ratingcount,
     rating,
-   
+  } = router.query;
+  const dispatch = useDispatch();
+
+  const [offerFlashSale, setOfferFlashSale] = useState(true);
+  const [offerDiscount, setOfferDiscount] = useState(true);
+
+  useEffect(() => {}, [
+    id,
+    title,
+    price,
+    description,
+    category,
+    image,
+    ratingcount,
+    rating,
   ]);
 
   const addItemToBasket = () => {
@@ -57,10 +64,6 @@ const ProductDetailsPage = () => {
     dispatch(addToBasket(product));
   };
 
-
-  console.log('rf Title:', title);
-  console.log('rf Price:', price);
-
   useEffect(() => {
     setOfferFlashSale(true);
   }, []);
@@ -68,6 +71,27 @@ const ProductDetailsPage = () => {
   useEffect(() => {
     setOfferDiscount(true);
   }, []);
+
+  const wishlistItems = useSelector(selectWishlistItems);
+  const isItemInWishlist = wishlistItems.some((item) => item.id == id);
+
+  const toggleWishlist = () => {
+    if (isItemInWishlist) {
+      dispatch(removeFromWishlist({ id }));
+    } else {
+      dispatch(
+        addToWishlist({
+          id,
+          title,
+          price,
+          image,
+          description,
+          ratingcount,
+          rating,
+        })
+      );
+    }
+  };
 
   return (
     <div>
@@ -84,7 +108,7 @@ const ProductDetailsPage = () => {
           </div>
           <div className="lg:w-[40%] h-full flex-col gap-2 mx-10">
             <p className="p-2 text-green-700 text-sm font-semibold border border-gray-400 rounded-md  ">
-            {Math.floor(ratingcount * 0.62).toFixed(0)}+ bought last month
+              {Math.floor(ratingcount * 0.62).toFixed(0)}+ bought last month
             </p>
             <div className="px-2 py-4 border border-gray-400 rounded-md flex flex-col gap-6 ">
               <div className="flex justify-between items-center">
@@ -96,7 +120,14 @@ const ProductDetailsPage = () => {
                     Reduced price
                   </button>
                 </div>
-                
+                <div>
+                <p
+            className=" top-4 right-4 text-2xl cursor-pointer"
+            onClick={toggleWishlist}
+          >
+            {isItemInWishlist ? <AiFillHeart style={{color:"red"}} /> : <AiOutlineHeart />}
+          </p>
+                </div>
               </div>
               {/* product details */}
               <div className="flex flex-col gap-1">
@@ -106,8 +137,8 @@ const ProductDetailsPage = () => {
 
                 <p className="text-xl font-semibold text-black">{title}</p>
                 <div className="flex text-sm gap-1">
-                <RenderStars rating={rating} />
-                {ratingcount}
+                  <RenderStars rating={rating} />
+                  {ratingcount}
                 </div>
                 <p className="text-base text-zinc-500">{description}</p>
                 <div className="flex items-end gap-2">
@@ -251,53 +282,52 @@ const ProductDetailsPage = () => {
             </div>
 
             <div>
-        {offerFlashSale && (
-          <div className="lgl:w-full md:w-[400px] w-[90%]  lgl:p-4 md:p-0 p-1 mt-4  border-[1px] border-zinc-400 rounded-md sml:flex hidden flex-col justify-center gap-1">
-            <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
-              <Image src={flashSaleIcon} width={60} height={60} alt="" />
-              <p className="text-sm">
-                <span className="font-bold">Flash Sale Alert!</span> Shop now at
-                Megamart.com and enjoy huge discounts on selected items for the
-                next 24 hours only. Limited quantities available.
-                <span className="underline cursor-pointer hover:text-blue text-zinc-500">
-                  See deals
-                </span>
-              </p>
-              <IoMdClose
-                onClick={() => setOfferFlashSale(false)}
-                className="text-5xl hover:text-red-400 cursor-pointer duration-200"
-              />
-            </div>
-          </div>
-        )}
-      </div>
-
-      <div>
-      {offerDiscount && (
-              <div className="lgl:w-full w-[90%] md:w-[400px] lgl:p-4 md:p-0 p-1 mt-4  border-[1px] border-zinc-400 rounded-md sml:flex hidden flex-col justify-center gap-1">
-                <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
-                  <Image src={giftBox} width={60} height={60} alt="" />
-                  <p className="text-sm">
-                    <span className="font-bold">Get 20% off</span> on your next
-                    purchase at Megamart.com. Don't miss this exclusive discount
-                    opportunity.{" "}
-                    <span className="underline cursor-pointer hover:text-blue text-zinc-500">
-                      Learn more
-                    </span>
-                  </p>
-                  <IoMdClose
-                    onClick={() => setOfferDiscount(false)}
-                    className="text-5xl hover:text-red-400 cursor-pointer duration-200"
-                  />
+              {offerFlashSale && (
+                <div className="lgl:w-full md:w-[400px] w-[90%]  lgl:p-4 md:p-0 p-1 mt-4  border-[1px] border-zinc-400 rounded-md sml:flex hidden flex-col justify-center gap-1">
+                  <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
+                    <Image src={flashSaleIcon} width={60} height={60} alt="" />
+                    <p className="text-sm">
+                      <span className="font-bold">Flash Sale Alert!</span> Shop
+                      now at Megamart.com and enjoy huge discounts on selected
+                      items for the next 24 hours only. Limited quantities
+                      available.
+                      <span className="underline cursor-pointer hover:text-blue text-zinc-500">
+                        See deals
+                      </span>
+                    </p>
+                    <IoMdClose
+                      onClick={() => setOfferFlashSale(false)}
+                      className="text-5xl hover:text-red-400 cursor-pointer duration-200"
+                    />
+                  </div>
                 </div>
-              </div>
-            )}
-      </div>
+              )}
+            </div>
+
+            <div>
+              {offerDiscount && (
+                <div className="lgl:w-full w-[90%] md:w-[400px] lgl:p-4 md:p-0 p-1 mt-4  border-[1px] border-zinc-400 rounded-md sml:flex hidden flex-col justify-center gap-1">
+                  <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
+                    <Image src={giftBox} width={60} height={60} alt="" />
+                    <p className="text-sm">
+                      <span className="font-bold">Get 20% off</span> on your
+                      next purchase at Megamart.com. Don't miss this exclusive
+                      discount opportunity.{" "}
+                      <span className="underline cursor-pointer hover:text-blue text-zinc-500">
+                        Learn more
+                      </span>
+                    </p>
+                    <IoMdClose
+                      onClick={() => setOfferDiscount(false)}
+                      className="text-5xl hover:text-red-400 cursor-pointer duration-200"
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
-
-     
 
       <Feedback />
       <Footer />

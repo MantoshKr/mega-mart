@@ -24,7 +24,6 @@ import {
 const ProductDetailsPage = () => {
   const router = useRouter();
   const {
-    id,
     title,
     price,
     description,
@@ -33,6 +32,10 @@ const ProductDetailsPage = () => {
     ratingcount,
     rating,
   } = router.query;
+
+  // Convert id to a number
+  const id = parseInt(router.query.id);
+
   const dispatch = useDispatch();
 
   const [offerFlashSale, setOfferFlashSale] = useState(true);
@@ -73,7 +76,7 @@ const ProductDetailsPage = () => {
   }, []);
 
   const wishlistItems = useSelector(selectWishlistItems);
-  const isItemInWishlist = wishlistItems.some((item) => item.id == id);
+  const isItemInWishlist = wishlistItems.some((item) => item.id === id);
 
   const toggleWishlist = () => {
     if (isItemInWishlist) {

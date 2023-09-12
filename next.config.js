@@ -1,8 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ["fakestoreapi.com"],
-    },
+        remotePatterns: [
+          {
+            protocol: "https",
+            hostname: "**",
+          },
+        ],
+      },
 
     env: {
         stripe_public_key: process.env.STRIPE_PUBLIC_KEY,

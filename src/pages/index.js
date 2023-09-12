@@ -35,20 +35,47 @@ export default function Home({products}) {
 }
 
 export async function getServerSideProps(context) {
-  const products = await fetch("https://fakestoreapi.com/products").then(
-    (res) => res.json()
-  );
+  try {
+    // Fetching data from the first API
+    const response1 = await fetch("https://fakestoreapi.com/products");
+    const data1 = await response1.json();
+    // Fetching data from the second API
+    const response2 = await fetch('https://dummyjson.com/products');
+    const data2 = await response2.json();
 
 
-  const modifiedProducts = products.map((product) => ({
-    ...product,
-    rating: product.rating.rate,
-    ratingcount: product.rating.count,
-  }));
+    // Combining the data from both APIs into a single array
+    const combinedData = [
+      ...data1.map((product) => ({
+        ...product,
+        source: "API1", // source field to distinguish the data sources
+        rating:product.rating.rate,
+        ratingcount:product.rating.count,
+        
+      })),
+      ...data2.products.map((product) => ({
+        ...product,
+        id: product.id + 100, // Modifying the id by adding 100 to avoid conflicts
+        source: "API2", // Add a source field to distinguish the data sources
+        image:product.images[0] ,
+        ratingcount:product.stock * 2,
+      })),
+      
+    ];
 
-  return {
-    props: {
-      products: modifiedProducts,
-    },
-  };
+    console.log('Combined Data:', combinedData);
+
+    return {
+      props: {
+        products: combinedData || [], 
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return {
+      props: {
+        products: [], 
+      },
+    };
+  }
 }

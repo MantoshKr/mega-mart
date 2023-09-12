@@ -18,17 +18,11 @@ import { useSelector } from "react-redux";
 
 const ProductDetailsPage = () => {
   const router = useRouter();
-  const { id, title, price, description, category, image, popularity } =
+  const { id, title, price, description, category, image, ratingcount,
+    rating } =
     router.query;
   const dispatch = useDispatch();
 
-  const popularityObject = useMemo(
-    () => (popularity ? JSON.parse(popularity) : {}),
-    [popularity]
-  );
-
-  const ratingValue = popularityObject.rate || 0;
-  const validRatingValue = Math.max(0, Math.min(5, Math.floor(ratingValue)));
   const [offerFlashSale, setOfferFlashSale] = useState(true);
   const [offerDiscount, setOfferDiscount] = useState(true);
 
@@ -42,10 +36,9 @@ const ProductDetailsPage = () => {
     description,
     category,
     image,
-    popularity,
-    popularityObject,
-    ratingValue,
-    validRatingValue,
+    ratingcount,
+    rating,
+   
   ]);
 
   const addItemToBasket = () => {
@@ -57,7 +50,8 @@ const ProductDetailsPage = () => {
       description,
       category,
       image,
-      popularity,
+      ratingcount,
+      rating,
     };
     dispatch(addToBasket(product));
   };
@@ -89,10 +83,7 @@ const ProductDetailsPage = () => {
           </div>
           <div className="lg:w-[40%] h-full flex-col gap-2 mx-10">
             <p className="p-2 text-green-700 text-sm font-semibold border border-gray-400 rounded-md  ">
-              <span className="flex">
-                {Math.floor(popularityObject.count * 9.38).toFixed(0)}+ bought
-                this week
-              </span>
+            {Math.floor(ratingcount * 0.62).toFixed(0)}+ bought last month
             </p>
             <div className="px-2 py-4 border border-gray-400 rounded-md flex flex-col gap-6 ">
               <div className="flex justify-between items-center">
@@ -114,12 +105,8 @@ const ProductDetailsPage = () => {
 
                 <p className="text-xl font-semibold text-black">{title}</p>
                 <div className="flex text-sm gap-1">
-                  {Array(validRatingValue)
-                    .fill()
-                    .map((_, i) => (
-                      <AiFillStar key={i} style={{ color: "#F5AC3B" }} />
-                    ))}
-                  {popularityObject.count}
+                {rating}
+                {ratingcount}
                 </div>
                 <p className="text-base text-zinc-500">{description}</p>
                 <div className="flex items-end gap-2">

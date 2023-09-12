@@ -19,7 +19,7 @@ const ProductList = ({ products }) => {
       {/* Display Filtered Products */}
       <div className="py-6 px-10 grid 2xl:grid-cols-5 xl:grid-cols-4 gap-4 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3">
         {filteredProducts.map(
-          ({ id, title, price, description, category, image, rating }) => (
+          ({ id, title, price, description, category, image, rating , ratingcount }) => (
             <ProductCard
               key={id}
               id={id}
@@ -28,7 +28,8 @@ const ProductList = ({ products }) => {
               description={description}
               category={category}
               image={image}
-              popularity={rating}
+              rating={rating}
+              ratingcount={ratingcount}
             />
           )
         )}

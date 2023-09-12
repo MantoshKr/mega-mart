@@ -19,20 +19,13 @@ const ProductCard = ({
   description,
   category,
   image,
-  popularity,
+  ratingcount,
+  rating,
 }) => {
-  const [rating, setRating] = useState(1);
   const [hasPlus, setHasPlus] = useState(false);
 
-  const ratingValue = popularity.rate;
-  const validRatingValue = Math.max(0, Math.min(5, Math.floor(ratingValue)));
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-   
-    setRating(Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING);
-    setHasPlus(Math.random() < 0.5);
-  }, []);
+  const dispatch = useDispatch();
 
   const addItemToBasket = () => {
     const product = {
@@ -42,7 +35,8 @@ const ProductCard = ({
       description,
       category,
       image,
-      popularity,
+      ratingcount,
+      rating,
     };
     dispatch(addToBasket(product));
   };
@@ -55,7 +49,8 @@ const ProductCard = ({
     if (isItemInWishlist) {
       dispatch(removeFromWishlist({ id }));
     } else {
-      dispatch(addToWishlist({ id, title, price, image,description,   }));
+      dispatch(addToWishlist({ id, title, price, image,description,  ratingcount,
+        rating,  }));
     }
   };
 
@@ -99,7 +94,8 @@ const ProductCard = ({
                   description: description,
                   category: category,
                   image: image,
-                  popularity: JSON.stringify(popularity),
+                  ratingcount:ratingcount,
+                  rating:rating,
                 },
               }}
             >
@@ -120,12 +116,8 @@ const ProductCard = ({
           <p>{description.substring(0, 70)}...</p>
           <div className="flex gap-2 items-center text-sm mt-2 justify-between">
             <div className="flex text-sm gap-1">
-              {Array(validRatingValue)
-                .fill()
-                .map((_, i) => (
-                  <AiFillStar key={i} style={{ color: "#F5AC3B" }} />
-                ))}
-              {popularity.count}
+              {rating}
+            {ratingcount}
             </div>
             {hasPlus && (
               <div className="font-bold text-green-600 flex justify-center items-center mx-2 w-8 cursor-pointer">

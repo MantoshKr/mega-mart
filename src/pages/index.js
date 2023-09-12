@@ -40,9 +40,15 @@ export async function getServerSideProps(context) {
   );
 
 
+  const modifiedProducts = products.map((product) => ({
+    ...product,
+    rating: product.rating.rate,
+    ratingcount: product.rating.count,
+  }));
+
   return {
     props: {
-      products,
+      products: modifiedProducts,
     },
   };
 }

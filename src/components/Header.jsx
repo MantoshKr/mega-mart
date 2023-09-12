@@ -65,7 +65,7 @@ const Header = () => {
 
           <Search />
 
-          <div className="md:flex hidden items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
+          <div onClick={() => router.push("/wishlist")} className="md:flex hidden items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
             <AiOutlineHeart />
             <div className="lgl:block hidden">
               <p className="text-xs">Reorder</p>

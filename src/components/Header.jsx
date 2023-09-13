@@ -7,7 +7,7 @@ import {
   AiOutlineMenu,
   AiOutlineUser,
 } from "react-icons/ai";
-import { BsCart2 } from "react-icons/bs";
+import { BsCart2, BsFillCartCheckFill } from "react-icons/bs";
 
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
@@ -70,6 +70,14 @@ const Header = () => {
             <div className="lgl:block hidden">
               <p className="text-xs">Reorder</p>
               <h2 className="text-base font-semibold -mt-1">My Items</h2>
+            </div>
+          </div>
+
+          <div onClick={() => router.push("/userProducts")} className="md:flex hidden items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
+            <BsFillCartCheckFill />
+            <div className="lgl:block hidden">
+              <p className="text-xs">Seller</p>
+              <h2 className="text-base font-semibold -mt-1"></h2>
             </div>
           </div>
 

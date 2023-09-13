@@ -24,6 +24,7 @@ import {
 const ProductDetailsPage = () => {
   const router = useRouter();
   const {
+    id,
     title,
     price,
     description,
@@ -34,7 +35,7 @@ const ProductDetailsPage = () => {
   } = router.query;
 
   // Convert id to a number
-  const id = parseInt(router.query.id);
+  // const id = parseInt(router.query.id);
 
   const dispatch = useDispatch();
 

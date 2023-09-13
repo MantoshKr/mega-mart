@@ -56,10 +56,11 @@ export async function getServerSideProps(context) {
         source: "API1",
         rating: product.rating.rate,
         ratingcount: product.rating.count,
+        id: product.id.toString()
       })),
       ...data2.products.map((product) => ({
         ...product,
-        id: product.id + 100,
+        id: (product.id + 100).toString(),
         source: "API2",
         image: product.images[0],
         ratingcount: product.stock * 2,
@@ -68,7 +69,7 @@ export async function getServerSideProps(context) {
         ...product,
         source: "MongoDB API",
         price: parseFloat((product.price / 83).toFixed(2)),
-        id:product._id, 
+        id: product._id,
         source:"API3" //added a source field to distinguish the data source
       })),
     ];

@@ -27,7 +27,10 @@ const Page = () => {
 
       console.log("addedBY", addedBy);
 
+     
+
       const productData = {
+        
         category,
         image,
         title,
@@ -37,6 +40,11 @@ const Page = () => {
         ratingcount,
         addedBy, 
       };
+
+    //   const id = parseInt(productData.id);
+
+//     console.log("ID:", productData._id);
+// console.log("ID data type:", typeof productData._id);
 
       let result = await fetch("http://localhost:3000/api/electronics", {
         method: "POST",
@@ -48,6 +56,8 @@ const Page = () => {
       result = await result.json();
       if (result.success) {
         alert("new product added");
+        // console.log("ID result:", result._id);
+        // console.log("ID data type result:", typeof result._id);
       } else {
         console.error("Failed to add product");
       }
@@ -55,6 +65,8 @@ const Page = () => {
       console.error("Error adding product:", error);
     }
   };
+
+
 
   return (
     <div className="container mx-auto mt-10">

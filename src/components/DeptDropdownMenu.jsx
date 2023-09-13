@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { links } from "./DropdownLink";
+import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
+import { setSearchQuery } from '../slices/productSlice';
 
 
 const DeptDropdownMenu = () => {
@@ -7,6 +10,8 @@ const DeptDropdownMenu = () => {
     const [activeSubMenu1, setActiveSubMenu1] = useState(null);
     const [activeSubMenu2, setActiveSubMenu2] = useState(null);
     const dropdownRef = useRef(null);
+    const router = useRouter();
+    const dispatch = useDispatch();
   
     const toggleDropdown = () => {
       setIsOpen(!isOpen);
@@ -36,6 +41,16 @@ const DeptDropdownMenu = () => {
         document.removeEventListener('mousedown', handleClickOutside);
       };
     }, []);
+
+    const handleCategoryClick = (categoryName) => {
+      categoryName = categoryName.replace(/^\//, '');
+      // Set the search query to the parent category name
+      dispatch(setSearchQuery(categoryName));
+  
+      // Navigate to the specified link
+      router.push("/");
+     
+    };
   
     return (
       <div className="relative " ref={dropdownRef}>
@@ -88,7 +103,7 @@ const DeptDropdownMenu = () => {
                               {submenu1.sublink.map((submenu2, subIndex2) => (
                                 <a
                                   key={subIndex2}
-                                  href={submenu2.link}
+                                  onClick={() => handleCategoryClick(submenu2.link)}
                                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                 >
                                   {submenu2.name}

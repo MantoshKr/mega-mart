@@ -2,40 +2,56 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { links } from "./DropdownLink";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
-import { FcBusinessman, FcBusinesswoman, FcElectronics, FcHome, FcSportsMode } from "react-icons/fc";
+import {
+  FcBusinessman,
+  FcBusinesswoman,
+  FcElectronics,
+  FcHome,
+  FcSportsMode,
+} from "react-icons/fc";
 import { FaBabyCarriage } from "react-icons/fa";
+import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { setSearchQuery } from '../slices/productSlice';
 
 const Dropdown = () => {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [isXtraSmallScreen, setIsXtraSmallScreen] = useState(false);
-
-
-
+  const router = useRouter();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     // Add an event listener to detect screen width changes
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth >= 900 && window.innerWidth < 1140);
-    setIsXtraSmallScreen(window.innerWidth >= 667 && window.innerWidth < 900);
+      setIsXtraSmallScreen(window.innerWidth >= 667 && window.innerWidth < 900);
     };
-  
+
     // Initial check for screen width
     handleResize();
-  
+
     // Attach the event listener
     window.addEventListener("resize", handleResize);
-  
+
     // Clean up the event listener on unmount
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
 
+  const handleCategoryClick = (categoryName) => {
+    categoryName = categoryName.replace(/^\//, "");
+    // Set the search query to the parent category name
+    dispatch(setSearchQuery(categoryName));
+
+    // Navigate to the specified link
+    router.push("/");
+  };
+
   return (
     <>
-   
       {links.map((link) => (
         <div key={link.name}>
           <div>
@@ -49,37 +65,37 @@ const Dropdown = () => {
                   setSubHeading("");
                 }}
               >
-              
-
-               {isSmallScreen && !isXtraSmallScreen && (
-                <>
-                  {link.name === "Baby & Kids"
-                    ? "Kids"
-                    : link.name === "Home & Furniture"
-                    ? "Home"
-                    : link.name === "Sports, Books & More"
-                    ? "More"
-                    : link.name}
-                </>
-              )}
-              {isXtraSmallScreen && (
-                <>
-                  {link.name === "Baby & Kids"
-                    ? <FaBabyCarriage className="text-2xl"/>
-                    : link.name === "Home & Furniture"
-                    ? <FcHome className="text-2xl"/>
-                    : link.name === "Sports, Books & More"
-                    ? <FcSportsMode className="text-2xl"/>
-                    : link.name === "Electronics"
-                    ? <FcElectronics className="text-2xl"/>
-                    : link.name === "Men"
-                    ? <FcBusinessman className="text-2xl"/>
-                    : link.name === "Women"
-                    ? <FcBusinesswoman className="text-2xl"/>
-                    : link.name}
-                </>
-              )}
-              {!isSmallScreen && !isXtraSmallScreen && link.name}
+                {isSmallScreen && !isXtraSmallScreen && (
+                  <>
+                    {link.name === "Baby & Kids"
+                      ? "Kids"
+                      : link.name === "Home & Furniture"
+                      ? "Home"
+                      : link.name === "Sports, Books & More"
+                      ? "More"
+                      : link.name}
+                  </>
+                )}
+                {isXtraSmallScreen && (
+                  <>
+                    {link.name === "Baby & Kids" ? (
+                      <FaBabyCarriage className="text-2xl" />
+                    ) : link.name === "Home & Furniture" ? (
+                      <FcHome className="text-2xl" />
+                    ) : link.name === "Sports, Books & More" ? (
+                      <FcSportsMode className="text-2xl" />
+                    ) : link.name === "Electronics" ? (
+                      <FcElectronics className="text-2xl" />
+                    ) : link.name === "Men" ? (
+                      <FcBusinessman className="text-2xl" />
+                    ) : link.name === "Women" ? (
+                      <FcBusinesswoman className="text-2xl" />
+                    ) : (
+                      link.name
+                    )}
+                  </>
+                )}
+                {!isSmallScreen && !isXtraSmallScreen && link.name}
 
                 <span className="text-xl md:hidden inline">
                   {heading === link.name ? <FiChevronUp /> : <FiChevronDown />}
@@ -106,13 +122,14 @@ const Dropdown = () => {
                         </h1>
                         {mysublinks.sublink.map((slink) => (
                           <div key={slink.name}>
-                          <li className="text-sm text-gray-500 hover:text-blue my-0.5 list-none">
-                            <Link href={slink.link}>
-                              <span className="hover:text-primary">
+                            <li className="text-sm text-gray-500 hover:text-blue my-0.5 list-none">
+                              <span
+                                className="hover:text-primary"
+                                onClick={() => handleCategoryClick(slink.link)}
+                              >
                                 {slink.name}
                               </span>
-                            </Link>
-                          </li>
+                            </li>
                           </div>
                         ))}
                       </div>
@@ -168,7 +185,6 @@ const Dropdown = () => {
           </div>
         </div>
       ))}
-      
     </>
   );
 };

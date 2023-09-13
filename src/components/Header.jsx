@@ -18,6 +18,7 @@ import Dropdown from "./Dropdown";
 import DeptDropdownMenu from "./DeptDropdownMenu";
 import ServicesDropdown from "./ServicesDropdown";
 import Link from "next/link";
+import { setSearchQuery } from "../slices/productSlice";
 
 const Header = () => {
   const { data: session, status } = useSession();
@@ -26,6 +27,15 @@ const Header = () => {
   const items = useSelector(selectItems);
   const total = useSelector(selectTotal);
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleHomeClick = () => {
+    // Clear the search query
+    dispatch(setSearchQuery(""));
+
+    // Redirect to the home page ("/")
+    router.push("/");
+  };
 
   return (
     // navbar top
@@ -39,7 +49,7 @@ const Header = () => {
             {open ? <AiOutlineClose /> : <AiOutlineMenu />}
           </div>
           <div
-            onClick={() => router.push("/")}
+            onClick={handleHomeClick}
             className="flex items-center h-12 px-2 lgl:px-5  rounded-full bg-transparent  hover:bg-hoverBg duration-300 cursor-pointer"
           >
             <p className="text-2xl font-bold hidden lgl:flex  ">MegaMart</p>
@@ -65,7 +75,10 @@ const Header = () => {
 
           <Search />
 
-          <div onClick={() => router.push("/wishlist")} className="md:flex hidden items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
+          <div
+            onClick={() => router.push("/wishlist")}
+            className="md:flex hidden items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer"
+          >
             <AiOutlineHeart />
             <div className="lgl:block hidden">
               <p className="text-xs">Reorder</p>
@@ -73,7 +86,10 @@ const Header = () => {
             </div>
           </div>
 
-          <div onClick={() => router.push("/userProducts")} className="md:flex hidden items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
+          <div
+            onClick={() => router.push("/userProducts")}
+            className="md:flex hidden items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer"
+          >
             <BsFillCartCheckFill />
             <div className="lgl:block hidden">
               <p className="text-xs">Seller</p>
@@ -123,7 +139,6 @@ const Header = () => {
             duration-500 ${open ? "left-0" : "left-[-100%]"}
           `}
           >
-          
             <li className="md:hidden mb-6">
               <div
                 onClick={() => router.push("/")}
@@ -151,7 +166,10 @@ const Header = () => {
                 </div>
               </div>
 
-              <div onClick={() => router.push("/wishlist")} className="flex md:hidden items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
+              <div
+                onClick={() => router.push("/wishlist")}
+                className="flex md:hidden items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer"
+              >
                 <AiOutlineHeart />
                 <div>
                   <p className="text-xs">Reorder</p>
@@ -159,9 +177,8 @@ const Header = () => {
                 </div>
               </div>
             </li>
-            
+
             <Dropdown />
-            
           </ul>
         </div>
       </div>

@@ -34,47 +34,57 @@ export default function Home({products}) {
   );
 }
 
+
 export async function getServerSideProps(context) {
   try {
     // Fetching data from the first API
     const response1 = await fetch("https://fakestoreapi.com/products");
     const data1 = await response1.json();
+    
     // Fetching data from the second API
     const response2 = await fetch('https://dummyjson.com/products');
     const data2 = await response2.json();
 
+    // Fetching data from the third API (http://localhost:3000/api/electronics) (my mongoDB api)
+    const response3 = await fetch('http://localhost:3000/api/electronics');
+    const data3 = await response3.json();
 
-    // Combining the data from both APIs into a single array
+    // Combining the data from all three APIs into a single array
     const combinedData = [
       ...data1.map((product) => ({
         ...product,
-        source: "API1", // source field to distinguish the data sources
-        rating:product.rating.rate,
-        ratingcount:product.rating.count,
-        
+        source: "API1",
+        rating: product.rating.rate,
+        ratingcount: product.rating.count,
       })),
       ...data2.products.map((product) => ({
         ...product,
-        id: product.id + 100, // Modifying the id by adding 100 to avoid conflicts
-        source: "API2", // Add a source field to distinguish the data sources
-        image:product.images[0] ,
-        ratingcount:product.stock * 2,
+        id: product.id + 100,
+        source: "API2",
+        image: product.images[0],
+        ratingcount: product.stock * 2,
       })),
-      
+      ...data3.result.map((product) => ({
+        ...product,
+        source: "MongoDB API",
+        price: parseFloat((product.price / 83).toFixed(2)),
+        id:product._id, 
+        source:"API3" //added a source field to distinguish the data source
+      })),
     ];
 
     console.log('Combined Data:', combinedData);
 
     return {
       props: {
-        products: combinedData || [], 
+        products: combinedData || [],
       },
     };
   } catch (error) {
     console.error('Error fetching data:', error);
     return {
       props: {
-        products: [], 
+        products: [],
       },
     };
   }

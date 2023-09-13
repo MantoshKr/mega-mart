@@ -19,7 +19,7 @@ const Page = () => {
       console.log("Session:", session);
       if (!session) {
         // Handling the case where the user is not logged in
-        alert("You must be logged in to add a product.");
+        alert("You must be logged in to add a product");
         return;
       }
 
@@ -27,10 +27,7 @@ const Page = () => {
 
       console.log("addedBY", addedBy);
 
-     
-
       const productData = {
-        
         category,
         image,
         title,
@@ -38,26 +35,40 @@ const Page = () => {
         price,
         rating,
         ratingcount,
-        addedBy, 
+        addedBy,
       };
 
-    //   const id = parseInt(productData.id);
+      //   const id = parseInt(productData.id);
 
-//     console.log("ID:", productData._id);
-// console.log("ID data type:", typeof productData._id);
+      //     console.log("ID:", productData._id);
+      // console.log("ID data type:", typeof productData._id);
+
+      // Validate the form
+      const isFormValid = validateForm();
+      if (!isFormValid) {
+        return; // Stop execution if validation fails
+      }
 
       let result = await fetch("http://localhost:3000/api/electronics", {
         method: "POST",
         body: JSON.stringify(productData),
         headers: {
-          "Content-Type": "application/json", 
+          "Content-Type": "application/json",
         },
       });
       result = await result.json();
       if (result.success) {
-        alert("new product added");
-        // console.log("ID result:", result._id);
-        // console.log("ID data type result:", typeof result._id);
+        alert(
+          "product added successfully . \n please refresh the page to see your product"
+        );
+
+        setCategory("");
+        setImage("");
+        setTitle("");
+        setDescription("");
+        setPrice("");
+        setRating("");
+        setRatingcount("");
       } else {
         console.error("Failed to add product");
       }
@@ -66,7 +77,21 @@ const Page = () => {
     }
   };
 
-
+  const validateForm = () => {
+    if (
+      !category ||
+      !image ||
+      !title ||
+      !description ||
+      !price ||
+      !rating ||
+      !ratingcount
+    ) {
+      alert("Please fill in all the required fields.");
+      return false;
+    }
+    return true;
+  };
 
   return (
     <div className="container mx-auto mt-10">
@@ -77,12 +102,14 @@ const Page = () => {
         onChange={(e) => setCategory(e.target.value)}
         placeholder="Product Category"
         className="border border-gray-300 rounded-md p-2 mb-2"
+        required
       />
       <input
         type="text"
         value={image}
         onChange={(e) => setImage(e.target.value)}
         placeholder="Product Image"
+        required
         className="border border-gray-300 rounded-md p-2 mb-2"
       />
       <input
@@ -91,6 +118,7 @@ const Page = () => {
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Product Title"
         className="border border-gray-300 rounded-md p-2 mb-2"
+        required
       />
       <input
         type="text"
@@ -98,6 +126,7 @@ const Page = () => {
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Product Description"
         className="border border-gray-300 rounded-md p-2 mb-2"
+        required
       />
       <input
         type="number"
@@ -105,6 +134,7 @@ const Page = () => {
         onChange={(e) => setPrice(e.target.value)}
         placeholder="Product Price"
         className="border border-gray-300 rounded-md p-2 mb-2"
+        required
       />
       <input
         type="text"
@@ -112,6 +142,7 @@ const Page = () => {
         onChange={(e) => setRating(e.target.value)}
         placeholder="Product Rating"
         className="border border-gray-300 rounded-md p-2 mb-2"
+        required
       />
       <input
         type="text"
@@ -119,6 +150,7 @@ const Page = () => {
         onChange={(e) => setRatingcount(e.target.value)}
         placeholder="Product Rating Count"
         className="border border-gray-300 rounded-md p-2 mb-2"
+        required
       />
       <br />
       <br />

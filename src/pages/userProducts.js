@@ -2,6 +2,7 @@ import ProductCard from "@/components/ProductCard";
 import { getSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import Header from "@/components/Header";
+import Page from "@/app/addproduct/page";
 
 const UserProductsPage = ({ user }) => {
   const [userProducts, setUserProducts] = useState([]);
@@ -41,6 +42,7 @@ const UserProductsPage = ({ user }) => {
   return (
     <div>
       <Header />
+      <Page />
 
       <div className="py-6 px-10 grid 2xl:grid-cols-5 xl:grid-cols-4 gap-4 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3">
         {userProducts.map(

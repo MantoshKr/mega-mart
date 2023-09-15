@@ -125,12 +125,16 @@ const ProductDetailsPage = () => {
                   </button>
                 </div>
                 <div>
-                <p
-            className=" top-4 right-4 text-2xl cursor-pointer"
-            onClick={toggleWishlist}
-          >
-            {isItemInWishlist ? <AiFillHeart style={{color:"red"}} /> : <AiOutlineHeart />}
-          </p>
+                  <p
+                    className=" top-4 right-4 text-2xl cursor-pointer"
+                    onClick={toggleWishlist}
+                  >
+                    {isItemInWishlist ? (
+                      <AiFillHeart style={{ color: "red" }} />
+                    ) : (
+                      <AiOutlineHeart />
+                    )}
+                  </p>
                 </div>
               </div>
               {/* product details */}
@@ -162,42 +166,42 @@ const ProductDetailsPage = () => {
               <div className="text-sm text-black flex flex-col gap-1">
                 <p className="font-bold">No Cost EMI options available :</p>
                 <p>
-                  <span className="font-semibold">
+                  <span className="font-semibold flex flex-col">
                     {Math.floor(price * 83) > 500 && (
-                      <p>
+                      <span>
                         Rs {(Math.floor(price * 83) / 2).toFixed(2)} / month @
                         {2} months
-                      </p>
+                      </span>
                     )}
                     {Math.floor(price * 83) > 1000 && (
-                      <p>
+                      <span>
                         Rs {(Math.floor(price * 83) / 3).toFixed(2)} / month @
                         {3} months
-                      </p>
+                      </span>
                     )}
                     {Math.floor(price * 83) > 4500 && (
-                      <p>
+                      <span>
                         Rs {(Math.floor(price * 83) / 6).toFixed(2)} / month @
                         {6} months
-                      </p>
+                      </span>
                     )}
                     {Math.floor(price * 83) > 6000 && (
-                      <p>
+                      <span>
                         Rs {(Math.floor(price * 83) / 9).toFixed(2)} / month @
                         {9} months
-                      </p>
+                      </span>
                     )}
                     {Math.floor(price * 83) > 10000 && (
-                      <p>
+                      <span>
                         Rs {(Math.floor(price * 83) / 12).toFixed(2)} / month @
                         {12} months
-                      </p>
+                      </span>
                     )}
                     {Math.floor(price * 83) > 15000 && (
-                      <p>
+                      <span>
                         Rs {(Math.floor(price * 83) / 18).toFixed(2)} / month @
                         {18} months
-                      </p>
+                      </span>
                     )}
                     {/* {Math.floor(price * 83) > 20000 && (
                       <p>
@@ -206,10 +210,10 @@ const ProductDetailsPage = () => {
                       </p>
                     )} */}
                     {Math.floor(price * 83) > 30000 && (
-                      <p>
+                      <span>
                         Rs {(Math.floor(price * 83) / 36).toFixed(2)} / month @
                         {36} months
-                      </p>
+                      </span>
                     )}
                   </span>{" "}
                   <span className="font-bold"> using MegaMart Pay</span>{" "}

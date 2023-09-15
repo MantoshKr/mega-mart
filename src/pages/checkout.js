@@ -20,7 +20,6 @@ import axios from "axios";
 import flashSaleIcon from "/public/assets/images/flashSaleIcon.png";
 import SaveForLater from "@/components/SaveForLater";
 
-
 const Checkout = () => {
   const items = useSelector(selectItems);
   const { data: session, status } = useSession();
@@ -71,10 +70,11 @@ const Checkout = () => {
         <div className="w-full py-10">
           {items.length === 0 ? (
             <div>
-            <p className="text-3xl font-bold">Your cart is empty.</p>
-            <div className="mt-60"><SaveForLater /></div>
+              <p className="text-3xl font-bold">Your cart is empty.</p>
+              <div className="mt-60">
+                <SaveForLater />
+              </div>
             </div>
-            
           ) : (
             <div className="w-full lgl2:flex gap-10">
               <div className="lgl2:w-2/3 flex flex-col gap-0 m-10 lgl2:m-0">
@@ -165,7 +165,7 @@ const Checkout = () => {
                       ))}
                     </div>
                     <div className="mt-10">
-                    <SaveForLater />
+                      <SaveForLater />
                     </div>
                   </div>
                 </div>
@@ -259,24 +259,24 @@ const Checkout = () => {
                   <div className="text-sm text-black flex flex-col gap-1">
                     <p className="font-bold">No Cost EMI options available :</p>
                     <p>
-                      <span className="font-semibold">
+                      <span className="font-semibold flex flex-col">
                         {Math.floor(total * 83) * 1.12 > 3000 && (
-                          <p>
+                          <span>
                             {((Math.floor(total * 83) * 1.12) / 6).toFixed(2)} /
                             month @{6} months
-                          </p>
+                          </span>
                         )}
                         {Math.floor(total * 83) * 1.12 > 10000 && (
-                          <p>
+                          <span>
                             {((Math.floor(total * 83) * 1.12) / 12).toFixed(2)}{" "}
                             / month @{12} months
-                          </p>
+                          </span>
                         )}
                         {Math.floor(total * 83) * 1.12 > 20000 && (
-                          <p>
+                          <span>
                             {((Math.floor(total * 83) * 1.12) / 24).toFixed(2)}{" "}
                             / month @{24} months
-                          </p>
+                          </span>
                         )}
                       </span>{" "}
                       <span className="font-bold"> using MegaMart Pay</span>{" "}
@@ -307,53 +307,58 @@ const Checkout = () => {
                     <input
                       type="checkbox"
                       className="form-checkbox h-5 w-5 text-black cursor-pointer"
-                      style={{ backgroundColor: 'green', borderColor: 'green' }}
+                      style={{ backgroundColor: "green", borderColor: "green" }}
                     />
                     This order is a gift.
                   </label>
                 </div>
 
                 {offerFlashSale && (
-              <div className="lgl:w-full w-[400px] p-0 lgl:p-4 mt-4  border-[1px] border-zinc-400 rounded-md sml:flex hidden flex-col justify-center gap-1">
-                <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
-                  <Image src={flashSaleIcon} width={60} height={60} alt="" />
-                  <p className="text-sm">
-                    <span className="font-bold">Flash Sale Alert!</span> Shop
-                    now at Megamart.com and enjoy huge discounts on selected items
-                    for the next 24 hours only. Limited quantities available.
-                    <span className="underline cursor-pointer hover:text-blue text-zinc-500">
-                      See deals
-                    </span>
-                  </p>
-                  <IoMdClose
-                    onClick={() => setOfferFlashSale(false)}
-                    className="text-5xl hover:text-red-400 cursor-pointer duration-200"
-                  />
-                </div>
-              </div>
-            )}
+                  <div className="lgl:w-full w-[400px] p-0 lgl:p-4 mt-4  border-[1px] border-zinc-400 rounded-md sml:flex hidden flex-col justify-center gap-1">
+                    <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
+                      <Image
+                        src={flashSaleIcon}
+                        width={60}
+                        height={60}
+                        alt=""
+                      />
+                      <p className="text-sm">
+                        <span className="font-bold">Flash Sale Alert!</span>{" "}
+                        Shop now at Megamart.com and enjoy huge discounts on
+                        selected items for the next 24 hours only. Limited
+                        quantities available.
+                        <span className="underline cursor-pointer hover:text-blue text-zinc-500">
+                          See deals
+                        </span>
+                      </p>
+                      <IoMdClose
+                        onClick={() => setOfferFlashSale(false)}
+                        className="text-5xl hover:text-red-400 cursor-pointer duration-200"
+                      />
+                    </div>
+                  </div>
+                )}
 
-            {offerCashback && (
-              <div className="lgl:w-full  w-[400px] p-0 lgl:p-4 mt-4  border-[1px] border-zinc-400 rounded-md hidden sml:flex flex-col justify-center gap-1">
-                <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
-                  <Image src={creditcard} width={60} height={60} alt="" />
-                  <p className="text-sm">
-                    <span className="font-bold"> Earn 5% cash back </span> on
-                    Megamart.com See if you’re pre-approved with no credit risk.{" "}
-                    <span className="underline cursor-pointer hover:text-blue text-zinc-500 ">
-                      {" "}
-                      Learn how{" "}
-                    </span>
-                  </p>
-                  <IoMdClose
-                    onClick={() => setOfferCashback(false)}
-                    className="text-5xl hover:text-red-400 cursor-pointer duration-200"
-                  />
-                </div>
-              </div>
-            )}
-
-            
+                {offerCashback && (
+                  <div className="lgl:w-full  w-[400px] p-0 lgl:p-4 mt-4  border-[1px] border-zinc-400 rounded-md hidden sml:flex flex-col justify-center gap-1">
+                    <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
+                      <Image src={creditcard} width={60} height={60} alt="" />
+                      <p className="text-sm">
+                        <span className="font-bold"> Earn 5% cash back </span>{" "}
+                        on Megamart.com See if you’re pre-approved with no
+                        credit risk.{" "}
+                        <span className="underline cursor-pointer hover:text-blue text-zinc-500 ">
+                          {" "}
+                          Learn how{" "}
+                        </span>
+                      </p>
+                      <IoMdClose
+                        onClick={() => setOfferCashback(false)}
+                        className="text-5xl hover:text-red-400 cursor-pointer duration-200"
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}

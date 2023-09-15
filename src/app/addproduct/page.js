@@ -49,6 +49,9 @@ const Page = () => {
         return; // Stop execution if validation fails
       }
 
+     
+    
+
       let result = await fetch("http://localhost:3000/api/electronics", {
         method: "POST",
         body: JSON.stringify(productData),
@@ -93,6 +96,20 @@ const Page = () => {
     return true;
   };
 
+  const handleImageChange = (e) => {
+    const inputValue = e.target.value; // Convert to lowercase for case-insensitive comparison
+    const validExtensions = [".jpg", ".jpeg", ".png", ".gif"];
+
+    // Check if the input value ends with a valid image extension
+    const isValidImage = validExtensions.some((ext) => inputValue.endsWith(ext));
+
+    if (isValidImage) {
+      setImage(inputValue); // Set the image state if it's a valid URL
+    } else {
+      alert("Invalid image URL. Please enter a URL with a valid image extension.");
+    }
+  };
+
   return (
     <div className="container mx-auto mt-10">
       <h1 className="text-2xl font-bold mb-4">ADD PRODUCT</h1>
@@ -107,8 +124,7 @@ const Page = () => {
       <input
         type="text"
         value={image}
-        onChange={(e) => setImage(e.target.value)}
-        placeholder="Product Image"
+        onChange={handleImageChange}
         required
         className="border border-gray-300 rounded-md p-2 mb-2"
       />

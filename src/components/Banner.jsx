@@ -17,17 +17,17 @@ const Banner = () => {
           interval={5000}
         >
           <div className="h-full">
-            <img loading="lazy" src="/assets/images/banner-1.jpg" alt="" className="h-full w-full object-cover" />
+            <img loading="lazy" src={"/static/images/banner-1.jpg"} alt="" className="h-full w-full object-cover" />
           </div>
           <div className="h-full">
-            <img loading="lazy" src="/assets/images/banner-2.jpg" alt="" className="h-full w-full object-cover" />
+            <img loading="lazy" src={"/static/images/banner-2.jpg"} alt="" className="h-full w-full object-cover" />
           </div>
 
           <div className="h-full">
-            <img loading="lazy" src="/assets/images/banner-3.jpg" alt="" className="h-full w-full object-cover"/>
+            <img loading="lazy" src={"/static/images/banner-3.jpg"} alt="" className="h-full w-full object-cover"/>
           </div>
           <div className="h-full">
-            <img loading="lazy" src="/assets/images/banner-4.jpg" alt=""  className="h-full w-full object-cover"/>
+            <img loading="lazy" src={"/static/images/banner-4.jpg"} alt=""  className="h-full w-full object-cover"/>
           </div>
           
         </Carousel>

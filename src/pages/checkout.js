@@ -7,17 +7,15 @@ import { useSelector } from "react-redux";
 import { selectItems, selectTotal } from "../slices/basketSlice";
 import Cart from "@/components/Cart";
 import { signIn, useSession } from "next-auth/react";
-import Currency from "react-currency-formatter";
-import partyImg from "/public/assets/images/partyImg.png";
+// import partyImg from "/public/assets/images/partyImg.png";
 import { IoMdClose } from "react-icons/io";
 import { useState } from "react";
-import emptycartimg1 from "/public/assets/images/emptycartimg1.png";
 import { BsInfoCircle } from "react-icons/bs";
-import creditcard from "/public/assets/images/creditcard.png";
+// import creditcard from "/public/assets/images/creditcard.png";
 const stripePromise = loadStripe(process.env.stripe_public_key);
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
-import flashSaleIcon from "/public/assets/images/flashSaleIcon.png";
+// import flashSaleIcon from "/public/assets/images/flashSaleIcon.png";
 import SaveForLater from "@/components/SaveForLater";
 
 const Checkout = () => {
@@ -100,7 +98,7 @@ const Checkout = () => {
                     <div className="w-full border border-zinc-400 rounded-md flex flex-col items-center justify-center gap-1 p-2">
                       <Image
                         className="w-10"
-                        src="/assets/images/shipping.png"
+                        src={"/static/images/shipping.png"}
                         width={30}
                         height={30}
                         alt=""
@@ -111,7 +109,7 @@ const Checkout = () => {
                     <div className="w-full border border-zinc-400 rounded-md flex flex-col items-center justify-center gap-1 p-2">
                       <Image
                         className="w-10"
-                        src="/assets/images/pickup.png"
+                        src={"/static/images/pickup.png"}
                         width={30}
                         height={30}
                         alt=""
@@ -122,7 +120,7 @@ const Checkout = () => {
                     <div className="w-full border border-zinc-400 rounded-md flex flex-col items-center justify-center gap-1 p-2">
                       <Image
                         className="w-10"
-                        src="/assets/images/delivery.png"
+                        src={"/static/images/delivery.png"}
                         width={30}
                         height={30}
                         alt=""
@@ -193,7 +191,7 @@ const Checkout = () => {
 
                   {offerMsg && (
                     <div className="bg-[#002d58] text-white p-2 rounded-lg flex items-center justify-between gap-4">
-                      <Image src={partyImg} width={30} height={30} alt="" />
+                      <Image src={"/static/images/partyImg.png"} width={30} height={30} alt="" />
                       <p className="text-sm">
                         Items in your cart have reduced prices. Check out now
                         for extra savings!
@@ -314,51 +312,46 @@ const Checkout = () => {
                 </div>
 
                 {offerFlashSale && (
-                  <div className="lgl:w-full w-[400px] p-0 lgl:p-4 mt-4  border-[1px] border-zinc-400 rounded-md sml:flex hidden flex-col justify-center gap-1">
-                    <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
-                      <Image
-                        src={flashSaleIcon}
-                        width={60}
-                        height={60}
-                        alt=""
-                      />
-                      <p className="text-sm">
-                        <span className="font-bold">Flash Sale Alert!</span>{" "}
-                        Shop now at Megamart.com and enjoy huge discounts on
-                        selected items for the next 24 hours only. Limited
-                        quantities available.
-                        <span className="underline cursor-pointer hover:text-blue text-zinc-500">
-                          See deals
-                        </span>
-                      </p>
-                      <IoMdClose
-                        onClick={() => setOfferFlashSale(false)}
-                        className="text-5xl hover:text-red-400 cursor-pointer duration-200"
-                      />
-                    </div>
-                  </div>
-                )}
+              <div className="lgl:w-full w-[400px] p-0 lgl:p-4 mt-4  border-[1px] border-zinc-400 rounded-md sml:flex hidden flex-col justify-center gap-1">
+                <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
+                  <Image src={"/static/images/flashSaleIcon.png"} width={60} height={60} alt="" />
+                  <p className="text-sm">
+                    <span className="font-bold">Flash Sale Alert!</span> Shop
+                    now at Megamart.com and enjoy huge discounts on selected items
+                    for the next 24 hours only. Limited quantities available.
+                    <span className="underline cursor-pointer hover:text-blue text-zinc-500">
+                      See deals
+                    </span>
+                  </p>
+                  <IoMdClose
+                    onClick={() => setOfferFlashSale(false)}
+                    className="text-5xl hover:text-red-400 cursor-pointer duration-200"
+                  />
+                </div>
+              </div>
+            )}
 
-                {offerCashback && (
-                  <div className="lgl:w-full  w-[400px] p-0 lgl:p-4 mt-4  border-[1px] border-zinc-400 rounded-md hidden sml:flex flex-col justify-center gap-1">
-                    <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
-                      <Image src={creditcard} width={60} height={60} alt="" />
-                      <p className="text-sm">
-                        <span className="font-bold"> Earn 5% cash back </span>{" "}
-                        on Megamart.com See if you’re pre-approved with no
-                        credit risk.{" "}
-                        <span className="underline cursor-pointer hover:text-blue text-zinc-500 ">
-                          {" "}
-                          Learn how{" "}
-                        </span>
-                      </p>
-                      <IoMdClose
-                        onClick={() => setOfferCashback(false)}
-                        className="text-5xl hover:text-red-400 cursor-pointer duration-200"
-                      />
-                    </div>
-                  </div>
-                )}
+            {offerCashback && (
+              <div className="lgl:w-full  w-[400px] p-0 lgl:p-4 mt-4  border-[1px] border-zinc-400 rounded-md hidden sml:flex flex-col justify-center gap-1">
+                <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
+                  <Image src={"/static/images/creditcard.png"} width={60} height={60} alt="" />
+                  <p className="text-sm">
+                    <span className="font-bold"> Earn 5% cash back </span> on
+                    Megamart.com See if you’re pre-approved with no credit risk.{" "}
+                    <span className="underline cursor-pointer hover:text-blue text-zinc-500 ">
+                      {" "}
+                      Learn how{" "}
+                    </span>
+                  </p>
+                  <IoMdClose
+                    onClick={() => setOfferCashback(false)}
+                    className="text-5xl hover:text-red-400 cursor-pointer duration-200"
+                  />
+                </div>
+              </div>
+            )}
+
+            
               </div>
             </div>
           )}

@@ -6,11 +6,11 @@ import { useRouter } from "next/router";
 import React, { use } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import creditcard from "Public/assets/images/creditcard.png";
-import giftBox from "Public/assets/images/giftBox.png";
+// import creditcard from "Public/assets/images/creditcard.png";
+// import giftBox from "Public/assets/images/giftBox.png";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
-import flashSaleIcon from "Public/assets/images/flashSaleIcon.png";
+// import flashSaleIcon from "Public/assets/images/flashSaleIcon.png";
 
 const Success = () => {
   const router = useRouter();
@@ -63,7 +63,7 @@ const Success = () => {
             {offerCashback && (
               <div className="md:w-[60%] hidden p-4 mt-4 mx-10 border-[1px] border-zinc-400 rounded-md md:flex flex-col justify-center gap-1">
                 <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
-                  <Image src={creditcard} width={60} height={60} alt="" />
+                  <Image src={"/static/images/creditcard.png"} width={60} height={60} alt="" />
                   <p className="text-sm">
                     <span className="font-bold"> Earn 5% cash back </span> on
                     Megamart.com See if you’re pre-approved with no credit risk.{" "}

@@ -46,7 +46,7 @@ export async function getServerSideProps(context) {
     const data2 = await response2.json();
 
     // Fetching data from the third API (http://localhost:3000/api/electronics) (my mongoDB api)
-    const response3 = await fetch('http://localhost:3000/api/electronics');
+    const response3 = await fetch('https://mega-mart-mantoshkr-mantoshkrs-projects.vercel.app/api/electronics');
     const data3 = await response3.json();
 
     // Combining the data from all three APIs into a single array

@@ -4,6 +4,7 @@ import Head from "next/head";
 import ProductList from "@/components/ProductList";
 import Feedback from "@/components/Feedback";
 import Footer from "@/components/Footer";
+import SortBy from "@/components/SortBy";
 
 export default function Home({products}) {
   return (
@@ -17,6 +18,7 @@ export default function Home({products}) {
       <main>
       <div className="bg-gray-200">
         <Header />
+        <SortBy />
         
         <Banner />
 

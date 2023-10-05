@@ -87,7 +87,7 @@ const Checkout = () => {
                   <div className="text-xl font-bold flex items-center gap-2 mb-2">
                     <Image
                       className="w-10"
-                      src="/assets/images/phone.webp"
+                      src={"/static/images/phone.webp"}
                       width={25}
                       height={25}
                       alt=""

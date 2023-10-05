@@ -69,9 +69,20 @@ const Header = () => {
             </DeptDropdownMenu>
           </div>
 
-          <ServicesDropdown label="Servies">
+          {/* <ServicesDropdown label="Servies">
             <p>Services</p>
-          </ServicesDropdown>
+          </ServicesDropdown> */}
+
+          <div
+            onClick={() => router.push("/userProducts")}
+            className="md:flex items-center h-20 px-2 rounded-full bg-transparent  gap-2  duration-300 cursor-pointer hidden"
+          >
+            <BsFillCartCheckFill />
+            <div className="">
+              <p className="text-sm hidden lg:flex">Seller</p>
+              <h2 className="text-base font-semibold -mt-1"></h2>
+            </div>
+          </div>
 
           <Search />
 
@@ -86,26 +97,23 @@ const Header = () => {
             </div>
           </div>
 
-          <div
-            onClick={() => router.push("/userProducts")}
-            className="md:flex hidden items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer"
-          >
-            <BsFillCartCheckFill />
-            <div className="lgl:block hidden">
-              <p className="text-xs">Seller</p>
-              <h2 className="text-base font-semibold -mt-1"></h2>
-            </div>
-          </div>
+          
 
           <div className="md:flex hidden items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
             <AiOutlineUser />
             <div onClick={!session ? signIn : signOut}>
               <p className="text-xs hidden lgl:block">
-                {session ? `Hello, ${session.user.name}` : "Sign In"}
+                {session ? `Hello, ${session.user.name}` : ""}
               </p>
-              <h2 className="text-base font-semibold -mt-1 hidden lgl:block ">
-                Account
-              </h2>
+             
+              {session ? 
+                <h2 className="text-base font-semibold -mt-1 hidden lgl:block text-red-500">Logout</h2>
+              
+               : 
+               
+               <h2 className="text-base font-semibold hidden lgl:block text-green-500">Sign In</h2>
+               }
+              
             </div>
           </div>
 
@@ -156,7 +164,7 @@ const Header = () => {
               </div>
             </li>
             <li className="flex justify-between">
-              <div className="md:hidden mb-6 flex items-center h-12 px-2 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
+              <div className="md:hidden flex items-center h-12 px-2 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
                 <AiOutlineUser />
                 <div onClick={!session ? signIn : signOut}>
                   <p className="text-xs ">
@@ -176,6 +184,19 @@ const Header = () => {
                   <h2 className="text-base font-semibold -mt-1">My Items</h2>
                 </div>
               </div>
+            </li>
+            <li className="flex justify-between mr-2">
+            <div>{""}</div>
+            <div
+            onClick={() => router.push("/userProducts")}
+            className="flex items-center h-20 px-10 rounded-full bg-transparent  gap-2  duration-300 cursor-pointer"
+          >
+            <BsFillCartCheckFill />
+            <div className="">
+              <p className="text-sm flex">Seller</p>
+              <h2 className="text-base font-semibold -mt-1"></h2>
+            </div>
+          </div>
             </li>
 
             <Dropdown />

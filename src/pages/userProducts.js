@@ -10,7 +10,7 @@ const UserProductsPage = ({ user }) => {
   useEffect(() => {
     const fetchUserProducts = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/electronics");
+        const response = await fetch("https://mega-mart-pink.vercel.app/api/electronics");
         const data = await response.json();
 
         console.log("All Products:", data);

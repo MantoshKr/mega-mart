@@ -55,7 +55,7 @@ const Page = () => {
      
     
 
-      let result = await fetch("mega-mart-pink.vercel.app/api/electronics", {
+      let result = await fetch("https://mega-mart-pink.vercel.app/api/electronics", {
         method: "POST",
         body: JSON.stringify(productData),
         headers: {

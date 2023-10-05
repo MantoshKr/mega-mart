@@ -55,7 +55,7 @@ const Header = () => {
             <p className="text-2xl font-bold hidden lgl:flex  ">MegaMart</p>
             <div className="hidden md:flex">
               <Image
-                src="/assets/images/mega-mart-logo.png"
+                src={"/static/images/mega-mart-logo.png"}
                 width={40}
                 height={100}
                 alt=""
@@ -147,7 +147,7 @@ const Header = () => {
                 <p className="text-2xl font-bold md:hidden flex  ">MegaMart</p>
 
                 <Image
-                  src="/assets/images/mega-mart-logo.png"
+                  src={"/static/images/mega-mart-logo.png"}
                   width={40}
                   height={100}
                   alt=""

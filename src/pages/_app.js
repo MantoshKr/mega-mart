@@ -3,19 +3,20 @@ import { store } from '../app/store'
 import '../styles/globals.css'
 // import { Open_Sans } from "next/font/google";
 import { SessionProvider } from "next-auth/react"
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistStore } from 'redux-persist'
 
 
-// const open_sans=Open_Sans({
-//   subsets:["latin"],
-//   variable:"--font-open-sans",
-// });
+let persistor = persistStore(store);
 
 const MyApp = ({ Component, pageProps }) => {
   return (
      <>
     <SessionProvider session={pageProps.session} >
     <Provider store={store} >
+    <PersistGate  persistor={persistor}>
       <Component {...pageProps} />
+      </PersistGate>
     </Provider>
     </SessionProvider>
     </>

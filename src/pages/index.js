@@ -46,7 +46,7 @@ export async function getServerSideProps(context) {
     const data2 = await response2.json();
 
     // Fetching data from the third API (http://localhost:3000/api/electronics) (my mongoDB api)
-    const response3 = await fetch('https://mega-mart-mantoshkr-mantoshkrs-projects.vercel.app/api/electronics');
+    const response3 = await fetch('https://mega-mart-pink.vercel.app/api/electronics');
     const data3 = await response3.json();
 
     // Combining the data from all three APIs into a single array
@@ -90,3 +90,53 @@ export async function getServerSideProps(context) {
     };
   }
 }
+
+
+// export async function getServerSideProps(context) {
+//   try {
+//     // Fetching data from the first API
+    
+    
+//     // Fetching data from the second API
+//     const response2 = await fetch('https://dummyjson.com/products');
+//     const data2 = await response2.json();
+
+//     // Fetching data from the third API (http://localhost:3000/api/electronics) (my mongoDB api)
+//     const response3 = await fetch('https://mega-mart-pink.vercel.app/api/electronics');
+//     const data3 = await response3.json();
+
+//     // Combining the data from all three APIs into a single array
+//     const combinedData = [
+     
+//       ...data2.products.map((product) => ({
+//         ...product,
+//         id: (product.id + 100).toString(),
+//         source: "API2",
+//         image: product.images[0],
+//         ratingcount: product.stock * 2,
+//       })),
+//       ...data3.result.map((product) => ({
+//         ...product,
+//         source: "MongoDB API",
+//         price: parseFloat((product.price / 83).toFixed(2)),
+//         id: product._id,
+//         source:"API3" //added a source field to distinguish the data source
+//       })),
+//     ];
+
+//     console.log('Combined Data:', combinedData);
+
+//     return {
+//       props: {
+//         products: combinedData || [],
+//       },
+//     };
+//   } catch (error) {
+//     console.error('Error fetching data:', error);
+//     return {
+//       props: {
+//         products: [],
+//       },
+//     };
+//   }
+// }

@@ -141,7 +141,7 @@ const Header = () => {
           >
             <li className="md:hidden mb-6">
               <div
-                onClick={() => router.push("/")}
+                onClick={handleHomeClick}
                 className="flex items-center h-12 px-2 lgl:px-5 rounded-full bg-transparent  hover:bg-hoverBg duration-300 cursor-pointer"
               >
                 <p className="text-2xl font-bold md:hidden flex  ">MegaMart</p>

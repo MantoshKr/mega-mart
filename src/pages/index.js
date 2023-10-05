@@ -5,8 +5,11 @@ import ProductList from "@/components/ProductList";
 import Feedback from "@/components/Feedback";
 import Footer from "@/components/Footer";
 import SortBy from "@/components/SortBy";
+import { selectSearchQuery } from "@/slices/productSlice";
+import { useSelector } from "react-redux";
 
 export default function Home({products}) {
+  const searchQuery = useSelector(selectSearchQuery);
   return (
     <div>
       <Head>
@@ -20,7 +23,7 @@ export default function Home({products}) {
         <Header />
         <SortBy />
         
-        <Banner />
+        {searchQuery === "" && <Banner />}
 
         <ProductList products={products} />
 

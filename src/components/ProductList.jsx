@@ -35,8 +35,8 @@ const ProductList = ({ products }) => {
   return (
     <div>
      
-      {/* Display Filtered Products */}
-      <div className="py-6 px-10 grid 2xl:grid-cols-5 xl:grid-cols-4 gap-4 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3">
+      {/* Display sorted Products */}
+      <div className="md:py-6 px-10 grid 2xl:grid-cols-5 xl:grid-cols-4 gap-4 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3">
         {sortedProducts.map(
           ({ id, title, price, description, category, image, rating , ratingcount }) => (
             <ProductCard

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Page from "@/app/addproduct/page";
 import { useRouter } from "next/router";
+import DeleteElectronic from "@/lib/DeleteElectronic";
 
 const UserProductsPage = ({ user }) => {
   const [userProducts, setUserProducts] = useState([]);
@@ -88,6 +89,9 @@ const UserProductsPage = ({ user }) => {
                 >
                   Edit
                 </button>
+                <div className="absolute top-1 left-10">
+                <DeleteElectronic id={_id}/>
+                </div>
               </div>
             );
           }

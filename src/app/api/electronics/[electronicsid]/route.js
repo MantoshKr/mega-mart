@@ -21,3 +21,12 @@ export async function GET(request , content){
      const result = await Electronic.findById(record)
      return NextResponse.json({result, success:true})
  }
+
+
+ export async function DELETE(request , content){
+    const electronicsId=content.params.electronicsid;
+    const record={_id:electronicsId}
+     await mongoose.connect(connectionStr);
+     const result = await Electronic.deleteOne(record)
+     return NextResponse.json({result, success:true})
+ }

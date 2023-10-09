@@ -23,12 +23,12 @@ const getElectronicDetails = async () => {
     try {
         let electronicId=props.params.editelectronic
       let electronicData = await fetch("https://mega-mart-shopping.vercel.app/api/electronics/"+electronicId);
-      console.log("electronics data:", electronicData);
+      // console.log("electronics data:", electronicData);
   
       if (electronicData.ok) {
         // Parse the response body as JSON
         const data = await electronicData.json();
-        console.log("result data:", data); // Log the result here
+        // console.log("result data:", data); // Log the result here
   
         if (data.success) {
           const result = data.result;

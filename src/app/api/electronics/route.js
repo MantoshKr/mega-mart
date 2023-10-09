@@ -19,9 +19,9 @@ export async function GET() {
 export async function POST(request) {
   const payload = await request.json();
   await mongoose.connect(connectionStr); // Pass the connection string as a string
-  console.log("Connected to MongoDB");
+  // console.log("Connected to MongoDB");
   let electronic = new Electronic(payload);
   const result = await electronic.save(); // Save the document
-  console.log("Saved document to MongoDB");
+  // console.log("Saved document to MongoDB");
   return NextResponse.json({ result, success: true });
 }

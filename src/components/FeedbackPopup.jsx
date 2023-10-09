@@ -24,7 +24,7 @@ const FeedbackPopup = () => {
 
   const submitFeedback = () => {
     
-    console.log(feedback);
+    // console.log(feedback);
 
     // Show the thank you message
     setShowThankYou(true);

@@ -7,7 +7,7 @@ export async function PUT (request , content){
    const electronicsId=content.params.electronicsid;
    const filter={_id:electronicsId}
    const payload = await request.json();
-    console.log(payload);
+    // console.log(payload);
     await mongoose.connect(connectionStr);
     const result = await Electronic.findOneAndUpdate(filter,payload)
     return NextResponse.json({result, success:true})

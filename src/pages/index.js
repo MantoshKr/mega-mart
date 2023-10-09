@@ -79,7 +79,7 @@ export async function getServerSideProps(context) {
       })),
     ];
 
-    console.log('Combined Data:', combinedData);
+    // console.log('Combined Data:', combinedData);
 
     return {
       props: {

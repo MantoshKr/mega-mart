@@ -16,7 +16,7 @@ const Page = () => {
     try {
       // Getting the user's session information
       const session = await getSession();
-      console.log("Session:", session);
+      // console.log("Session:", session);
       if (!session) {
         // Handling the case where the user is not logged in
         alert("You must be logged in to add a product");
@@ -25,7 +25,7 @@ const Page = () => {
 
       const addedBy = session.user.email;
 
-      console.log("addedBY", addedBy);
+      // console.log("addedBY", addedBy);
 
       const productData = {
         category,

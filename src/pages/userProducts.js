@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Page from "@/app/addproduct/page";
 import { useRouter } from "next/router";
 import DeleteElectronic from "@/lib/DeleteElectronic";
+import { BsFillPencilFill } from "react-icons/bs";
 
 const UserProductsPage = ({ user }) => {
   const [userProducts, setUserProducts] = useState([]);
@@ -18,19 +19,19 @@ const UserProductsPage = ({ user }) => {
         );
         const data = await response.json();
 
-        console.log("All Products:", data);
+        // console.log("All Products:", data);
 
-        console.log("User Email:", user.email);
+        // console.log("User Email:", user.email);
 
         // console.log('Product Structure:', products[0]);
         const products = data.result;
 
-        console.log("Product Structure:", typeof products[1]._id);
+        // console.log("Product Structure:", typeof products[1]._id);
         const filteredProducts = products.filter(
           (product) => product.addedBy === user.email
         );
 
-        console.log("Product Structure:", products[1]);
+        // console.log("Product Structure:", products[1]);
 
         // Set the filtered products in state
         setUserProducts(filteredProducts);
@@ -66,7 +67,7 @@ const UserProductsPage = ({ user }) => {
             {
               /* const id = parseInt(_id, 16); */
             }
-            console.log("Product ID:", typeof id);
+            {/* console.log("Product ID:", typeof id); */}
 
             const convertedPrice = parseFloat((price / 83).toFixed(2));
 
@@ -87,7 +88,7 @@ const UserProductsPage = ({ user }) => {
                   onClick={() => handleEditClick(_id)}
                   className="edit-button absolute top-1 left-1"
                 >
-                  Edit
+                  <BsFillPencilFill />
                 </button>
                 <div className="absolute top-1 left-10">
                 <DeleteElectronic id={_id}/>

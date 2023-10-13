@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { getSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 const Page = (props) => {
@@ -104,17 +103,55 @@ const updateElectronic = async () => {
       console.error("An error occurred while updating the product:", error);
     }
   };
+
+
+  const containerStyle = {
+    margin: "10px auto",
+    display: "flex",
+    flexDirection: "column",
+    gap: "2rem",
+    maxWidth: "600px",
+    backgroundColor: "white",
+    padding: "1rem",
+    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.2)",
+    borderRadius: "0.375rem",
+    marginBottom: "0.75rem",
+    marginTop: "20px",
+  };
+
+  const textStyle = {
+    fontSize: "1.5rem",
+    fontWeight: "bold",
+    marginBottom: "1rem",
+    justifyContent: "center",
+    display: "flex",
+  };
+
+  const inputStyle = {
+    border: "1px solid #E5E7EB",
+    borderRadius: "0.375rem",
+    padding: "0.75rem",
+    marginBottom: "0.5rem",
+  };
+
+  const buttonStyle = {
+    backgroundColor: "#27AE60",
+    color: "#000000",
+    borderRadius: "0.375rem",
+    padding: "0.7rem 1rem",
+    cursor: "pointer",
+  };
   
 
   return (
-    <div className="container mx-auto mt-10">
-      <h1 className="text-2xl font-bold mb-4">UPDATE PRODUCT</h1>
+    <div style={containerStyle}>
+      <h1 style={textStyle}>UPDATE PRODUCT</h1>
       <input
         type="text"
         value={category}
         onChange={(e) => setCategory(e.target.value)}
         placeholder="Product Category"
-        className="border border-gray-300 rounded-md p-2 mb-2"
+        style={inputStyle}
         required
       />
       <input
@@ -122,14 +159,14 @@ const updateElectronic = async () => {
         value={image}
         onChange={handleImageChange}
         required
-        className="border border-gray-300 rounded-md p-2 mb-2"
+        style={inputStyle}
       />
       <input
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Product Title"
-        className="border border-gray-300 rounded-md p-2 mb-2"
+        style={inputStyle}
         required
       />
       <input
@@ -137,7 +174,7 @@ const updateElectronic = async () => {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Product Description"
-        className="border border-gray-300 rounded-md p-2 mb-2"
+        style={inputStyle}
         required
       />
       <input
@@ -145,7 +182,7 @@ const updateElectronic = async () => {
         value={price}
         onChange={(e) => setPrice(e.target.value)}
         placeholder="Product Price"
-        className="border border-gray-300 rounded-md p-2 mb-2"
+        style={inputStyle}
         required
       />
       <input
@@ -153,7 +190,7 @@ const updateElectronic = async () => {
         value={rating}
         onChange={(e) => setRating(e.target.value)}
         placeholder="Product Rating"
-        className="border border-gray-300 rounded-md p-2 mb-2"
+        style={inputStyle}
         hidden
       />
       <input
@@ -161,15 +198,12 @@ const updateElectronic = async () => {
         value={ratingcount}
         onChange={(e) => setRatingcount(e.target.value)}
         placeholder="Product Rating Count"
-        className="border border-gray-300 rounded-md p-2 mb-2"
+        style={inputStyle}
         hidden
       />
       <br />
       <br />
-      <button
-       onClick={updateElectronic}
-        className="bg-green-500 text-black rounded-md py-2 px-4 hover:bg-blue-600"
-      >
+      <button onClick={updateElectronic} style={buttonStyle}>
         UPDATE PRODUCT
       </button>
     </div>
@@ -177,3 +211,4 @@ const updateElectronic = async () => {
 };
 
 export default Page;
+

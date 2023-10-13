@@ -43,8 +43,8 @@ export default function Home({products}) {
 export async function getServerSideProps(context) {
   try {
     // Fetching data from the first API
-    const response1 = await fetch("https://fakestoreapi.com/products");
-    const data1 = await response1.json();
+    // const response1 = await fetch("https://fakestoreapi.com/products");
+    // const data1 = await response1.json();
     
     // Fetching data from the second API
     const response2 = await fetch('https://dummyjson.com/products');
@@ -56,13 +56,13 @@ export async function getServerSideProps(context) {
 
     // Combining the data from all three APIs into a single array
     const combinedData = [
-      ...data1.map((product) => ({
-        ...product,
-        source: "API1",
-        rating: product.rating.rate,
-        ratingcount: product.rating.count,
-        id: product.id.toString()
-      })),
+      // ...data1.map((product) => ({
+      //   ...product,
+      //   source: "API1",
+      //   rating: product.rating.rate,
+      //   ratingcount: product.rating.count,
+      //   id: product.id.toString()
+      // })),
       ...data2.products.map((product) => ({
         ...product,
         id: (product.id + 100).toString(),

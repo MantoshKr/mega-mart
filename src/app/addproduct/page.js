@@ -112,29 +112,33 @@ const Page = () => {
   };
 
   return (
-    <div className="container mx-auto mt-10">
-      <h1 className="text-2xl font-bold mb-4">ADD PRODUCT</h1>
+    <div className="container mx-auto mt-10 flex flex-col gap-2 max-w-[600px] bg-white p-10 shadow-md rounded-lg mb-3">
+      <h1 className="text-2xl font-bold mb-4 justify-center flex">
+        ADD PRODUCT
+      </h1>
       <input
         type="text"
         value={category}
         onChange={(e) => setCategory(e.target.value)}
         placeholder="Product Category"
-        className="border border-gray-300 rounded-md p-2 mb-2"
+        className="border border-gray-300 rounded-md p-3 mb-2"
         required
       />
+
       <input
         type="text"
         value={image}
         onChange={handleImageChange}
+        placeholder="Paste image link here , only jpg, jpeg & png allowed"
         required
-        className="border border-gray-300 rounded-md p-2 mb-2"
+        className="border border-gray-300 rounded-md p-3 mb-2"
       />
       <input
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Product Title"
-        className="border border-gray-300 rounded-md p-2 mb-2"
+        className="border border-gray-300 rounded-md p-3 mb-2"
         required
       />
       <input
@@ -142,7 +146,7 @@ const Page = () => {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Product Description"
-        className="border border-gray-300 rounded-md p-2 mb-2"
+        className="border border-gray-300 rounded-md p-3 mb-2"
         required
       />
       <input
@@ -150,7 +154,7 @@ const Page = () => {
         value={price}
         onChange={(e) => setPrice(e.target.value)}
         placeholder="Product Price"
-        className="border border-gray-300 rounded-md p-2 mb-2"
+        className="border border-gray-300 rounded-md p-3 mb-2"
         required
       />
       <input
@@ -159,7 +163,7 @@ const Page = () => {
         onChange={(e) => setRating(e.target.value)}
         placeholder="Product Rating"
         className="border border-gray-300 rounded-md p-2 mb-2"
-        
+        hidden
       />
       <input
         type="text"
@@ -167,7 +171,7 @@ const Page = () => {
         onChange={(e) => setRatingcount(e.target.value)}
         placeholder="Product Rating Count"
         className="border border-gray-300 rounded-md p-2 mb-2"
-       
+        hidden
       />
       <br />
       <br />

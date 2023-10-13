@@ -32,5 +32,8 @@ export default function DeleteElectronic(props) {
   }
   };
 
-  return <button onClick={deleteRecord}>Delete</button>;
+  return <button onClick={deleteRecord}  className="py-2 px-2 text-lg">
+<BsFillTrashFill style={{ color: "red" }} />
+  
+  </button>;
 }

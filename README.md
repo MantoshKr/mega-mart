@@ -5,12 +5,11 @@ Mega Mart is an e-commerce project built with Next.js, React.js, Redux, Firebase
 ## Table of Contents
 
 - [Features](#features)
+- [Tech Stack Used](#tech-stack-used)
 - [Challenges Faced](#challenges-faced)
-- [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Features
 
@@ -26,25 +25,13 @@ Mega Mart boasts a variety of features that enhance the shopping experience for 
 
 - **Search Functionality**: A search feature allows users to find products they like quickly.
 
-- **Product Ratings**: Users can rate products, and the ratings and review counts are displayed on product pages.
-
-- **Payment Integration**: Stripe is used for secure payment processing, ensuring a smooth checkout experience.
+- **Payment Integration**: Stripe is used for secure payment processing.
 
 - **Responsive Design**: The website is fully responsive, providing an optimal viewing experience on various devices, including mobile, tablet, laptop, and large monitors.
 
 - **Mega Menu**: A mega menu with categories helps users navigate the website efficiently.
 
-## Challenges Faced
-
-During the development of Mega Mart, several challenges were encountered and successfully addressed:
-
-- **Data Type Mismatch**: There was a data type mismatch issue with product IDs from various APIs. To resolve this, all product IDs were converted to strings to ensure consistent data types.
-
-- **Rating and Rating Count Error**: An error related to product ratings and counts was resolved in the checkout page.
-
-- **Handling Multiple APIs**: Difficulty in handling three APIs simultaneously .
-
-## Technologies Used
+## Tech Stack Used
 
 - Next.js
 - React.js
@@ -54,6 +41,25 @@ During the development of Mega Mart, several challenges were encountered and suc
 - Stripe for payment processing
 - Tailwind CSS for styling
 - Google Authentication for user login
+
+
+## Challenges Faced
+
+During the development of Mega Mart, several challenges were encountered and successfully addressed:
+
+- **Wishlist error**: Adding a product to the wishlist was not in sync from all the pages due to a data type mismatch issue with product IDs from various APIs, which occurred when adding the product to the wishlist from the product details page. To resolve this, all product IDs were converted to strings to ensure consistent data types.
+
+- **Rating and Rating Count Error**: An error related to product ratings and counts was resolved in the checkout page.
+
+- **Handling Multiple APIs**: Difficulty in handling three APIs simultaneously.
+
+- **Critical image loading error in the Vercel deployed app**:
+  - Installed the 'next-optimized-images' package to resolve the image upload issue during the deployment process.
+  - Reorganized the project's folder structure for images:
+    - Moved image assets from 'public/assets/images' to 'public/static/images' to adhere to recommended project structure guidelines.
+
+- **CORS Issue**:
+  Cross-Origin Resource Sharing (CORS) issue was resolved by using both the front-end and API on the same Vercel domain, eliminating CORS-related issues.
 
 ## Getting Started
 
@@ -67,4 +73,7 @@ To get the Mega Mart project up and running on your local machine, follow these 
 
 ## Usage
 
-After following the setup steps, you can access the Mega Mart website at `http://localhost:3000` in your web browser. Explore the various features and functionalities of the project !
+After following the setup steps, you can access the Mega Mart website at `http://localhost:3000` in your web browser. Explore the various features and functionalities of the project!
+
+
+

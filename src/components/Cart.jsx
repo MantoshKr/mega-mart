@@ -107,7 +107,7 @@ const Cart = ({
   return (
     <div className="mdl2:flex mdl2:items-center mdl2:justify-between gap-4 border-b-[1px] border-b-zinc-200 pb-4 gap ">
       <div className="mdl2:w-3/4 w-full xs:flex-col sml2:flex-row flex items-center gap-2 mt-2 relative">
-        <Image className="w-32" width={500} height={500} src={image} alt="" />
+        <Image className="w-32" width={500} height={500} src={image} alt=""  loading="lazy"/>
 
         <p
           className="absolute sml2:top-2 sml2:left-24 top-2 left-4 text-2xl sml2:text-xl cursor-pointer"

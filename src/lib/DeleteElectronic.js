@@ -3,6 +3,7 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
+import { BsFillTrashFill } from "react-icons/bs";
 
 export default function DeleteElectronic(props) {
     const router = useRouter();

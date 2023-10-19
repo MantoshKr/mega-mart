@@ -91,6 +91,7 @@ const Checkout = () => {
                       width={25}
                       height={25}
                       alt=""
+                      loading="lazy"
                     />
                     <p> pickup and delivery options </p>
                   </div>
@@ -102,6 +103,7 @@ const Checkout = () => {
                         width={30}
                         height={30}
                         alt=""
+                        loading="lazy"
                       />
                       <p className="font-bold">Shipping</p>
                       <p>Available</p>
@@ -113,6 +115,7 @@ const Checkout = () => {
                         width={30}
                         height={30}
                         alt=""
+                        loading="lazy"
                       />
                       <p className="font-bold">Pickup</p>
                       <p>Available</p>
@@ -124,6 +127,7 @@ const Checkout = () => {
                         width={30}
                         height={30}
                         alt=""
+                        loading="lazy"
                       />
                       <p className="font-bold">Delivery</p>
                       <p>Available</p>
@@ -191,7 +195,7 @@ const Checkout = () => {
 
                   {offerMsg && (
                     <div className="bg-[#002d58] text-white p-2 rounded-lg flex items-center justify-between gap-4">
-                      <Image src={"/static/images/partyImg.png"} width={30} height={30} alt="" />
+                      <Image src={"/static/images/partyImg.png"} width={30} height={30} alt=""  loading="lazy"/>
                       <p className="text-sm">
                         Items in your cart have reduced prices. Check out now
                         for extra savings!
@@ -314,7 +318,7 @@ const Checkout = () => {
                 {offerFlashSale && (
               <div className="lgl:w-full w-[400px] p-0 lgl:p-4 mt-4  border-[1px] border-zinc-400 rounded-md sml:flex hidden flex-col justify-center gap-1">
                 <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
-                  <Image src={"/static/images/flashSaleIcon.png"} width={60} height={60} alt="" />
+                  <Image src={"/static/images/flashSaleIcon.png"} width={60} height={60} alt=""  loading="lazy"/>
                   <p className="text-sm">
                     <span className="font-bold">Flash Sale Alert!</span> Shop
                     now at Megamart.com and enjoy huge discounts on selected items
@@ -334,7 +338,7 @@ const Checkout = () => {
             {offerCashback && (
               <div className="lgl:w-full  w-[400px] p-0 lgl:p-4 mt-4  border-[1px] border-zinc-400 rounded-md hidden sml:flex flex-col justify-center gap-1">
                 <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
-                  <Image src={"/static/images/creditcard.png"} width={60} height={60} alt="" />
+                  <Image src={"/static/images/creditcard.png"} width={60} height={60} alt=""  loading="lazy"/>
                   <p className="text-sm">
                     <span className="font-bold"> Earn 5% cash back </span> on
                     Megamart.com See if you’re pre-approved with no credit risk.{" "}

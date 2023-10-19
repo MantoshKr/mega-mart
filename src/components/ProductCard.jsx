@@ -66,6 +66,7 @@ const ProductCard = ({
             width={300}
             height={250}
             src={image}
+            loading="lazy"
           />
           <p
             className="absolute top-4 right-4 text-2xl cursor-pointer"
@@ -127,6 +128,7 @@ const ProductCard = ({
                   alt=""
                   width={30}
                   height={30}
+                  loading="lazy"
                 />
               </div>
             )}

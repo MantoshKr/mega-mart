@@ -60,6 +60,7 @@ const Header = () => {
                 height={100}
                 alt=""
                 className="md:mx-1 mx-0"
+                loading="lazy"
               />
             </div>
           </div>
@@ -160,6 +161,7 @@ const Header = () => {
                   height={100}
                   alt=""
                   className="md:mx-1 mx-0"
+                  loading="lazy"
                 />
               </div>
             </li>

@@ -8,7 +8,7 @@ Mega Mart is an e-commerce project built with Next.js, React.js, Redux, Firebase
 - [Tech Stack Used](#tech-stack-used)
 - [Challenges Faced](#challenges-faced)
 - [Getting Started](#getting-started)
-- [Usage](#usage)
+- [Deployment](#deployment)
 
 
 ## Features
@@ -71,9 +71,29 @@ To get the Mega Mart project up and running on your local machine, follow these 
 4. Set up Firebase and Stripe credentials (follow the documentation).
 5. Start the development server: `npm run dev`
 
-## Usage
 
-After following the setup steps, you can access the Mega Mart website at `http://localhost:3000` in your web browser. Explore the various features and functionalities of the project!
+
+## Deployment
+
+The app is deployed on Vercel. To deploy your own instance of the app on Vercel, follow these steps:
+
+1. Install the Vercel CLI globally (if not already installed):
+
+   ```bash
+   npm install -g vercel
+   ```
+
+2. Log in to your Vercel account using the CLI:
+
+   ```bash
+   vercel login
+   ```
+
+3. Deploy the app to Vercel:
+
+   ```bash
+   vercel
+   ```
 
 
 

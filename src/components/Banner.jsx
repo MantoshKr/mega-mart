@@ -8,7 +8,9 @@ const Banner = () => {
   return (
     <div className="w-full bg-grey-200 px-10 py-6 font-titleFont flex gap-4 ">
       <div className="w-full rounded-lg h-full shadow-bannerShadow relative overflow-hidden hidden lgl:block ">
-        <Carousel
+
+      <div className="absolute h-96 w-full bg-gradient-to-t from-white to-transparent bottom-0 z-20"/>
+      <Carousel
           autoPlay
           infiniteLoop
           showStatus={false}
@@ -17,19 +19,62 @@ const Banner = () => {
           interval={5000}
         >
           <div className="h-full">
-            <img loading="lazy" src={"/static/images/banner-1.jpg"} alt="" className="h-full w-full object-cover" />
+            <img
+              loading="lazy"
+              src={"/static/images/acer-banner.jpg"}
+              alt=""
+              className="h-full w-full object-cover"
+            />
           </div>
           <div className="h-full">
-            <img loading="lazy" src={"/static/images/banner-2.jpg"} alt="" className="h-full w-full object-cover" />
+            <img
+              loading="lazy"
+              src={"/static/images/redmi-banner.jpg"}
+              alt=""
+              className="h-full w-full object-cover"
+            />
           </div>
 
           <div className="h-full">
-            <img loading="lazy" src={"/static/images/banner-3.jpg"} alt="" className="h-full w-full object-cover"/>
+            <img
+              loading="lazy"
+              src={"/static/images/watch-banner.jpg"}
+              alt=""
+              className="h-full w-full object-cover"
+            />
           </div>
           <div className="h-full">
-            <img loading="lazy" src={"/static/images/banner-4.jpg"} alt=""  className="h-full w-full object-cover"/>
+            <img
+              loading="lazy"
+              src={"/static/images/safari-banner.jpg"}
+              alt=""
+              className="h-full w-full object-cover"
+            />
           </div>
-          
+          <div className="h-full">
+            <img
+              loading="lazy"
+              src={"/static/images/tv-banner.jpg"}
+              alt=""
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="h-full">
+            <img
+              loading="lazy"
+              src={"/static/images/festival-banner.jpg"}
+              alt=""
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="h-full">
+            <img
+              loading="lazy"
+              src={"/static/images/diwali-banner.jpg"}
+              alt=""
+              className="h-full w-full object-cover"
+            />
+          </div>
         </Carousel>
       </div>
       {/* <div className="w-1/3 border-[1px] border-gray-200 rounded-lg shadow-bannerShadow p-4 flex flex-col justify-between"></div> */}

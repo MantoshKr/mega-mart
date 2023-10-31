@@ -36,7 +36,7 @@ const ProductList = ({ products }) => {
     <div>
      
       {/* Display sorted Products */}
-      <div className="md:py-6 px-10 grid 2xl:grid-cols-5 xl:grid-cols-4 gap-4 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3  z-40 -mt-80 relative">
+      <div className="md:py-6 px-10 grid 2xl:grid-cols-5 xl:grid-cols-4 gap-4 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3  z-40 relative xl:-mt-80 lgl:-mt-64 lg:-mt-52 mdl:-mt-44 md:-mt-36">
         {sortedProducts.map(
           ({ id, title, price, description, category, image, rating , ratingcount }) => (
             <ProductCard

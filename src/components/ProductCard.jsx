@@ -58,6 +58,20 @@ const ProductCard = ({
 
   return (
     <div>
+    <Link
+              href={{
+                pathname: `/product/${id}`,
+                query: {
+                  title: title,
+                  price: price,
+                  description: description,
+                  category: category,
+                  image: image,
+                  ratingcount:ratingcount,
+                  rating:rating,
+                },
+              }}
+            >
       <div className=" border-gray-200 bg-white mb-6 group">
         <div className="w-full h-80 overflow-hidden p-6 relative">
           <Image
@@ -135,6 +149,7 @@ const ProductCard = ({
           </div>
         </div>
       </div>
+      </Link>
     </div>
   );
 };

@@ -13,31 +13,32 @@ const Page = (props) => {
   const [ratingcount, setRatingcount] = useState("");
   const router = useRouter();
 
-useEffect(()=>{
+  useEffect(() => {
     getElectronicDetails();
+  }, []);
 
-},[])
-
-const getElectronicDetails = async () => {
+  const getElectronicDetails = async () => {
     try {
-        let electronicId=props.params.editelectronic
-      let electronicData = await fetch("https://mega-mart-shopping.vercel.app/api/electronics/"+electronicId);
+      let electronicId = props.params.editelectronic;
+      let electronicData = await fetch(
+        "https://mega-mart-shopping.vercel.app/api/electronics/" + electronicId,
+      );
       // console.log("electronics data:", electronicData);
-  
+
       if (electronicData.ok) {
         // Parse the response body as JSON
         const data = await electronicData.json();
         // console.log("result data:", data); // Log the result here
-  
+
         if (data.success) {
           const result = data.result;
           setCategory(result.category);
           setTitle(result.title);
           setDescription(result.description);
           setPrice(result.price);
-          setImage(result.image)
-          setRating(result.rating)
-          setRatingcount(result.ratingcount)
+          setImage(result.image);
+          setRating(result.rating);
+          setRatingcount(result.ratingcount);
         } else {
           console.log("Data retrieval was not successful.");
         }
@@ -48,28 +49,28 @@ const getElectronicDetails = async () => {
       console.error("An error occurred while fetching data:", error);
     }
   };
-  
-
-
-
 
   const handleImageChange = (e) => {
     const inputValue = e.target.value; // Convert to lowercase for case-insensitive comparison
     const validExtensions = [".jpg", ".jpeg", ".png", ".gif"];
 
     // Check if the input value ends with a valid image extension
-    const isValidImage = validExtensions.some((ext) => inputValue.endsWith(ext));
+    const isValidImage = validExtensions.some((ext) =>
+      inputValue.endsWith(ext),
+    );
 
     if (isValidImage) {
       setImage(inputValue); // Set the image state if it's a valid URL
     } else {
-      alert("Invalid image URL. Please enter a URL with a valid image extension.");
+      alert(
+        "Invalid image URL. Please enter a URL with a valid image extension.",
+      );
     }
   };
 
-const updateElectronic = async () => {
+  const updateElectronic = async () => {
     let electronicId = props.params.editelectronic;
-    
+
     // Construct the request body as a JSON object
     const requestBody = {
       category: category,
@@ -78,32 +79,34 @@ const updateElectronic = async () => {
       price: price,
       description: description,
       rating: rating,
-      ratingcount: ratingcount
+      ratingcount: ratingcount,
     };
-  
-    try {
-      let electronicData = await fetch("https://mega-mart-shopping.vercel.app/api/electronics/" + electronicId, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(requestBody)
-      });
-  
-      const data = await electronicData.json();
-  
-      if (data.success) {
-        alert('Product has been updated');
 
-        router.push("/userProducts")
+    try {
+      let electronicData = await fetch(
+        "https://mega-mart-shopping.vercel.app/api/electronics/" + electronicId,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestBody),
+        },
+      );
+
+      const data = await electronicData.json();
+
+      if (data.success) {
+        alert("Product has been updated");
+
+        router.push("/userProducts");
       } else {
-        alert('Failed to update product');
+        alert("Failed to update product");
       }
     } catch (error) {
       console.error("An error occurred while updating the product:", error);
     }
   };
-
 
   const containerStyle = {
     margin: "10px auto",
@@ -141,7 +144,6 @@ const updateElectronic = async () => {
     padding: "0.7rem 1rem",
     cursor: "pointer",
   };
-  
 
   return (
     <div style={containerStyle}>
@@ -211,4 +213,3 @@ const updateElectronic = async () => {
 };
 
 export default Page;
-

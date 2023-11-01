@@ -1,4 +1,3 @@
-
 import { createSlice } from "@reduxjs/toolkit";
 
 const productSlice = createSlice({
@@ -28,7 +27,8 @@ export const selectSearchQuery = (state) => state.products.searchQuery;
 export const selectSortBy = (state) => state.products.sortBy;
 export const selectPriceRange = (state) => state.products.priceRange;
 
-export const { setSearchQuery, setSortBy ,setPriceRange } = productSlice.actions;
+export const { setSearchQuery, setSortBy, setPriceRange } =
+  productSlice.actions;
 
 const sortProducts = (products, sortBy) => {
   const sortedProducts = [...products];

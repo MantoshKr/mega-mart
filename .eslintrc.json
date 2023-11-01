@@ -2,12 +2,11 @@
 //   "extends": "next/core-web-vitals"
 // }
 
-
 {
   "extends": "next/core-web-vitals",
   "rules": {
     // Disable all ESLint rules
-    "react/no-unescaped-entities": "off",
+    "react/no-unescaped-entities": "off"
     // Add other rules and their configurations here as needed
   }
 }

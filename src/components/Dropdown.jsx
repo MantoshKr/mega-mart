@@ -12,7 +12,7 @@ import {
 import { FaBabyCarriage } from "react-icons/fa";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
-import { setSearchQuery } from '../slices/productSlice';
+import { setSearchQuery } from "../slices/productSlice";
 
 const Dropdown = () => {
   const [heading, setHeading] = useState("");

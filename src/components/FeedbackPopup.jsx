@@ -1,12 +1,9 @@
-
-
-
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 const FeedbackPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [feedback, setFeedback] = useState('');
+  const [feedback, setFeedback] = useState("");
   const [showThankYou, setShowThankYou] = useState(false);
   const [buttonClicked, setButtonClicked] = useState(false);
 
@@ -15,7 +12,7 @@ const FeedbackPopup = () => {
   const togglePopup = () => {
     setIsOpen(!isOpen);
     // Reset the feedback form when opening the popup
-    setFeedback('');
+    setFeedback("");
   };
 
   const handleFeedbackChange = (e) => {
@@ -23,7 +20,6 @@ const FeedbackPopup = () => {
   };
 
   const submitFeedback = () => {
-    
     // console.log(feedback);
 
     // Show the thank you message
@@ -33,8 +29,8 @@ const FeedbackPopup = () => {
     setTimeout(() => {
       togglePopup(); // Close the popup
       setShowThankYou(false); // Hide the thank you message
-      router.push('/'); 
-    }, 3000); 
+      router.push("/");
+    }, 3000);
 
     // Hide the "Give Feedback" button after clicking
     setButtonClicked(true);
@@ -65,12 +61,15 @@ const FeedbackPopup = () => {
               <div>
                 <h2 className="text-2xl font-bold mb-4">Thank You!</h2>
                 <p className="mb-4">
-                  Your feedback is valuable to us. Thank you for your precious time.
+                  Your feedback is valuable to us. Thank you for your precious
+                  time.
                 </p>
               </div>
             ) : (
               <div>
-                <h2 className="text-2xl font-bold mb-4 text-green-700">Feedback</h2>
+                <h2 className="text-2xl font-bold mb-4 text-green-700">
+                  Feedback
+                </h2>
                 <textarea
                   id="feedbackText"
                   value={feedback}

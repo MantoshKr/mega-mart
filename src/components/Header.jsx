@@ -98,23 +98,22 @@ const Header = () => {
             </div>
           </div>
 
-          
-
           <div className="md:flex hidden items-center h-12 px-5 rounded-full bg-transparent  gap-2 hover:bg-hoverBg duration-300 cursor-pointer">
             <AiOutlineUser />
             <div onClick={!session ? signIn : signOut}>
               <p className="text-xs hidden lgl:block">
                 {session ? `Hello, ${session.user.name}` : ""}
               </p>
-             
-              {session ? 
-                <h2 className="text-base font-semibold -mt-1 hidden lgl:block text-red-500">Logout</h2>
-              
-               : 
-               
-               <h2 className="text-base font-semibold hidden lgl:block text-green-500">Sign In</h2>
-               }
-              
+
+              {session ? (
+                <h2 className="text-base font-semibold -mt-1 hidden lgl:block text-red-500">
+                  Logout
+                </h2>
+              ) : (
+                <h2 className="text-base font-semibold hidden lgl:block text-green-500">
+                  Sign In
+                </h2>
+              )}
             </div>
           </div>
 
@@ -188,17 +187,17 @@ const Header = () => {
               </div>
             </li>
             <li className="flex justify-between mr-2">
-            <div>{""}</div>
-            <div
-            onClick={() => router.push("/userProducts")}
-            className="flex items-center h-20 px-10 rounded-full bg-transparent  gap-2  duration-300 cursor-pointer"
-          >
-            <BsFillCartCheckFill />
-            <div className="">
-              <p className="text-sm flex">Seller</p>
-              <h2 className="text-base font-semibold -mt-1"></h2>
-            </div>
-          </div>
+              <div>{""}</div>
+              <div
+                onClick={() => router.push("/userProducts")}
+                className="flex items-center h-20 px-10 rounded-full bg-transparent  gap-2  duration-300 cursor-pointer"
+              >
+                <BsFillCartCheckFill />
+                <div className="">
+                  <p className="text-sm flex">Seller</p>
+                  <h2 className="text-base font-semibold -mt-1"></h2>
+                </div>
+              </div>
             </li>
 
             <Dropdown />

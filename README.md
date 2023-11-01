@@ -10,7 +10,6 @@ Mega Mart is an e-commerce project built with Next.js, React.js, Redux, Firebase
 - [Getting Started](#getting-started)
 - [Deployment](#deployment)
 
-
 ## Features
 
 Mega Mart boasts a variety of features that enhance the shopping experience for both customers and sellers:
@@ -42,7 +41,6 @@ Mega Mart boasts a variety of features that enhance the shopping experience for 
 - Tailwind CSS for styling
 - Google Authentication for user login
 
-
 ## Challenges Faced
 
 During the development of Mega Mart, several challenges were encountered and successfully addressed:
@@ -54,6 +52,7 @@ During the development of Mega Mart, several challenges were encountered and suc
 - **Handling Multiple APIs**: Difficulty in handling three APIs simultaneously.
 
 - **Critical image loading error in the Vercel deployed app**:
+
   - Installed the 'next-optimized-images' package to resolve the image upload issue during the deployment process.
   - Reorganized the project's folder structure for images:
     - Moved image assets from 'public/assets/images' to 'public/static/images' to adhere to recommended project structure guidelines.
@@ -70,8 +69,6 @@ To get the Mega Mart project up and running on your local machine, follow these 
 3. Install dependencies: `npm install`
 4. Set up Firebase and Stripe credentials (follow the documentation).
 5. Start the development server: `npm run dev`
-
-
 
 ## Deployment
 
@@ -94,6 +91,3 @@ The app is deployed on Vercel. To deploy your own instance of the app on Vercel,
    ```bash
    vercel
    ```
-
-
-

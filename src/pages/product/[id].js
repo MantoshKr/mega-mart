@@ -92,7 +92,7 @@ const ProductDetailsPage = () => {
           description,
           ratingcount,
           rating,
-        })
+        }),
       );
     }
   };
@@ -295,7 +295,13 @@ const ProductDetailsPage = () => {
               {offerFlashSale && (
                 <div className="lgl:w-full md:w-[400px] w-[90%]  lgl:p-4 md:p-0 p-1 mt-4  border-[1px] border-zinc-400 rounded-md sml:flex hidden flex-col justify-center gap-1">
                   <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
-                    <Image src={"/static/images/flashSaleIcon.png"} width={60} height={60} alt=""  loading="lazy"/>
+                    <Image
+                      src={"/static/images/flashSaleIcon.png"}
+                      width={60}
+                      height={60}
+                      alt=""
+                      loading="lazy"
+                    />
                     <p className="text-sm">
                       <span className="font-bold">Flash Sale Alert!</span> Shop
                       now at Megamart.com and enjoy huge discounts on selected
@@ -318,7 +324,13 @@ const ProductDetailsPage = () => {
               {offerDiscount && (
                 <div className="lgl:w-full w-[90%] md:w-[400px] lgl:p-4 md:p-0 p-1 mt-4  border-[1px] border-zinc-400 rounded-md sml:flex hidden flex-col justify-center gap-1">
                   <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
-                    <Image src={"/static/images/giftBox.png"} width={60} height={60} alt=""  loading="lazy"/>
+                    <Image
+                      src={"/static/images/giftBox.png"}
+                      width={60}
+                      height={60}
+                      alt=""
+                      loading="lazy"
+                    />
                     <p className="text-sm">
                       <span className="font-bold">Get 20% off</span> on your
                       next purchase at Megamart.com. Don't miss this exclusive

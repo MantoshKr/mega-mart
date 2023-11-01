@@ -28,50 +28,52 @@ const Footer = () => {
               COVID-19 Vaccine Scheduler
             </li>
             <li className="hover:text-white duration-200 ml-2 cursor-pointer">
-            Product Recalls
+              Product Recalls
             </li>
             <li className="hover:text-white duration-200 ml-2 cursor-pointer">
-            Accessibility
+              Accessibility
             </li>
             <li className="hover:text-white duration-200 ml-2 cursor-pointer">
-            Tax Exempt Program
+              Tax Exempt Program
             </li>
             <li className="hover:text-white duration-200 ml-2 cursor-pointer">
-            Get the Walmart App
+              Get the Walmart App
             </li>
             <li className="hover:text-white duration-200 ml-2 cursor-pointer">
-            Sign-up for Email
+              Sign-up for Email
             </li>
             <li className="hover:text-white duration-200 ml-2 cursor-pointer">
-            Safety Data Sheet
+              Safety Data Sheet
             </li>
             <li className="hover:text-white duration-200 ml-2 cursor-pointer">
-            Terms of Use
+              Terms of Use
             </li>
             <li className="hover:text-white duration-200 ml-2 cursor-pointer">
-            Privacy & Security
+              Privacy & Security
             </li>
             <li className="hover:text-white duration-200 ml-2 cursor-pointer">
-            Gurugram Privacy Rights
+              Gurugram Privacy Rights
             </li>
             <li className="hover:text-white duration-200 ml-2 cursor-pointer">
-            Gurugram Supply Chain Act
+              Gurugram Supply Chain Act
             </li>
             <li className="hover:text-white duration-200 ml-2 cursor-pointer">
-            Privacy choices iconYour Privacy Choices
+              Privacy choices iconYour Privacy Choices
             </li>
             <li className="hover:text-white duration-200 ml-2 cursor-pointer">
-            Notice at Collection
+              Notice at Collection
             </li>
             <li className="hover:text-white duration-200 ml-2 cursor-pointer">
-            Request My Personal Information
+              Request My Personal Information
             </li>
             <li className="hover:text-white duration-200 ml-2 cursor-pointer">
-            Social Feed
+              Social Feed
             </li>
-
           </ul>
-          <p className="text-sm text-zinc-300 text-center mt-4"> © 2023 MegaMart. All Rights Reserved. </p>
+          <p className="text-sm text-zinc-300 text-center mt-4">
+            {" "}
+            © 2023 MegaMart. All Rights Reserved.{" "}
+          </p>
         </div>
       </div>
     </div>

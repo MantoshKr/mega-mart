@@ -33,7 +33,7 @@ const Success = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-       
+
       <div className="max-w-screen-lg mx-auto flex-grow">
         <div className="flex flex-col p-10 bg-white gap-10">
           <div className="gap-4">
@@ -63,7 +63,13 @@ const Success = () => {
             {offerCashback && (
               <div className="md:w-[60%] hidden p-4 mt-4 mx-10 border-[1px] border-zinc-400 rounded-md md:flex flex-col justify-center gap-1">
                 <div className="bg-white text-black p-2 rounded-lg flex items-center justify-between gap-4">
-                  <Image src={"/static/images/creditcard.png"} width={60} height={60} alt=""  loading="lazy"/>
+                  <Image
+                    src={"/static/images/creditcard.png"}
+                    width={60}
+                    height={60}
+                    alt=""
+                    loading="lazy"
+                  />
                   <p className="text-sm">
                     <span className="font-bold"> Earn 5% cash back </span> on
                     Megamart.com See if you’re pre-approved with no credit risk.{" "}
@@ -118,7 +124,6 @@ const Success = () => {
           </p>
         </div>
       </div>
-      
 
       <Feedback />
 

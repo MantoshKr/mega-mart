@@ -16,7 +16,7 @@ const UserProductsPage = ({ user }) => {
     const fetchUserProducts = async () => {
       try {
         const response = await fetch(
-          "https://mega-mart-shopping.vercel.app/api/electronics"
+          "https://mega-mart-shopping.vercel.app/api/electronics",
         );
         const data = await response.json();
 
@@ -29,7 +29,7 @@ const UserProductsPage = ({ user }) => {
 
         // console.log("Product Structure:", typeof products[1]._id);
         const filteredProducts = products.filter(
-          (product) => product.addedBy === user.email
+          (product) => product.addedBy === user.email,
         );
 
         // console.log("Product Structure:", products[1]);

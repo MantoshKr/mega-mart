@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import ProductCard from "./ProductCard";
 import { useSelector } from "react-redux";
-import { selectPriceRange, selectSearchQuery, selectSortBy } from "../slices/productSlice"; // Import the selector
+import {
+  selectPriceRange,
+  selectSearchQuery,
+  selectSortBy,
+} from "../slices/productSlice"; // Import the selector
 
 const ProductList = ({ products }) => {
   const searchQuery = useSelector(selectSearchQuery);
@@ -11,9 +15,8 @@ const ProductList = ({ products }) => {
   // Filter products based on search query
   const filteredProducts = products.filter(
     (product) =>
-      product.title.toLowerCase().includes(searchQuery.toLowerCase())  ||
-      product.category.toLowerCase().includes(searchQuery.toLowerCase()) 
-  
+      product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.category.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   const sortedProducts = [...filteredProducts];
@@ -34,11 +37,19 @@ const ProductList = ({ products }) => {
 
   return (
     <div>
-     
       {/* Display sorted Products */}
       <div className="md:py-6 px-10 grid 2xl:grid-cols-5 xl:grid-cols-4 gap-4 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3  z-40 relative xl:-mt-80 lgl:-mt-64 lg:-mt-52 mdl:-mt-44 md:-mt-36">
         {sortedProducts.map(
-          ({ id, title, price, description, category, image, rating , ratingcount }) => (
+          ({
+            id,
+            title,
+            price,
+            description,
+            category,
+            image,
+            rating,
+            ratingcount,
+          }) => (
             <ProductCard
               key={id}
               id={id}
@@ -50,7 +61,7 @@ const ProductList = ({ products }) => {
               rating={rating}
               ratingcount={ratingcount}
             />
-          )
+          ),
         )}
       </div>
     </div>

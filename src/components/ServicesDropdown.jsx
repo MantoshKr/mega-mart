@@ -43,7 +43,7 @@ const ServicesDropdown = () => {
 
   const handleCategoryClick = (categoryName) => {
     categoryName = categoryName.replace(/^\//, "");
-    
+
     dispatch(setSearchQuery(categoryName));
 
     router.push("/");
@@ -94,7 +94,9 @@ const ServicesDropdown = () => {
                             {submenu1.sublink.map((submenu2, subIndex2) => (
                               <a
                                 key={subIndex2}
-                                onClick={() => handleCategoryClick(submenu2.link)}
+                                onClick={() =>
+                                  handleCategoryClick(submenu2.link)
+                                }
                                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                               >
                                 {submenu2.name}

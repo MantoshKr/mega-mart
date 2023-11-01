@@ -13,7 +13,7 @@ const saveForLaterSlice = createSlice({
     },
     removeFromSaveForLater: (state, action) => {
       state.saveForLaterItems = state.saveForLaterItems.filter(
-        (item) => item.id !== action.payload.id
+        (item) => item.id !== action.payload.id,
       ); // Remove product from save for later
     },
   },

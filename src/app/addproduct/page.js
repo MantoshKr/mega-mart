@@ -49,23 +49,20 @@ const Page = () => {
         return; // Stop execution if validation fails
       }
 
-     
-    
-
-     
-    
-
-      let result = await fetch("https://mega-mart-shopping.vercel.app/api/electronics", {
-        method: "POST",
-        body: JSON.stringify(productData),
-        headers: {
-          "Content-Type": "application/json",
+      let result = await fetch(
+        "https://mega-mart-shopping.vercel.app/api/electronics",
+        {
+          method: "POST",
+          body: JSON.stringify(productData),
+          headers: {
+            "Content-Type": "application/json",
+          },
         },
-      });
+      );
       result = await result.json();
       if (result.success) {
         alert(
-          "product added successfully . \n please refresh the page to see your product"
+          "product added successfully . \n please refresh the page to see your product",
         );
 
         setCategory("");
@@ -84,13 +81,7 @@ const Page = () => {
   };
 
   const validateForm = () => {
-    if (
-      !category ||
-      !image ||
-      !title ||
-      !description ||
-      !price 
-    ) {
+    if (!category || !image || !title || !description || !price) {
       alert("Please fill in all the required fields.");
       return false;
     }
@@ -102,12 +93,16 @@ const Page = () => {
     const validExtensions = [".jpg", ".jpeg", ".png", ".gif"];
 
     // Check if the input value ends with a valid image extension
-    const isValidImage = validExtensions.some((ext) => inputValue.endsWith(ext));
+    const isValidImage = validExtensions.some((ext) =>
+      inputValue.endsWith(ext),
+    );
 
     if (isValidImage) {
       setImage(inputValue); // Set the image state if it's a valid URL
     } else {
-      alert("Invalid image URL. Please enter a URL with a valid image extension.");
+      alert(
+        "Invalid image URL. Please enter a URL with a valid image extension.",
+      );
     }
   };
 

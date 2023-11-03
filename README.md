@@ -91,3 +91,4 @@ The app is deployed on Vercel. To deploy your own instance of the app on Vercel,
    ```bash
    vercel
    ```
+   

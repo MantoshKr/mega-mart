@@ -22,7 +22,8 @@ export default function Home({ products }) {
           <Header />
           <SortBy />
 
-          {searchQuery === "" && <Banner />}
+          {/* {searchQuery === "" && <Banner />} */}
+          <Banner />
 
           <ProductList products={products} />
 

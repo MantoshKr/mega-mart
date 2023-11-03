@@ -10,7 +10,7 @@ const Wishlist = () => {
   return (
     <div>
       <Header />
-      <h1 className="text-3xl font-bold mb-4">Wishlist</h1>
+      <h1 className="text-3xl font-bold mb-10 flex justify-center p-4 text-black bg-orange-100 border shadow-md ">Wishlist</h1>
       {wishlistItems.length === 0 ? (
         <p>Your wishlist is empty.</p>
       ) : (

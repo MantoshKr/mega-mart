@@ -37,47 +37,29 @@ export default function Home({ products }) {
 
 export async function getServerSideProps(context) {
   try {
-    // Fetching data from the first API
-    // const response1 = await fetch("https://fakestoreapi.com/products");
-    // const data1 = await response1.json();
+    const [responseMongoDB, responseDummyJSON] = await Promise.all([
+      fetch("https://mega-mart-shopping.vercel.app/api/electronics"),
+      fetch("https://dummyjson.com/products")
+    ]);
 
-    // Fetching data from the second API
-    const response2 = await fetch("https://dummyjson.com/products");
-    const data2 = await response2.json();
+    const dataMongoDB = await responseMongoDB.json();
+    const dataDummyJSON = await responseDummyJSON.json();
 
-    // Fetching data from the third API (http://localhost:3000/api/electronics) (my mongoDB api)
-    const response3 = await fetch(
-      "https://mega-mart-shopping.vercel.app/api/electronics",
-    );
-    const data3 = await response3.json();
-
-    // Combining the data from all three APIs into a single array
     const combinedData = [
-      // ...data1.map((product) => ({
-      //   ...product,
-      //   source: "API1",
-      //   rating: product.rating.rate,
-      //   ratingcount: product.rating.count,
-      //   id: product.id.toString()
-      // })),
-
-      ...data3.result.map((product) => ({
+      ...dataMongoDB.result.map((product) => ({
         ...product,
         source: "MongoDB API",
         price: parseFloat((product.price / 83).toFixed(2)),
         id: product._id,
-        source: "API3", //added a source field to distinguish the data source
       })),
-      ...data2.products.map((product) => ({
+      ...dataDummyJSON.products.map((product) => ({
         ...product,
         id: (product.id + 100).toString(),
-        source: "API2",
+        source: "Dummy JSON API",
         image: product.images[0],
         ratingcount: product.stock * 2,
       })),
     ];
-
-    // console.log('Combined Data:', combinedData);
 
     return {
       props: {
@@ -93,51 +75,3 @@ export async function getServerSideProps(context) {
     };
   }
 }
-
-// export async function getServerSideProps(context) {
-//   try {
-//     // Fetching data from the first API
-
-//     // Fetching data from the second API
-//     const response2 = await fetch('https://dummyjson.com/products');
-//     const data2 = await response2.json();
-
-//     // Fetching data from the third API (http://localhost:3000/api/electronics) (my mongoDB api)
-//     const response3 = await fetch('https://mega-mart-pink.vercel.app/api/electronics');
-//     const data3 = await response3.json();
-
-//     // Combining the data from all three APIs into a single array
-//     const combinedData = [
-
-//       ...data2.products.map((product) => ({
-//         ...product,
-//         id: (product.id + 100).toString(),
-//         source: "API2",
-//         image: product.images[0],
-//         ratingcount: product.stock * 2,
-//       })),
-//       ...data3.result.map((product) => ({
-//         ...product,
-//         source: "MongoDB API",
-//         price: parseFloat((product.price / 83).toFixed(2)),
-//         id: product._id,
-//         source:"API3" //added a source field to distinguish the data source
-//       })),
-//     ];
-
-//     console.log('Combined Data:', combinedData);
-
-//     return {
-//       props: {
-//         products: combinedData || [],
-//       },
-//     };
-//   } catch (error) {
-//     console.error('Error fetching data:', error);
-//     return {
-//       props: {
-//         products: [],
-//       },
-//     };
-//   }
-// }

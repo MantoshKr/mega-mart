@@ -3,11 +3,19 @@ import Image from "next/image";
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { setSearchQuery } from "../slices/productSlice";
+import { useDispatch } from 'react-redux';
 
 const Banner = () => {
+  const dispatch = useDispatch();
+  const handleImageClick = (searchTerm) => {
+    dispatch(setSearchQuery(searchTerm)); // Dispatch the setSearchQuery action with the search term
+  };
+
+
   return (
-    <div className="w-full bg-grey-200 px-10 py-6 font-titleFont flex gap-4 ">
-      <div className="w-full rounded-lg h-full shadow-bannerShadow relative overflow-hidden hidden md:block ">
+    <div className="w-full bg-grey-200 px-10 pb-6 font-titleFont flex gap-4 ">
+      <div className="w-full  h-full shadow-bannerShadow relative overflow-hidden hidden md:block ">
         <div className="absolute xl:h-96 lgl:h-72 lg:h-60 mdl:h-48 md:h-36 w-full bg-gradient-to-t from-white to-transparent bottom-0 z-20" />
         <Carousel
           autoPlay
@@ -17,7 +25,7 @@ const Banner = () => {
           showThumbs={false}
           interval={5000}
         >
-          <div className="h-full">
+          <div onClick={() => handleImageClick('acer')} className="h-full cursor-pointer">
             <img
               loading="lazy"
               src={"/static/images/acer-banner.jpg"}
@@ -25,7 +33,7 @@ const Banner = () => {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="h-full">
+          <div onClick={() => handleImageClick('redmi')} className="h-full cursor-pointer" >
             <img
               loading="lazy"
               src={"/static/images/redmi-banner.jpg"}
@@ -34,7 +42,7 @@ const Banner = () => {
             />
           </div>
 
-          <div className="h-full">
+          <div onClick={() => handleImageClick('watch')} className="h-full cursor-pointer" >
             <img
               loading="lazy"
               src={"/static/images/watch-banner.jpg"}
@@ -42,7 +50,7 @@ const Banner = () => {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="h-full">
+          <div onClick={() => handleImageClick('safari')} className="h-full cursor-pointer" >
             <img
               loading="lazy"
               src={"/static/images/safari-banner.jpg"}
@@ -50,7 +58,7 @@ const Banner = () => {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="h-full">
+          <div onClick={() => handleImageClick('tv')} className="h-full cursor-pointer" >
             <img
               loading="lazy"
               src={"/static/images/tv-banner.jpg"}
@@ -58,7 +66,7 @@ const Banner = () => {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="h-full">
+          <div onClick={() => handleImageClick('festival')} className="h-full cursor-pointer">
             <img
               loading="lazy"
               src={"/static/images/festival-banner.jpg"}
@@ -66,7 +74,7 @@ const Banner = () => {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="h-full">
+          <div onClick={() => handleImageClick('diwali')} className="h-full cursor-pointer">
             <img
               loading="lazy"
               src={"/static/images/diwali-banner.jpg"}

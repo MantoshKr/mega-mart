@@ -81,7 +81,7 @@ const ProductCard = ({
           },
         }}
       >
-        <div className=" border-gray-200 bg-white mb-6 group">
+        <div className=" border-gray-200 bg-white lg:mb-4 lgl:mb-6 group">
           <div className="w-full h-80 overflow-hidden p-6 relative">
             <Image
               className="w-full h-full object-contain scale-100 group-hover:scale-105  duration-300"

@@ -14,7 +14,7 @@ const Banner = () => {
 
 
   return (
-    <div className="w-full bg-grey-200 px-10 pb-6 font-titleFont flex gap-4 ">
+    <div className="w-full bg-grey-200 lg:px-10 pb-2 md:pb-6 font-titleFont flex gap-4 ">
       <div className="w-full  h-full shadow-bannerShadow relative overflow-hidden hidden md:block ">
         <div className="absolute xl:h-96 lgl:h-72 lg:h-60 mdl:h-48 md:h-36 w-full bg-gradient-to-t from-white to-transparent bottom-0 z-20" />
         <Carousel

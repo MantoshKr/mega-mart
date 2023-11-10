@@ -23,7 +23,11 @@ export default function Home({ products }) {
           <SortBy />
 
           {/* {searchQuery === "" && <Banner />} */}
-          <Banner />
+          {/* <Banner /> */}
+
+          <div className={searchQuery ? "mt-5 md:mt-36 mdl:mt-44 lg:mt-52 lgl:mt-64 xl:mt-80" : ""}>
+            {searchQuery === "" ? <Banner /> : null}
+          </div>
 
           <ProductList products={products} />
 

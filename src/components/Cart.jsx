@@ -67,7 +67,7 @@ const Cart = ({
         description,
         ratingcount,
         rating,
-      }),
+      })
     );
 
     dispatch(removeFromBasket({ id }));
@@ -84,7 +84,7 @@ const Cart = ({
         description,
         ratingcount,
         rating,
-      }),
+      })
     );
 
     // Dispatch action to remove item from the cart
@@ -107,7 +107,7 @@ const Cart = ({
           description,
           ratingcount,
           rating,
-        }),
+        })
       );
     }
   };

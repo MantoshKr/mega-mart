@@ -4,14 +4,13 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { setSearchQuery } from "../slices/productSlice";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 
 const Banner = () => {
   const dispatch = useDispatch();
   const handleImageClick = (searchTerm) => {
     dispatch(setSearchQuery(searchTerm)); // Dispatch the setSearchQuery action with the search term
   };
-
 
   return (
     <div className="w-full bg-grey-200 lg:px-10 pb-2 md:pb-6 font-titleFont flex gap-4 ">
@@ -25,7 +24,10 @@ const Banner = () => {
           showThumbs={false}
           interval={5000}
         >
-          <div onClick={() => handleImageClick('acer')} className="h-full cursor-pointer">
+          <div
+            onClick={() => handleImageClick("acer")}
+            className="h-full cursor-pointer"
+          >
             <img
               loading="lazy"
               src={"/static/images/acer-banner.jpg"}
@@ -33,7 +35,10 @@ const Banner = () => {
               className="h-full w-full object-cover"
             />
           </div>
-          <div onClick={() => handleImageClick('redmi')} className="h-full cursor-pointer" >
+          <div
+            onClick={() => handleImageClick("redmi")}
+            className="h-full cursor-pointer"
+          >
             <img
               loading="lazy"
               src={"/static/images/redmi-banner.jpg"}
@@ -42,7 +47,10 @@ const Banner = () => {
             />
           </div>
 
-          <div onClick={() => handleImageClick('watch')} className="h-full cursor-pointer" >
+          <div
+            onClick={() => handleImageClick("watch")}
+            className="h-full cursor-pointer"
+          >
             <img
               loading="lazy"
               src={"/static/images/watch-banner.jpg"}
@@ -50,7 +58,10 @@ const Banner = () => {
               className="h-full w-full object-cover"
             />
           </div>
-          <div onClick={() => handleImageClick('safari')} className="h-full cursor-pointer" >
+          <div
+            onClick={() => handleImageClick("safari")}
+            className="h-full cursor-pointer"
+          >
             <img
               loading="lazy"
               src={"/static/images/safari-banner.jpg"}
@@ -58,7 +69,10 @@ const Banner = () => {
               className="h-full w-full object-cover"
             />
           </div>
-          <div onClick={() => handleImageClick('tv')} className="h-full cursor-pointer" >
+          <div
+            onClick={() => handleImageClick("tv")}
+            className="h-full cursor-pointer"
+          >
             <img
               loading="lazy"
               src={"/static/images/tv-banner.jpg"}
@@ -66,7 +80,10 @@ const Banner = () => {
               className="h-full w-full object-cover"
             />
           </div>
-          <div onClick={() => handleImageClick('festival')} className="h-full cursor-pointer">
+          <div
+            onClick={() => handleImageClick("men")}
+            className="h-full cursor-pointer"
+          >
             <img
               loading="lazy"
               src={"/static/images/festival-banner.jpg"}
@@ -74,7 +91,10 @@ const Banner = () => {
               className="h-full w-full object-cover"
             />
           </div>
-          <div onClick={() => handleImageClick('diwali')} className="h-full cursor-pointer">
+          <div
+            onClick={() => handleImageClick("diwali")}
+            className="h-full cursor-pointer"
+          >
             <img
               loading="lazy"
               src={"/static/images/diwali-banner.jpg"}

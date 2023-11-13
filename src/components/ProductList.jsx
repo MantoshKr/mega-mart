@@ -42,7 +42,9 @@ const ProductList = ({ products }) => {
 
       {sortedProducts.length === 0 ? ( // Check if no products are found
         <div className="text-center py-2 md:py-6 text-gray-600 text-xl">
-          <p className="mb-5 md:mb-36 mdl:mb-44 lg:mb-52 lgl:mb-64 xl:mb-80 text-xl lg:text-2xl font-bold">No product found</p>
+          <p className="mb-5 md:mb-36 mdl:mb-44 lg:mb-52 lgl:mb-64 xl:mb-80 text-xl lg:text-2xl font-bold">
+            No product found
+          </p>
         </div>
       ) : (
         <div className="py-2 md:py-6 lg:px-10 grid 2xl:grid-cols-5 xl:grid-cols-4 gap-4 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3  z-40 relative xl:-mt-80 lgl:-mt-64 lg:-mt-52 mdl:-mt-44 md:-mt-36">

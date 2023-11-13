@@ -25,7 +25,13 @@ export default function Home({ products }) {
           {/* {searchQuery === "" && <Banner />} */}
           {/* <Banner /> */}
 
-          <div className={searchQuery ? "mt-5 md:mt-36 mdl:mt-44 lg:mt-52 lgl:mt-64 xl:mt-80" : ""}>
+          <div
+            className={
+              searchQuery
+                ? "mt-5 md:mt-36 mdl:mt-44 lg:mt-52 lgl:mt-64 xl:mt-80"
+                : ""
+            }
+          >
             {searchQuery === "" ? <Banner /> : null}
           </div>
 
@@ -43,7 +49,7 @@ export async function getServerSideProps(context) {
   try {
     const [responseMongoDB, responseDummyJSON] = await Promise.all([
       fetch("https://mega-mart-shopping.vercel.app/api/electronics"),
-      fetch("https://dummyjson.com/products")
+      fetch("https://dummyjson.com/products"),
     ]);
 
     const dataMongoDB = await responseMongoDB.json();

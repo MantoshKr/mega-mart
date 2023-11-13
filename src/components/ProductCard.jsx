@@ -60,7 +60,7 @@ const ProductCard = ({
           description,
           ratingcount,
           rating,
-        }),
+        })
       );
     }
   };

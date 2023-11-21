@@ -2,33 +2,16 @@
 
 Mega Mart is an e-commerce project built with Next.js, React.js, Redux, Firebase, MongoDB, Stripe, and Tailwind CSS. It offers a wide range of features and functionalities. This README file provides an overview of the project, its features, and how to set it up.
 
+
+ ![Alt Text](public/static/images/mega-mart-overview.gif)
+
 ## Table of Contents
 
-- [Features](#features)
 - [Tech Stack Used](#tech-stack-used)
+- [Features](#features)
 - [Challenges Faced](#challenges-faced)
 - [Getting Started](#getting-started)
 - [Deployment](#deployment)
-
-## Features
-
-Mega Mart boasts a variety of features that enhance the shopping experience for both customers and sellers:
-
-- **User Authentication**: Users can sign up and log in using Google authentication to access their accounts.
-
-- **Product Listings**: Sellers can list their products, which are displayed in the product list once added.
-
-- **Shopping Cart**: Users can add products to their cart, save items for later, and easily manage their cart contents.
-
-- **Wishlist**: Users can add items to their wishlist from any page, including the start page, cart page, or product page.
-
-- **Search Functionality**: A search feature allows users to find products they like quickly.
-
-- **Payment Integration**: Stripe is used for secure payment processing.
-
-- **Responsive Design**: The website is fully responsive, providing an optimal viewing experience on various devices, including mobile, tablet, laptop, and large monitors.
-
-- **Mega Menu**: A mega menu with categories helps users navigate the website efficiently.
 
 ## Tech Stack Used
 
@@ -40,6 +23,48 @@ Mega Mart boasts a variety of features that enhance the shopping experience for 
 - Stripe for payment processing
 - Tailwind CSS for styling
 - Google Authentication for user login
+
+## Features
+
+Mega Mart boasts a variety of features that enhance the shopping experience for both customers and sellers:
+
+- **User Authentication**: Users can sign up and log in using Google authentication to access their accounts.
+
+- **Product Listings**: Sellers can list their products, which are displayed in the product list once added.
+
+
+- **Shopping Cart**: Users can add products to their cart, save items for later, and easily manage their cart contents.
+
+ ![Alt Text](public/static/images/add-to-cart.gif)
+
+  ![Alt Text](public/static/images/saveforlater.gif)
+
+- **Wishlist**: Users can add items to their wishlist from any page, including the start page, cart page, or product page.
+
+ ![Alt Text](public/static/images/wishlist.gif)
+
+- **Search Functionality**: A search feature allows users to find products they like quickly.
+
+ ![Alt Text](public/static/images/search-and-click.gif)
+
+- **Payment Integration**: Stripe is used for secure payment processing.
+
+![Alt Text](public/static/images/checkout.gif)
+
+- **Responsive Design**: The website is fully responsive, providing an optimal viewing experience on various devices, including mobile, tablet, laptop, and large monitors.
+
+- **Mega Menu**: A mega menu with categories helps users navigate the website efficiently.
+ 
+- **SortBy Feature** :
+
+![Alt Text](public/static/images/sortby.gif)
+
+- **Seller specific feature** : Seller-specific features ( MongoDB database), enabling users to list their
+products . This includs full CRUD (Create, Read, Update, Delete) functionality for sellers.
+   
+ ![Alt Text](public/static/images/seller.gif)
+
+
 
 ## Challenges Faced
 
@@ -91,4 +116,4 @@ The app is deployed on Vercel. To deploy your own instance of the app on Vercel,
    ```bash
    vercel
    ```
-   
+

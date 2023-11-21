@@ -59,6 +59,7 @@ const Dropdown = () => {
               <h1
                 className="py-2 md:py-1 flex justify-between items-center md:pr-0 pr-5 group"
                 onClick={() => {
+                  handleCategoryClick(link.name); 
                   heading !== link.name
                     ? setHeading(link.name)
                     : setHeading("");
@@ -117,7 +118,9 @@ const Dropdown = () => {
                   <div className="bg-white text-black font-bold  p-5 grid grid-cols-2 mdl:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-between gap-5 max-h-96 overflow-y-auto">
                     {link.sublinks.map((mysublinks) => (
                       <div key={mysublinks.Head} className="">
-                        <h1 className="text-lg font-semibold  ">
+                        <h1 className="text-lg font-semibold" 
+                        onClick={() => handleCategoryClick(mysublinks.Head)}
+                        >
                           {mysublinks.Head}
                         </h1>
                         {mysublinks.sublink.map((slink) => (
@@ -125,7 +128,7 @@ const Dropdown = () => {
                             <li className="text-sm text-gray-500 hover:text-blue my-0.5 list-none">
                               <span
                                 className="hover:text-primary"
-                                onClick={() => handleCategoryClick(slink.link)}
+                                onClick={() => handleCategoryClick(slink.name)}
                               >
                                 {slink.name}
                               </span>
